@@ -13,7 +13,7 @@ import { Story } from '../story';
 export class EditStoryComponent implements OnInit {
 
   key: string;
-  isAuth: Observable<boolean>;
+  isAuth: any;
   story: Observable<Story[]>;
 
   constructor(

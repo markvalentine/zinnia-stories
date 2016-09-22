@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { AdminService } from './admin.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,14 +9,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AdminComponent implements OnInit {
 
-  isAuth: Observable<boolean>;
+  isAuth: any;
   email: string;
   password: string;
 
-  constructor(
-    private af: AngularFire,
-    private adminService: AdminService
-  ) {
+  constructor( private adminService: AdminService ) {
     this.isAuth = adminService.isAuth();
   }
 
@@ -27,21 +23,14 @@ export class AdminComponent implements OnInit {
    * login user
    */
   login() {
-    this.af.auth.login({
-      email: this.email,
-      password: this.password,
-    },
-    {
-      provider: AuthProviders.Password,
-      method: AuthMethods.Password,
-    });
+    this.adminService.login(this.email, this.password);
   }
 
   /**
    * logout user
    */
   logout() {
-    this.af.auth.logout();
+    this.adminService.logout();
   }
 
 
