@@ -40,7 +40,7 @@ export class EditStoryComponent implements OnInit {
    * update story and wait for completion to navigate away
    */
   updateStory(story: Story) {
-    this.storyService.updateStoryProperties(story)
+    this.storyService.updateStory(story)
     .then(_ => {
       this.goBack();
     })

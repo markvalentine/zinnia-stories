@@ -61,8 +61,9 @@ export class StoryService {
     
   }
 
-  updateStory() {
-
+  updateStory(story: Story): Promise<any> {
+    // TODO update everything
+    return this.updateStoryProperties(story);
   }
 
   featureStory() {
