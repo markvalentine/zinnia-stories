@@ -1,0 +1,18 @@
+<h3>Admin</h3>
+
+<!-- if the user is not logged in -->
+<div *ngIf="!(isAuth | async)">
+    <div>
+        <label>email: </label>
+        <input [(ngModel)]="email" placeholder="email"/>
+        <label>password: </label>
+        <input [(ngModel)]="password" type="password" placeholder="password"/>
+    </div>
+    <br/>
+    <button (click)="login()">Login</button>
+</div>
+
+<!-- if the user is logged in already -->
+<div *ngIf="(isAuth | async)">
+    <button (click)="logout()">Logout</button>
+</div>

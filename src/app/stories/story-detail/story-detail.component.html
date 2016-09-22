@@ -1,0 +1,11 @@
+<div *ngIf="story | async">
+  <h3>{{(story | async).title}}</h3>
+  <strong><i>{{(story | async).description}}</i></strong>
+  <p>{{(story | async).text}}</p>
+  <div><span *ngFor="let collection of (story | async).featuredCollections">{{collection}}  </span></div>
+  <div><span *ngFor="let collection of (story | async).collections">{{collection}}  </span></div>
+  
+  <span *ngIf="(isAuth | async)">
+    <button (click)="toEdit()">Edit</button>  
+  </span>
+</div>

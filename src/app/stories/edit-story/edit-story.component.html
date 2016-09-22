@@ -1,0 +1,31 @@
+<h3>Edit Story</h3>
+<div *ngIf="(isAuth | async)">
+  <!--
+    hack to get the story object asycronously without having to subscribe 
+    maybe we can fix with forms?
+  -->
+  <div *ngFor="let storyObject of (story | async)">
+    <div>
+      <label>title: </label>
+      <input [(ngModel)]="storyObject.title" placeholder="title"/>
+    </div>
+    <br/>
+    <div>
+        <label>description: </label>
+        <input [(ngModel)]="storyObject.description" placeholder="description">
+    </div>
+    <br/>
+    <div>
+      <label>story: </label>
+      <textarea [(ngModel)]="storyObject.text" placeholder="story"></textarea>
+    </div>
+    <br/>
+    <button (click)="updateStory(storyObject)">Update Story</button>
+    <button (click)="deleteStory(storyObject.$key)">Delete Story</button>
+    <br/><br/>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>
+<div *ngIf="!(isAuth | async)">
+  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to edit story details.</p>
+</div>

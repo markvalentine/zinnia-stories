@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let story of (stories | async)" (click)="goToDetail(story.$key)">
+    <app-featured-story-card *ngIf="story.featured" [storyString]="story"></app-featured-story-card>
+    <app-story-card *ngIf="!story.featured" [storyString]="story"></app-story-card>
+  </li>
+</ul>
