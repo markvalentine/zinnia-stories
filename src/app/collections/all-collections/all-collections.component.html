@@ -1,3 +1,5 @@
-<p>
-  all-collections works!
-</p>
+<ul>
+  <li *ngFor="let collection of (collections | async)" (click)="goToDetail(collection.$key)">
+    <app-collection-card [collectionString]="collection"></app-collection-card>
+  </li>
+</ul>

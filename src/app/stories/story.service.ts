@@ -41,7 +41,7 @@ export class StoryService {
 
   }
 
-  addStoryToCollection() {
+  addToCollection() {
 
   }
 
@@ -77,7 +77,7 @@ export class StoryService {
     
   }
 
-  featureStoryInCollection() {
+  featureInCollection() {
 
   }
 

@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 
 import { addProviders, async, inject } from '@angular/core/testing';
-import {Service} from './service';
+import {Collection} from './collection';
 
-describe('Service', () => {
+describe('Collection', () => {
   it('should create an instance', () => {
-    expect(new Service()).toBeTruthy();
+    expect(new Collection()).toBeTruthy();
   });
 });

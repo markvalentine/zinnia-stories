@@ -1,44 +1,41 @@
-export class Story {
+export class Collection {
 
     $key: string;
     date_created: number;
 
+    //properties
     title: string;
     description: string;
-    text: string;
     featured: boolean;
 
-    featuredCollections: string[];
-    collections: string[];
-
-    //Maybe we have a array of ids and also the object so we can get the name as the value??
+    featuredStories: string[];
+    stories: string[];
 
     /**
-     * takes optional json string (returned by firebase) to make story
-     * otherwise creates empty story object
+     * takes optional json string (returned by firebase) to make collection
+     * otherwise creates empty collection object
      */
     constructor(json?: string) {
         if (json) {
             this.parseJSON(json);
         } else {
-            this.emptyStory();
+            this.emptyCollection();
         }
     }
 
     /**
-     * empty the story object
+     * empty the collection object
      */
-    emptyStory() {
+    emptyCollection() {
         this.$key = null;
         this.date_created = 0;
 
         this.title = "";
         this.description = "";
-        this.text = "";
         this.featured = false;
 
-        this.featuredCollections = []
-        this.collections = [];
+        this.featuredStories = []
+        this.stories = [];
     }
 
     /**
@@ -60,13 +57,11 @@ export class Story {
         this.$key = json['$key'];
         this.date_created = json['date_created'];
 
-        this.title = json['title'];
-        this.description = json['description'];
-        this.text = json['text'];
-        this.featured = json['featured'];
+        this.title = json['properties']['title'];
+        this.description = json['properties']['description'];
+        this.featured = json['properties']['featured'];
 
-        this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections'])
-        this.collections = this.getKeysFromJSONObject(json['collections']);
+        this.featuredStories = this.getKeysFromJSONObject(json['featured_stories'])
+        this.stories = this.getKeysFromJSONObject(json['stories']);
     }
-
 }

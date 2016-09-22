@@ -23,5 +23,5 @@
     <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
 </div>
 <div *ngIf="!(isAuth | async)">
-  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to edit story details.</p>
+  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a story.</p>
 </div>
