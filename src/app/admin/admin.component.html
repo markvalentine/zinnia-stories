@@ -15,7 +15,8 @@
 <!-- if the user is logged in already -->
 <div *ngIf="(isAuth | async)">
     <ul>
-        <li><a routerLink="/add-story/" routerLinkActive="active">Add Story</a></li>
+        <li><a routerLink="/add-story/" routerLinkActive="active">Add a Story</a></li>
+        <li><a routerLink="/add-collection/" routerLinkActive="active">Add a Collection</a></li>
     </ul>
     <button (click)="logout()">Logout</button>
 </div>

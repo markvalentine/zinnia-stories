@@ -12,6 +12,11 @@ import { StoryDetailComponent } from './stories/story-detail/story-detail.compon
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
 import { AddStoryComponent } from './stories/add-story/add-story.component';
 
+import { AllCollectionsComponent } from './collections/all-collections/all-collections.component';
+import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
+import { EditCollectionComponent } from './collections/edit-collection/edit-collection.component';
+import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
+
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -36,7 +41,6 @@ const appRoutes: Routes = [
         component: AllStoriesComponent
     },
     {
-
         path: 'stories/:key',
         component: StoryDetailComponent
     },
@@ -47,6 +51,21 @@ const appRoutes: Routes = [
     {
         path: 'add-story',
         component: AddStoryComponent
+    },{
+        path: 'collections',
+        component: AllCollectionsComponent
+    },
+    {
+        path: 'collections/:key',
+        component: CollectionDetailComponent
+    },
+    {
+        path: 'edit-collection/:key',
+        component: EditCollectionComponent
+    },
+    {
+        path: 'add-collection',
+        component: AddCollectionComponent
     },
     {
         path: '**',

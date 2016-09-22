@@ -26,6 +26,13 @@ import { FeaturedStoryCardComponent } from './stories/featured-story-card/featur
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
 import { AddStoryComponent } from './stories/add-story/add-story.component';
 
+import { CollectionService } from './collections/collection.service';
+import { AllCollectionsComponent } from './collections/all-collections/all-collections.component';
+import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
+import { CollectionCardComponent } from './collections/collection-card/collection-card.component';
+import { EditCollectionComponent } from './collections/edit-collection/edit-collection.component';
+import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
   authDomain: "zinnia-stories.firebaseapp.com",
@@ -53,7 +60,12 @@ export const myFirebaseAuthConfig = {
     FeaturedStoryCardComponent,
     AllStoriesComponent,
     EditStoryComponent,
-    AddStoryComponent
+    AddStoryComponent,
+    AllCollectionsComponent,
+    CollectionDetailComponent,
+    CollectionCardComponent,
+    EditCollectionComponent,
+    AddCollectionComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +76,8 @@ export const myFirebaseAuthConfig = {
   ],
   providers: [
     AdminService,
-    StoryService
+    StoryService,
+    CollectionService
   ],
   bootstrap: [AppComponent]
 })
