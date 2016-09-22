@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AllStoriesComponent } from './stories/all-stories/all-stories.component';
 import { StoryDetailComponent } from './stories/story-detail/story-detail.component';
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
+import { AddStoryComponent } from './stories/add-story/add-story.component';
 
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
@@ -44,29 +45,13 @@ const appRoutes: Routes = [
         component: EditStoryComponent
     },
     {
+        path: 'add-story',
+        component: AddStoryComponent
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
-    // {
-    //     path: 'stories',
-    //     component: StoriesComponent
-    // },
-    // {
-    //     path: 'stories/:id',
-    //     component: StoryDetailComponent
-    // },
-    // {
-    //     path: 'edit-story/:id',
-    //     component: EditStoryComponent
-    // },
-    // {
-    //     path: 'collections',
-    //     component: CollectionsComponent
-    // },
-    // {
-    //     path: 'collections/:id',
-    //     component: CollectionDetailComponent
-    // }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

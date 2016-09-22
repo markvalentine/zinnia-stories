@@ -14,5 +14,8 @@
 
 <!-- if the user is logged in already -->
 <div *ngIf="(isAuth | async)">
+    <ul>
+        <li><a routerLink="/add-story/" routerLinkActive="active">Add Story</a></li>
+    </ul>
     <button (click)="logout()">Logout</button>
 </div>

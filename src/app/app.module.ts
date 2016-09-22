@@ -24,6 +24,7 @@ import { StoryDetailComponent } from './stories/story-detail/story-detail.compon
 import { StoryCardComponent } from './stories/story-card/story-card.component';
 import { FeaturedStoryCardComponent } from './stories/featured-story-card/featured-story-card.component';
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
+import { AddStoryComponent } from './stories/add-story/add-story.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -51,7 +52,8 @@ export const myFirebaseAuthConfig = {
     StoryCardComponent,
     FeaturedStoryCardComponent,
     AllStoriesComponent,
-    EditStoryComponent
+    EditStoryComponent,
+    AddStoryComponent
   ],
   imports: [
     BrowserModule,
