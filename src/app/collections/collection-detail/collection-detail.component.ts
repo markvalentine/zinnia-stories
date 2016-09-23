@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FirebaseObjectObservable } from 'angularfire2';
+import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 import { AdminService } from '../../admin/admin.service';
 import { CollectionService } from '../collection.service';
 import { Collection } from '../collection';
@@ -15,6 +16,8 @@ export class CollectionDetailComponent implements OnInit {
   key: string;
   isAuth: any;
   collectionProperties: FirebaseObjectObservable<any>;
+  storyIDs: FirebaseListObservable<any[]>;
+  stories: Observable<any[]>
 
   constructor(
     private route: ActivatedRoute,
@@ -32,9 +35,8 @@ export class CollectionDetailComponent implements OnInit {
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();
       this.collectionProperties = this.collectionService.getCollectionProperties(this.key);
-      this.collectionProperties.subscribe(x => {
-        console.log(x);
-      })
+      this.storyIDs = this.collectionService.getStoryIDsForCollection(this.key);
+      this.stories = this.collectionService.getStoriesForCollection(this.key);
     });
   }
 

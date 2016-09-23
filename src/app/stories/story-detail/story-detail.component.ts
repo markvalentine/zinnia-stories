@@ -43,4 +43,9 @@ export class StoryDetailComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  goToCollection(key: string) {
+    let link = ['/collections', this.key];
+    this.router.navigate(link);
+  }
+
 }

@@ -4,10 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Story } from './story';
 
+// import { CollectionService } from '../collections/collection.service';
+import { Collection } from '../collections/collection';
+
 @Injectable()
 export class StoryService {
   // Base URLS for firebase
   storiesUrl = 'stories/';
+  collectionsUrl = 'collections/';
   featuredUrl = 'featured/';
 
   // Default numbers for loading stories
@@ -19,7 +23,10 @@ export class StoryService {
   numStories = this.defaultNumStories;
   storiesLimit: BehaviorSubject<number>;
 
-  constructor(private af: AngularFire) { }
+  constructor(
+    private af: AngularFire,
+    // private collectionService: CollectionService
+  ) { }
 
   addStory(story: Story): Promise<any> {
     let date = new Date().getTime();
@@ -31,8 +38,10 @@ export class StoryService {
         'text': story.text,
         'date_created': -date
       })
-      .then(_ => resolve('added'))
-      .catch(err => reject(err));
+        .then(story => {
+          resolve(story.key);
+        })
+        .catch(err => reject(err));
     });  
 
     // if featured make featured
@@ -41,8 +50,30 @@ export class StoryService {
 
   }
 
-  addToCollection() {
+  addToCollection(story: Story, collection: Collection): Promise<any> {
+    let ref = this.af.database.object(this.storiesUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
+    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key+'/'+this.storiesUrl+story.$key);
+    let promisesReturned = 0;
+    let promisesNeeded = 2;
+    return new Promise(function(resolve, reject){
+      ref.set(collection.title)
+        .then(_ => {
+          promisesReturned++;
+          if (promisesReturned == promisesNeeded) {
+            resolve('added');
+          }
+        })
+        .catch(err => reject(err));
 
+      collectionRef.set(story.date_created)
+        .then(_ => {
+          promisesReturned++;
+          if (promisesReturned == promisesNeeded) {
+            resolve('added');
+          }
+        })
+        .catch(err => reject(err));
+    });
   }
 
   // Updates -> title, description, text
@@ -54,11 +85,9 @@ export class StoryService {
         'description': story.description,
         'text': story.text
       })
-      .then(_ => resolve('updated'))
-      .catch(err => reject(err));
+        .then(_ => resolve('updated'))
+        .catch(err => reject(err));
     });
-
-    
   }
 
   updateStory(story: Story): Promise<any> {
@@ -98,6 +127,7 @@ export class StoryService {
     return new Promise(function(resolve, reject) {
       //change so it waits here too
       story.remove();
+
       featuredStories.remove(key)
         .then(_ => resolve('deleted'))
         .catch(err => reject(err));

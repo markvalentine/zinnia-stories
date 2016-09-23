@@ -1,10 +1,10 @@
-<div>
-  <h4>{{story.title}}</h4>
-  <p>{{story.description}}</p>
-  <div *ngIf="story.featuredCollections.length > 0">
+<div (click)="goToDetail(story?.$key)">
+  <h4>{{story?.title}}</h4>
+  <p>{{story?.description}}</p>
+  <div *ngIf="story?.featuredCollections?.length > 0">
     <h5>Featured In:</h5>
     <ul>
-      <li *ngFor="let featuredCollection of story.featuredCollections">{{featuredCollection}}</li>
+      <li *ngFor="let featuredCollection of story?.featuredCollections">{{featuredCollection}}</li>
     </ul>
   </div>
 </div>

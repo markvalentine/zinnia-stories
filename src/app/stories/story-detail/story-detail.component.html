@@ -2,11 +2,24 @@
   <h3>{{(story | async).title}}</h3>
   <strong><i>{{(story | async).description}}</i></strong>
   <p>{{(story | async).text}}</p>
-  <div><span *ngFor="let collection of (story | async).featuredCollections">{{collection}}  </span></div>
-  <div><span *ngFor="let collection of (story | async).collections">{{collection}}  </span></div>
-  <br/><br/>
-  <button routerLink="/stories/" routerLinkActive="active">back</button>
+  <div *ngIf="(story | async)?.featuredCollections.length > 0">
+    Featured Collections:
+    <ul>
+      <li *ngFor="let key of (story | async).featuredCollections">
+        <a routerLink="/collections/{{key}}" routerLinkActive="active" >{{(story | async)?.featuredCollectionsObject[key]}}</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="(story | async)?.collections.length > 0">
+    Collections:
+    <ul>
+      <li *ngFor="let key of (story | async).collections">
+        <a routerLink="/collections/{{key}}" routerLinkActive="active" >{{(story | async)?.collectionsObject[key]}}</a>
+      </li>
+    </ul>
+  </div>
   <span *ngIf="(isAuth | async)">
+    <br/><br/>
     <button (click)="toEdit()">Edit</button>  
   </span>
 </div>

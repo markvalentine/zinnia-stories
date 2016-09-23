@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 import { Collection } from './collection';
+import { StoryService } from '../stories/story.service';
+import { Story } from '../stories/story';
 
 @Injectable()
 export class CollectionService {
@@ -9,8 +12,10 @@ export class CollectionService {
   storiesUrl = 'stories/';
   featuredUrl = 'featured/';
 
-
-  constructor(public af: AngularFire) { }
+  constructor(
+    private af: AngularFire,
+    private storyService: StoryService
+  ) { }
 
   /**
    * Add a collection
@@ -100,12 +105,33 @@ export class CollectionService {
 
   }
 
-  getStoryIDsForCollection() {
-
+  getStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
+    return this.af.database.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
+      query: {
+        orderByValue: true
+      }
+    })
   }
 
-  getStoriesForCollection() {
-
+  getStoriesForCollection(key: string): Observable<any[]> {
+    let storyIDs = this.getStoryIDsForCollection(key);
+    return Observable.create(subscriber => {
+      storyIDs.subscribe(ids => {
+        let stories = [];
+        for (let id of ids) {
+          stories.push(this.storyService.getStory(id['$key']))
+          // this.getCollection(id['$key']).subscribe(story => {
+          //   collections.push(story);
+          //   console.log(story);
+          //   if (collections.length == ids.length) {
+          //     subscriber.next(collections);
+          //   }
+          // })
+          // collections.push(this.getCollection(id['$key']));
+        }
+        subscriber.next(stories);
+      })
+    })
   }
 
   nextStoriesForCollection() {

@@ -15,8 +15,8 @@ export class AddCollectionComponent implements OnInit {
   isAdding: boolean;
 
   constructor(
-    public adminService: AdminService,
-    public collectionService: CollectionService,
+    private adminService: AdminService,
+    private collectionService: CollectionService,
   ) {
     this.collection = new Collection();
     this.isAuth = this.adminService.isAuth();

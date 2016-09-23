@@ -1,6 +1,6 @@
-<div>
+<div (click)="goToDetail(story?.$key)">
   <h4>Featured Story</h4>
-  <h3>{{story.title}}</h3>
-  <strong><i>{{story.description}}</i></strong>
-  <p>{{(story.text)?.substring(0, 300)}}...</p>
+  <h3>{{story?.title}}</h3>
+  <strong><i>{{story?.description}}</i></strong>
+  <p>{{(story?.text)?.substring(0, 300)}}...</p>
 </div>

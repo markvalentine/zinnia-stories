@@ -1,14 +1,17 @@
 <div class="collection" *ngIf="collectionProperties | async">
   <h3>{{(collectionProperties | async).title}}</h3>
   <p>{{(collectionProperties | async).description}}<p>
-  <hr/>
-  <h4>Stories:</h4>
-  <ul>
-    <li>TBD</li>
-  </ul>
-  <hr/>
-  <button routerLink="/collections/" routerLinkActive="active">back</button>
   <span *ngIf="(isAuth | async)">
+    <br/>
     <button (click)="toEdit()">Edit</button>  
   </span>
+</div>
+<div>
+  <h3>Stories:</h3>
+  <ul>
+    <li *ngFor="let story of (stories | async)">
+      <app-featured-story-card *ngIf="(story | async)?.featured" [story]="(story | async)"></app-featured-story-card>
+      <app-story-card *ngIf="!(story | async)?.featured" [story]="(story | async)"></app-story-card>  
+    </li>
+  </ul>
 </div>

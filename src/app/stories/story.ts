@@ -9,7 +9,9 @@ export class Story {
     featured: boolean;
 
     featuredCollections: string[];
+    featuredCollectionsObject: any;
     collections: string[];
+    collectionsObject: any;
 
     //Maybe we have a array of ids and also the object so we can get the name as the value??
 
@@ -37,8 +39,10 @@ export class Story {
         this.text = "";
         this.featured = false;
 
-        this.featuredCollections = []
+        this.featuredCollections = [];
+        this.featuredCollectionsObject = {};
         this.collections = [];
+        this.collectionsObject = {};
     }
 
     /**
@@ -65,7 +69,9 @@ export class Story {
         this.text = json['text'];
         this.featured = json['featured'];
 
-        this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections'])
+        this.featuredCollectionsObject = json['featured_collections'];
+        this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections']);
+        this.collectionsObject = json['collections'];
         this.collections = this.getKeysFromJSONObject(json['collections']);
     }
 

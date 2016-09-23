@@ -17,8 +17,8 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
   isLoadingNext = true;
 
   constructor(
-    public router: Router,
-    public storyService: StoryService
+    private router: Router,
+    private storyService: StoryService
   ) {}
 
   /**

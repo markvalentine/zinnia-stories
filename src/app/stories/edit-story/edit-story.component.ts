@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { FirebaseListObservable } from 'angularfire2';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
+import { CollectionService } from '../../collections/collection.service';
+import { Collection } from '../../collections/collection';
 
 @Component({
   selector: 'app-edit-story',
@@ -16,10 +19,13 @@ export class EditStoryComponent implements OnInit {
   isAuth: any;
   story: Observable<Story[]>;
 
+  collections: FirebaseListObservable<any[]>
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private storyService: StoryService,
+    private collectionService: CollectionService,
     private adminService: AdminService
   ) { }
 
@@ -32,6 +38,8 @@ export class EditStoryComponent implements OnInit {
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();
       this.story = this.storyService.getStoryAsArray(this.key);
+
+      this.collections = this.collectionService.getCollections();
     });
   }
 
@@ -41,10 +49,10 @@ export class EditStoryComponent implements OnInit {
    */
   updateStory(story: Story) {
     this.storyService.updateStory(story)
-    .then(_ => {
-      this.goBack();
-    })
-    .catch(err => console.log(err));
+      .then(_ => {
+        this.goBack();
+      })
+      .catch(err => console.log(err));
   }
 
   /**
@@ -52,13 +60,20 @@ export class EditStoryComponent implements OnInit {
    */
   deleteStory(key: string) {
     this.storyService.deleteStory(key)
-    .then( x => {
-      let link = ['/stories'];
-      this.router.navigate(link);
-    })
-    .catch( err => {
-      console.log(err);
-    });
+      .then( x => {
+        let link = ['/stories'];
+        this.router.navigate(link);
+      })
+      .catch( err => {
+        console.log(err);
+      });
+  }
+
+  addToCollection(story: Story, collectionObject: any) {
+    let collection = new Collection(collectionObject);
+    this.storyService.addToCollection(story, collection)
+      .then(x => console.log(x))
+      .catch(err => console.log(err));
   }
 
   /**

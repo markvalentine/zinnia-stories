@@ -14,8 +14,8 @@ export class AllCollectionsComponent implements OnInit, OnDestroy {
   collections: FirebaseListObservable<any[]>;
 
   constructor(
-    public router: Router,
-    public collectionService: CollectionService
+    private router: Router,
+    private collectionService: CollectionService
   ) {
     this.collections = this.collectionService.getCollections();
   }
