@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Story } from './story';
 
-// import { CollectionService } from '../collections/collection.service';
+import { CollectionService } from '../collections/collection.service';
 import { Collection } from '../collections/collection';
 
 @Injectable()
@@ -25,7 +25,7 @@ export class StoryService {
 
   constructor(
     private af: AngularFire,
-    // private collectionService: CollectionService
+    private collectionService: CollectionService
   ) { }
 
   addStory(story: Story): Promise<any> {
@@ -245,6 +245,42 @@ export class StoryService {
     if (increment) { this.numStories += increment }
     else { this.numStories += this.defaultIncrement }
     if (this.storiesLimit) { this.storiesLimit.next(this.numStories) }
+  }
+
+  getStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
+    return this.af.database.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
+      query: {
+        orderByValue: true
+      }
+    })
+  }
+
+  // Remove the subsriber?
+  getStoriesForCollection(key: string): Observable<any[]> {
+    let storyIDs = this.getStoryIDsForCollection(key);
+    return Observable.create(subscriber => {
+      storyIDs.subscribe(ids => {
+        let stories = [];
+        for (let id of ids) {
+          stories.push(this.getStory(id['$key']));
+        }
+        subscriber.next(stories);
+      })
+    })
+  }
+
+  nextStoriesForCollection() {
+    
+  }
+
+    // Only two?
+  getFeaturedStoryIDsForCollection() {
+
+  }
+
+  // Only two?
+  getFeaturedStoriesForCollection() {
+
   }
 
 }
