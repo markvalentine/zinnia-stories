@@ -13,6 +13,7 @@ export class StoryService {
   storiesUrl = 'stories/';
   collectionsUrl = 'collections/';
   featuredUrl = 'featured/';
+  featuredCollectionsUrl = 'featured_collections/';
 
   // Default numbers for loading stories
   defaultNumStories = 20;
@@ -99,6 +100,15 @@ export class StoryService {
 
   }
 
+  removeStoryFromFeaturedList(story: Story): Promise<any> {
+    let featuredStories = this.af.database.list(this.featuredUrl+this.storiesUrl);
+    return new Promise(function(resolve, reject) {
+      featuredStories.remove(story.$key)
+        .then(_ => resolve('removed from featured list'))
+        .catch(err => reject(err));
+    });
+  }
+
   /**
    * maybe
    */
@@ -110,27 +120,71 @@ export class StoryService {
 
   }
 
-  /**
-   * Deletes a story given a reference to the story and its key
-   * reference should be the same given by function getStory()
-   * checks to see if the story is featured and deletes it from there as well
-   * 
-   * will need to be updated to check if it is in a collection/featured in collection
-   * 
-   * returns a promise that resolves when all delete actions are finished
-   * could be changed to an observable that returns messages with the progress of deletion
-   * and then completes when the object is fully removed from the db
-   */
-  deleteStory(key: string): Promise<any> {
-    let featuredStories = this.af.database.list(this.featuredUrl+this.storiesUrl);
-    let story = this.af.database.object(this.storiesUrl+key);
+  removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
+    let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl);
+    let promise = this.collectionService.removeStoryFromCollection(storyKey, collectionKey)
     return new Promise(function(resolve, reject) {
-      //change so it waits here too
-      story.remove();
-
-      featuredStories.remove(key)
-        .then(_ => resolve('deleted'))
+      promise
+        .then(_ => {
+          storyRef.remove(collectionKey)
+            .then(_ => resolve('removed story '+storyKey+' from collection '+collectionKey))
+            .catch(err => reject(err));
+        })
         .catch(err => reject(err));
+    });
+  }
+
+  removeStoryFromFeaturedCollection(storyKey: string, collectionKey: string) {
+    let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl);
+    let promise = this.collectionService.removeFeaturedStoryFromCollection(storyKey, collectionKey)
+    return new Promise(function(resolve, reject) {
+      promise
+        .then(_ => {
+          storyRef.remove(collectionKey)
+            .then(_ => resolve('removed story '+storyKey+' from collection '+collectionKey))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    });
+  }
+
+  /**
+   * Deletes a given story
+   * returns an observable that sends a list of messages with the status of the deletion
+   * i.e. deleted from featured, deleted from colleciton, deleted from featured collections
+   * finally deleted then completion
+   * passes errors when errors occur
+   */
+  deleteStory(story: Story): Observable<any> {
+    let storyRef = this.af.database.object(this.storiesUrl+story.$key);
+    return Observable.create(subscriber => {
+      if (story.featured) {
+        this.removeStoryFromFeaturedList(story)
+          .then(message => subscriber.next(message))
+          .catch(err => subscriber.error(err));
+      } else {
+        subscriber.next('not featured');
+      }
+
+      for (let collectionKey of story.collections) {
+        this.collectionService.removeStoryFromCollection(story.$key, collectionKey)
+          .then(message => subscriber.next(message))
+          .catch(err => subscriber.error(err));
+      }
+
+      for (let collectionKey of story.featuredCollections) {
+        this.collectionService.removeFeaturedStoryFromCollection(story.$key, collectionKey)
+          .then(message => subscriber.next(message))
+          .catch(err => subscriber.error(err));
+      }
+
+      storyRef.remove()
+        .then(_ => {
+          subscriber.next('removed Story');
+          subscriber.complete();
+        })
+        .catch(err => subscriber.error(err));
+      
     });
   }
 

@@ -21,12 +21,13 @@
     </div>
     <br/>
     <button (click)="updateStory(storyObject)">Update Story</button>
-    <button (click)="deleteStory(storyObject.$key)">Delete Story</button>
+    <button (click)="deleteStory(storyObject)">Delete Story</button>
     <hr/>
     <h4>Collections</h4>
     <ul>
       <li *ngFor="let collection of (collections | async)">
         <button (click)="addToCollection(storyObject, collection)">Add to {{collection.properties.title}}</button>
+        <button (click)="removeFromCollection(storyObject, collection)">Remove from {{collection.properties.title}}</button>
       </li>
     </ul>
     <hr/>

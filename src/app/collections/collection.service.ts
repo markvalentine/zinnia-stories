@@ -10,6 +10,7 @@ export class CollectionService {
   collectionsUrl = 'collections/'
   storiesUrl = 'stories/';
   featuredUrl = 'featured/';
+  featuredStoriesUrl = 'featuredStories/';
 
   constructor(
     private af: AngularFire,
@@ -45,8 +46,20 @@ export class CollectionService {
 
   }
 
-  updateCollectionProperties() {
-
+  /**
+   * Updates title and description for collection
+   * returns promise for completion/err
+   */
+  updateCollectionProperties(collection: Collection): Promise<any> {
+    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key);
+    return new Promise(function(resolve, reject) {
+      collectionRef.update({
+        'title': collection.title,
+        'description': collection.description
+      })
+        .then(_ => resolve('updated'))
+        .catch(err => reject(err));
+    });
   }
 
   updateCollection() {
@@ -66,7 +79,33 @@ export class CollectionService {
   }
 
   deleteCollection() {
+    
+  }
 
+  /**
+   * SHOULD ONLY BE CALLED FROM STORY SERVICE: DOES NOT REMOVE THE COLLECTION FROM THE STORY
+   * removes a story from the collection list given the storykey and the collectionkey
+   */
+  removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
+    let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.storiesUrl);
+    return new Promise(function(resolve, reject) {
+      collectionRef.remove(storyKey)
+        .then(_ => resolve('removed from collection '+collectionKey))
+        .catch(err => reject(err));
+    });
+  }
+
+  /**
+   * SHOULD ONLY BE CALLED FROM STORY SERVICE: DOES NOT REMOVE THE COLLECTION FROM THE STORY
+   * removes a featured story from the collection list given the storykey and the collectionkey
+   */
+  removeFeaturedStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
+    let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.featuredStoriesUrl);
+    return new Promise(function(resolve, reject) {
+      collectionRef.remove(storyKey)
+        .then(_ => resolve('removed featured story from collection '+collectionKey))
+        .catch(err => reject(err));
+    });
   }
 
   getCollections(): FirebaseListObservable<any[]> {

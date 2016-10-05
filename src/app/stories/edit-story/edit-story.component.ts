@@ -58,20 +58,29 @@ export class EditStoryComponent implements OnInit {
   /**
    * deletes story and navigates to story list upon completion
    */
-  deleteStory(key: string) {
-    this.storyService.deleteStory(key)
-      .then( x => {
+  deleteStory(story: Story) {
+    let subscription = this.storyService.deleteStory(story).subscribe(
+      message => console.log(message),
+      err => console.log(err),
+      () => {
+        console.log('complete?');
+        subscription.unsubscribe();
         let link = ['/stories'];
         this.router.navigate(link);
-      })
-      .catch( err => {
-        console.log(err);
-      });
+      }
+    );
   }
 
   addToCollection(story: Story, collectionObject: any) {
     let collection = new Collection(collectionObject);
     this.storyService.addToCollection(story, collection)
+      .then(x => console.log(x))
+      .catch(err => console.log(err));
+  }
+
+  removeFromCollection(story: Story, collectionObject: any) {
+    let collection = new Collection(collectionObject);
+    this.storyService.removeStoryFromCollection(story.$key, collection.$key)
       .then(x => console.log(x))
       .catch(err => console.log(err));
   }
