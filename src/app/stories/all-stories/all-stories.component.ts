@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { StoryService } from '../story.service';
@@ -10,7 +11,8 @@ import { StoryService } from '../story.service';
   styleUrls: ['./all-stories.component.css']
 })
 export class AllStoriesComponent implements OnInit, OnDestroy {
-
+  featuredStoryIDs: FirebaseListObservable<any[]>;
+  featuredStories: Observable<any>;
   stories: FirebaseListObservable<any[]>;
   storySubscription: Subscription
   // don't load next stories until the previous load finishes
@@ -26,6 +28,8 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
    * infinite scroll is done loading
    */
   ngOnInit() {
+    this.featuredStoryIDs = this.storyService.getFeaturedStoryIDs();
+    this.featuredStories = this.storyService.getFeaturedStories();
     this.stories = this.storyService.getStories();
     this.storySubscription = this.stories.subscribe(x => this.isLoadingNext = false );
   }

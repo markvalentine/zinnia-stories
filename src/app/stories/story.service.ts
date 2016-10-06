@@ -125,7 +125,7 @@ export class StoryService {
 
   featureStory(story: Story) {
     let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
-    let featuredStoriesRef = this.af.database.object(this.featuredUrl+story.$key);
+    let featuredStoriesRef = this.af.database.object(this.featuredUrl+this.storiesUrl+story.$key);
 
     return new Promise(function(resolve, reject) {
       storyRef.set(true)
@@ -152,7 +152,7 @@ export class StoryService {
    */
   unfeatureStory(story: Story) {
     let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
-    let featuredStoriesRef = this.af.database.object(this.featuredUrl+story.$key);
+    let featuredStoriesRef = this.af.database.object(this.featuredUrl+this.storiesUrl+story.$key);
 
     return new Promise(function(resolve, reject) {
       storyRef.set(false)
@@ -287,11 +287,24 @@ export class StoryService {
    * see global variable defaultNumFeaturedStories for number of IDs
    */
   getFeaturedStoryIDs(): FirebaseListObservable<string[]> {
-    return this.af.database.list(this.featuredUrl+'stories', {
+    return this.af.database.list(this.featuredUrl+this.storiesUrl, {
       query: {
         orderByValue: true,
-        limitToFirst: this.defaultNumFeaturedStories
+        // limitToFirst: this.defaultNumFeaturedStories
       }
+    });
+  }
+
+  getFeaturedStories(): Observable<any[]> {
+    let storyIDs = this.getFeaturedStoryIDs();
+    return Observable.create(subscriber => {
+      storyIDs.subscribe(ids => {
+        let stories = [];
+        for (let id of ids) {
+          stories.push(this.getStory(id['$key']));
+        }
+        subscriber.next(stories);
+      });
     });
   }
 
@@ -299,47 +312,47 @@ export class StoryService {
    * Get the first x featured stories
    * I think this function could probably use a lot of work
    */
-  getFeaturedStories() {
-    //get observable of featuredIds
-    let featuredIDsObserver = this.getFeaturedStoryIDs();
+  // getFeaturedStories(): Observable<any> {
+  //   //get observable of featuredIds
+  //   let featuredIDsObserver = this.getFeaturedStoryIDs();
 
-    //create the observable i think we return
-    Observable.create(observer => {
-      // subscribe to the ids
+  //   //create the observable i think we return
+  //   return Observable.create(observer => {
+  //     // subscribe to the ids
 
-      // we'll need to unsubscribe from this?
-      featuredIDsObserver.subscribe(ids => {
+  //     // we'll need to unsubscribe from this?
+  //     featuredIDsObserver.subscribe(ids => {
 
-        let featuredStories = [];
-        let featuredIDs = [];
+  //       let featuredStories = [];
+  //       let featuredIDs = [];
 
-        let numIDs = ids.length;
-        let numLoaded = 0;
+  //       let numIDs = ids.length;
+  //       let numLoaded = 0;
 
-        // for each id returned
-        for (let thisID of ids) {
-          //get id and push to id array
-          let id = thisID['$key'];
-          featuredIDs.push(id);
+  //       // for each id returned
+  //       for (let thisID of ids) {
+  //         //get id and push to id array
+  //         let id = thisID['$key'];
+  //         featuredIDs.push(id);
 
-          // subscribe to the story for the id
-          // maybe keep an array of subscribers and unsubscribe and resubscribe when we have to?
-          this.getStory(id).subscribe(story => {
-            //add into array (probably buggy)
-            let indexOfStory = featuredIDs.indexOf(id)
-            featuredStories.splice(indexOfStory, 1, story);
-            numLoaded++;
+  //         // subscribe to the story for the id
+  //         // maybe keep an array of subscribers and unsubscribe and resubscribe when we have to?
+  //         this.getStory(id).subscribe(story => {
+  //           //add into array (probably buggy)
+  //           let indexOfStory = featuredIDs.indexOf(id)
+  //           featuredStories.splice(indexOfStory, 1, story);
+  //           numLoaded++;
 
-            // observe when all loaded
-            if (numLoaded == numIDs) {observer.next(featuredStories)}
-          }, err => {
-            numIDs--;
-            if (numLoaded == numIDs) { observer.next(featuredStories) }
-          });
-        }
-      });
-    });
-  }
+  //           // observe when all loaded
+  //           if (numLoaded == numIDs) {observer.next(featuredStories)}
+  //         }, err => {
+  //           numIDs--;
+  //           if (numLoaded == numIDs) { observer.next(featuredStories) }
+  //         });
+  //       }
+  //     });
+  //   });
+  // }
 
   /**
    * Gets the first x stories sorted by date_created
