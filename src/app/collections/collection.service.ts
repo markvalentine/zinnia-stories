@@ -10,7 +10,7 @@ export class CollectionService {
   collectionsUrl = 'collections/'
   storiesUrl = 'stories/';
   featuredUrl = 'featured/';
-  featuredStoriesUrl = 'featuredStories/';
+  featuredStoriesUrl = 'featured_stories/';
 
   constructor(
     private af: AngularFire,
@@ -100,7 +100,10 @@ export class CollectionService {
     let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.storiesUrl);
     return new Promise(function(resolve, reject) {
       collectionRef.remove(storyKey)
-        .then(_ => resolve('removed from collection '+collectionKey))
+        .then(_ => {
+          console.log('removed from collection '+collectionKey);
+          resolve('removed from collection '+collectionKey)
+        })
         .catch(err => reject(err));
     });
   }
@@ -113,7 +116,10 @@ export class CollectionService {
     let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.featuredStoriesUrl);
     return new Promise(function(resolve, reject) {
       collectionRef.remove(storyKey)
-        .then(_ => resolve('removed featured story from collection '+collectionKey))
+        .then(_ => {
+          console.log('removed featured story from collection '+collectionKey);
+          resolve('removed featured story from collection '+collectionKey);
+        })
         .catch(err => reject(err));
     });
   }

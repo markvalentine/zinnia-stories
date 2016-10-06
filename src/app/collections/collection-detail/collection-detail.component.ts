@@ -18,7 +18,10 @@ export class CollectionDetailComponent implements OnInit {
   isAuth: any;
   collectionProperties: FirebaseObjectObservable<any>;
   storyIDs: FirebaseListObservable<any[]>;
-  stories: Observable<any[]>
+  stories: Observable<any[]>;
+
+  featuredStoryIDs: FirebaseListObservable<any[]>;
+  featuredStories: Observable<any[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +42,9 @@ export class CollectionDetailComponent implements OnInit {
       this.collectionProperties = this.collectionService.getCollectionProperties(this.key);
       this.storyIDs = this.storyService.getStoryIDsForCollection(this.key);
       this.stories = this.storyService.getStoriesForCollection(this.key);
+
+      this.featuredStoryIDs = this.storyService.getFeaturedStoryIDsForCollection(this.key);
+      this.featuredStories = this.storyService.getFeaturedStoriesForCollection(this.key);
     });
   }
 

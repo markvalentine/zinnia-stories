@@ -13,6 +13,7 @@ export class StoryService {
   storiesUrl = 'stories/';
   collectionsUrl = 'collections/';
   featuredUrl = 'featured/';
+  featuredStoriesUrl = 'featured_stories/';
   featuredCollectionsUrl = 'featured_collections/';
 
   // Default numbers for loading stories
@@ -54,6 +55,32 @@ export class StoryService {
   addToCollection(story: Story, collection: Collection): Promise<any> {
     let ref = this.af.database.object(this.storiesUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
     let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key+'/'+this.storiesUrl+story.$key);
+    let promisesReturned = 0;
+    let promisesNeeded = 2;
+    return new Promise(function(resolve, reject){
+      ref.set(collection.title)
+        .then(_ => {
+          promisesReturned++;
+          if (promisesReturned == promisesNeeded) {
+            resolve('added');
+          }
+        })
+        .catch(err => reject(err));
+
+      collectionRef.set(story.date_created)
+        .then(_ => {
+          promisesReturned++;
+          if (promisesReturned == promisesNeeded) {
+            resolve('added');
+          }
+        })
+        .catch(err => reject(err));
+    });
+  }
+
+  featureInCollection(story: Story, collection: Collection): Promise<any> {
+    let ref = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredCollectionsUrl+collection.$key);
+    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key+'/'+this.featuredStoriesUrl+story.$key);
     let promisesReturned = 0;
     let promisesNeeded = 2;
     return new Promise(function(resolve, reject){
@@ -138,10 +165,6 @@ export class StoryService {
     });
   }
 
-  featureInCollection() {
-
-  }
-
   removeAllStoriesFromCollection(collection: Collection): Observable<any> {
     return Observable.create(subscriber => {
       for (let storyKey of collection.stories) {
@@ -165,7 +188,7 @@ export class StoryService {
    */
   removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
     let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl);
-    let promise = this.collectionService.removeStoryFromCollection(storyKey, collectionKey)
+    let promise = this.collectionService.removeStoryFromCollection(storyKey, collectionKey);
     return new Promise(function(resolve, reject) {
       promise
         .then(_ => {
@@ -183,7 +206,7 @@ export class StoryService {
    */
   removeStoryFromFeaturedCollection(storyKey: string, collectionKey: string) {
     let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl);
-    let promise = this.collectionService.removeFeaturedStoryFromCollection(storyKey, collectionKey)
+    let promise = this.collectionService.removeFeaturedStoryFromCollection(storyKey, collectionKey);
     return new Promise(function(resolve, reject) {
       promise
         .then(_ => {
@@ -366,8 +389,8 @@ export class StoryService {
           stories.push(this.getStory(id['$key']));
         }
         subscriber.next(stories);
-      })
-    })
+      });
+    });
   }
 
   nextStoriesForCollection() {
@@ -375,13 +398,26 @@ export class StoryService {
   }
 
     // Only two?
-  getFeaturedStoryIDsForCollection() {
-
+  getFeaturedStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
+    return this.af.database.list(this.collectionsUrl+key+'/'+this.featuredStoriesUrl, {
+      query: {
+        orderByValue: true
+      }
+    });
   }
 
   // Only two?
-  getFeaturedStoriesForCollection() {
-
+  getFeaturedStoriesForCollection(key: string): Observable<any[]> {
+    let featuredStoryIDs = this.getFeaturedStoryIDsForCollection(key);
+    return Observable.create(subscriber => {
+      featuredStoryIDs.subscribe(ids => {
+        let stories = [];
+        for (let id of ids) {
+          stories.push(this.getStory(id['$key']));
+        }
+        subscriber.next(stories);
+      });
+    });
   }
 
 }

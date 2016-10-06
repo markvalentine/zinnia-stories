@@ -95,6 +95,28 @@ export class EditStoryComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
+  featureInCollection(story: Story, collectionObject: any) {
+    let collection = new Collection(collectionObject);
+    this.storyService.removeStoryFromCollection(story.$key, collection.$key)
+      .then(x => {
+        this.storyService.featureInCollection(story, collection)
+          .then(x => console.log(x))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  }
+
+  unfeatureInCollection(story: Story, collectionObject: any) {
+    let collection = new Collection(collectionObject);
+    this.storyService.removeStoryFromFeaturedCollection(story.$key, collection.$key)
+      .then(x => {
+        this.storyService.addToCollection(story, collection)
+          .then(x => console.log(x))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  }
+
   /**
    * redirects back to story
    */

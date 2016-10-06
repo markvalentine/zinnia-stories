@@ -31,6 +31,10 @@
       <li *ngFor="let collection of (collections | async)">
         <button (click)="addToCollection(storyObject, collection)">Add to {{collection.properties.title}}</button>
         <button (click)="removeFromCollection(storyObject, collection)">Remove from {{collection.properties.title}}</button>
+        <br/>
+        <button (click)="featureInCollection(storyObject, collection)">Feature in {{collection.properties.title}}</button>
+        <button (click)="unfeatureInCollection(storyObject, collection)">Unfeature in {{collection.properties.title}}</button>
+        <br/><br/>
       </li>
     </ul>
     <hr/>

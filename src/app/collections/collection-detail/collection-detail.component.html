@@ -7,6 +7,14 @@
   </span>
 </div>
 <div>
+  <h3>Featured Stories:</h3>
+  <ul>
+    <li *ngFor="let story of (featuredStories | async)">
+      <app-featured-story-card [story]="(story | async)"></app-featured-story-card>
+    </li>
+  </ul>
+</div>
+<div>
   <h3>Stories:</h3>
   <ul>
     <li *ngFor="let story of (stories | async)">
