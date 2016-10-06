@@ -96,8 +96,19 @@ export class StoryService {
     return this.updateStoryProperties(story);
   }
 
-  featureStory() {
+  featureStory(story: Story) {
+    let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
+    let featuredStoriesRef = this.af.database.object(this.featuredUrl+story.$key);
 
+    return new Promise(function(resolve, reject) {
+      storyRef.set(true)
+        .then(_ => {
+          featuredStoriesRef.set(story.date_created)
+            .then(_ => resolve('featured story '+story.$key))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    });
   }
 
   removeStoryFromFeaturedList(story: Story): Promise<any> {
@@ -112,14 +123,46 @@ export class StoryService {
   /**
    * maybe
    */
-  unfeatureStory() {
-    
+  unfeatureStory(story: Story) {
+    let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
+    let featuredStoriesRef = this.af.database.object(this.featuredUrl+story.$key);
+
+    return new Promise(function(resolve, reject) {
+      storyRef.set(false)
+        .then(_ => {
+          featuredStoriesRef.remove()
+            .then(_ => resolve('featured story '+story.$key + 'unfeatured'))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    });
   }
 
   featureInCollection() {
 
   }
 
+  removeAllStoriesFromCollection(collection: Collection): Observable<any> {
+    return Observable.create(subscriber => {
+      for (let storyKey of collection.stories) {
+        this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl).remove(collection.$key)
+          .then(_ => subscriber.next('removed collection '+collection.$key+' from story '+storyKey))
+          .catch(err => subscriber.error(err));
+      }
+      for (let storyKey of collection.featuredStories) {
+        this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl).remove(collection.$key)
+          .then(_ => subscriber.next('removed collection '+collection.$key+' from featured story '+storyKey))
+          .catch(err => subscriber.error(err));
+      }
+
+      subscriber.complete('completed');
+    })
+  }
+
+  /**
+   * Removes the story from the collection and then removes the collection from the story
+   * if deleting the story just use the collecition service (don't need to delete collection from story)
+   */
   removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
     let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl);
     let promise = this.collectionService.removeStoryFromCollection(storyKey, collectionKey)
@@ -134,6 +177,10 @@ export class StoryService {
     });
   }
 
+  /**
+   * Removes the featured story from the collection and then removes the collection from the story
+   * if deleting the story just use the collecition service (don't need to delete collection from story)
+   */
   removeStoryFromFeaturedCollection(storyKey: string, collectionKey: string) {
     let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl);
     let promise = this.collectionService.removeFeaturedStoryFromCollection(storyKey, collectionKey)

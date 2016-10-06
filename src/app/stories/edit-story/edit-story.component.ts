@@ -43,15 +43,25 @@ export class EditStoryComponent implements OnInit {
     });
   }
 
+  featureStory(story: Story) {
+    this.storyService.featureStory(story)
+      .then(_ => this.goBack())
+      .catch(err => console.log(err));
+  }
+
+  unfeatureStory(story: Story) {
+    this.storyService.unfeatureStory(story)
+      .then(_ => this.goBack())
+      .catch(err => console.log(err));
+  }
+
   /**
    * FOR NOW ONLY PROPERTIES
    * update story and wait for completion to navigate away
    */
   updateStory(story: Story) {
     this.storyService.updateStory(story)
-      .then(_ => {
-        this.goBack();
-      })
+      .then(_ => this.goBack())
       .catch(err => console.log(err));
   }
 

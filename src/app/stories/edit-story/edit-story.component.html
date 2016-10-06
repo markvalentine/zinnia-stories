@@ -20,6 +20,9 @@
       <textarea [(ngModel)]="storyObject.text" placeholder="story"></textarea>
     </div>
     <br/>
+    <button *ngIf="(!storyObject.featured)" (click)="featureStory(storyObject)">FeatureStory</button>
+    <button *ngIf="(storyObject.featured)" (click)="unfeatureStory(storyObject)">UnfeatureStory</button>
+    <br/><br/>
     <button (click)="updateStory(storyObject)">Update Story</button>
     <button (click)="deleteStory(storyObject)">Delete Story</button>
     <hr/>

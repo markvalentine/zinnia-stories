@@ -78,8 +78,18 @@ export class CollectionService {
 
   }
 
-  deleteCollection() {
-    
+  /**
+   * CAN ONLY DELETE AN EMPTY COLLECTION
+   * if the collection still has stories their references will not be removed
+   * must use removeAllStoriesFromCollection in story service
+   */
+  deleteCollection(collection: Collection): Promise<any> {
+    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key);
+    return new Promise(function(resolve, reject) {
+      collectionRef.remove()
+        .then(_ => resolve('collection deleted'))
+        .catch(err => reject(err));
+    })
   }
 
   /**
