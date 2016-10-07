@@ -3,3 +3,14 @@ div.story {
     padding: 10px 15px;
     margin: 10px 0;
 }
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+p {
+    white-space: pre-wrap;
+}

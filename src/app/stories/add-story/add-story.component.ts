@@ -49,4 +49,28 @@ export class AddStoryComponent implements OnInit {
       });
   }
 
+  changeListener(event) {
+    let file = event.target.files[0];
+    let progress = 0;
+    let downloadURL = '';
+    this.storyService.uploadImage(file).subscribe(
+      m => {
+        console.log(m, progress);
+        if (progress == 100) {
+          console.log('downloadURL: ', m);
+          downloadURL = m;
+          this.story.image_url = downloadURL;
+        } else {
+          progress = m;
+          console.log('progress: ', progress);
+        }
+      },
+      err => console.log(err),
+      () => {
+        console.log('complete');
+      }
+    )
+    
+  }
+
 }

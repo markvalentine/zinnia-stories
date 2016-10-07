@@ -1,6 +1,7 @@
 <div class="story" *ngIf="story | async">
   <h3>{{(story | async).title}}</h3>
   <strong><i>{{(story | async).description}}</i></strong>
+  <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
   <p>{{(story | async).text}}</p>
   <div *ngIf="(story | async)?.featuredCollections.length > 0">
     Featured Collections:

@@ -15,6 +15,7 @@ export class StoryService {
   featuredUrl = 'featured/';
   featuredStoriesUrl = 'featured_stories/';
   featuredCollectionsUrl = 'featured_collections/';
+  imagesUrl = 'images/'
 
   // Default numbers for loading stories
   defaultNumStories = 20;
@@ -38,6 +39,7 @@ export class StoryService {
         'title': story.title,
         'description': story.description,
         'text': story.text,
+        'image_url': story.image_url,
         'date_created': -date
       })
         .then(story => {
@@ -431,6 +433,30 @@ export class StoryService {
         subscriber.next(stories);
       });
     });
+  }
+
+  uploadImage(file: any): Observable<any> {
+    return Observable.create(subscriber => {
+      this.af.database.list(this.imagesUrl+this.storiesUrl).push(file.name)
+      .then(fileDBRef => {
+        let key = fileDBRef.key;
+        let uploadTask = firebase.storage().ref().child(this.imagesUrl+this.storiesUrl+key).put(file);
+        uploadTask.on('state_changed', function(snapshot) {
+          console.log(snapshot);
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(progress.toFixed(0));
+          subscriber.next(progress.toFixed(0));
+        }, function(err) {
+          console.log(err);
+          subscriber.error(err);
+        }, function() {
+          console.log('complete?');
+          subscriber.next(uploadTask.snapshot.downloadURL);
+          subscriber.complete(uploadTask.snapshot.downloadURL);
+        })
+      })
+      .catch(err => subscriber.error(err));
+    })
   }
 
 }

@@ -15,6 +15,10 @@
         <textarea [(ngModel)]="story.text" placeholder="story"></textarea>
     </div>
     <br/>
+    <br/>
+    <input type="file" (change)="changeListener($event)">
+    <br/>
+    <br/>
     <!--<div>
         <label>featured?: </label>
         <input type="checkbox" [(ngModel)]="newStory.featured"/>
