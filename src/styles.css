@@ -3,6 +3,27 @@ body {
     margin: 0;
     border: 0;
     padding: 0;
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
     height: 100%;
+
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Harlow';
+    src: url("./assets/fonts/Harlow.ttf");
+}
+
+@font-face {
+    font-family: "HarlowSolid";
+    src: url("./assets/fonts/HarlowSolid.ttf");
 }

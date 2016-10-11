@@ -1,5 +1,59 @@
-div {
-    margin: 10px 0;
-    padding: 20px;
+div.card {
+    box-sizing: border-box;
+    margin: 12px 8px;
+    /*padding: 20px;*/
     background-color: #ffffff;
+    display: inline-block;
+    width: 260px;
+    min-width: 260px;
+    height: 450px;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+div.image {
+    width: 100%;
+    height: 240px;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/zinnia-stories.appspot.com/o/images%2Fstories%2F-KTp_095RfMKdmLCHkFS?alt=media&token=14d2a1de-8c1e-488f-b1c2-d6dd018ceb04"); 
+    background-size: auto 175%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+div.content {
+    background-color: #ffffff;
+    padding: 18px;
+
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h4 {
+    margin: 0px auto;
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 875px) {
+    div.card {
+        width: 47%;
+    }
+    div.image {
+        background-size: 175% auto;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    div.card {
+        width: 100%;
+        margin: 12px 0;
+    }
 }

@@ -1,2 +1,9 @@
 <h3>Zinnia</h3>
 <p>Here we get your basic stuff and some featured stories</p>
+
+<ul>
+    <li *ngFor="let story of (featuredStories | async); let first = first">
+        <app-featured-story-card  *ngIf="first" [story]="(story | async)"></app-featured-story-card>
+        <app-story-card  *ngIf="!first" [story]="(story | async)"></app-story-card>
+    </li>
+</ul>

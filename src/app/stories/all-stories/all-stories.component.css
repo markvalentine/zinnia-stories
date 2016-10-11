@@ -1,6 +1,10 @@
-ul {
-    list-style: none;
-    max-width: 800px;
+div.background {
+    width: 100%;
+    background: #f6f6f6;
+    padding: 60px 10px;
+}
+div.stories {
+    max-width: 840px;
     margin: auto;
     padding: 0;
 }

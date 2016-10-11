@@ -1,5 +1,6 @@
 <div class="collection" *ngIf="collectionProperties | async">
   <h3>{{(collectionProperties | async).title}}</h3>
+  <img *ngIf="(collectionProperties | async)?.image_url" src="{{(collectionProperties | async)?.image_url}}">
   <p>{{(collectionProperties | async).description}}<p>
   <span *ngIf="(isAuth | async)">
     <br/>

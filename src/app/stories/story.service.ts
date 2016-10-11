@@ -297,6 +297,15 @@ export class StoryService {
     });
   }
 
+  getXFeaturedStoryIDs(x: number): FirebaseListObservable<string[]> {
+    return this.af.database.list(this.featuredUrl+this.storiesUrl, {
+      query: {
+        orderByValue: true,
+        limitToFirst: x
+      }
+    });
+  }
+
   getFeaturedStories(): Observable<any[]> {
     let storyIDs = this.getFeaturedStoryIDs();
     return Observable.create(subscriber => {
@@ -308,6 +317,23 @@ export class StoryService {
         subscriber.next(stories);
       });
     });
+  }
+
+  getXFeaturedStories(x: number): Observable<any[]> {
+    let storyIDs = this.getXFeaturedStoryIDs(x);
+    return Observable.create(subscriber => {
+      storyIDs.subscribe(ids => {
+        let stories = [];
+        for (let id of ids) {
+          stories.push(this.getStory(id['$key']));
+        }
+        subscriber.next(stories);
+      });
+    });
+  }
+
+  getFirstFeaturedStories() {
+
   }
 
   /**

@@ -2,4 +2,8 @@ div {
     margin: 10px 0;
     padding: 20px;
     background-color: #ffffff;
+    display: inline-block;
+    width: 50%;
+    min-width: 320px;
+    background-color: #fafafa;
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-story-detail',
@@ -15,13 +16,17 @@ export class StoryDetailComponent implements OnInit {
   key: string;
   isAuth: any;
   story: Observable<Story>;
+  safeTransform: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private storyService: StoryService,
-    private adminService: AdminService
-  ) { }
+    private adminService: AdminService,
+    private sanitizer: DomSanitizer
+  ) {
+    this.safeTransform = sanitizer.bypassSecurityTrustStyle("margin-top: 0px; margin-bottom: 0px;");
+  }
 
   /**
    * On Init: 

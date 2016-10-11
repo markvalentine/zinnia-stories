@@ -1,10 +1,13 @@
-<div (click)="goToDetail(story?.$key)">
-  <h4>{{story?.title}}</h4>
-  <p>{{story?.description}}</p>
-  <div *ngIf="story?.featuredCollections?.length > 0">
+<div class="card" (click)="goToDetail(story?.$key)">
+  <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}"></div>
+  <div class="content">
+    <h4>{{story?.title}}</h4>
+    <p>{{story?.description}}</p>
+  </div>
+  <!--<div *ngIf="story?.featuredCollections?.length > 0">
     <h5>Featured In:</h5>
     <ul>
       <li *ngFor="let featuredCollection of story?.featuredCollections">{{featuredCollection}}</li>
     </ul>
-  </div>
+  </div>-->
 </div>

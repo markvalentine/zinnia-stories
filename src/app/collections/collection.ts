@@ -8,6 +8,8 @@ export class Collection {
     description: string;
     featured: boolean;
 
+    image_url: string;
+
     featuredStories: string[];
     stories: string[];
 
@@ -33,6 +35,8 @@ export class Collection {
         this.title = "";
         this.description = "";
         this.featured = false;
+
+        this.image_url = "";
 
         this.featuredStories = []
         this.stories = [];
@@ -61,7 +65,9 @@ export class Collection {
         this.description = json['properties']['description'];
         this.featured = json['properties']['featured'];
 
-        this.featuredStories = this.getKeysFromJSONObject(json['featured_stories'])
+        this.image_url = json['properties']['image_url'];
+
+        this.featuredStories = this.getKeysFromJSONObject(json['featured_stories']);
         this.stories = this.getKeysFromJSONObject(json['stories']);
     }
 }

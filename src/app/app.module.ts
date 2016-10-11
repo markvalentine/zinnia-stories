@@ -26,6 +26,7 @@ import { StoryCardComponent } from './stories/story-card/story-card.component';
 import { FeaturedStoryCardComponent } from './stories/featured-story-card/featured-story-card.component';
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
 import { AddStoryComponent } from './stories/add-story/add-story.component';
+import { StoryTextPipe } from './stories/story-text.pipe';
 
 import { CollectionService } from './collections/collection.service';
 import { AllCollectionsComponent } from './collections/all-collections/all-collections.component';
@@ -66,7 +67,8 @@ export const myFirebaseAuthConfig = {
     CollectionDetailComponent,
     CollectionCardComponent,
     EditCollectionComponent,
-    AddCollectionComponent
+    AddCollectionComponent,
+    StoryTextPipe
   ],
   imports: [
     BrowserModule,
