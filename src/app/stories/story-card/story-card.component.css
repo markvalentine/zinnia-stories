@@ -89,11 +89,11 @@ h4 {
 
 #burst-8-2 {
     background: #8ec6ba;
-    width: 22px;
-    height: 22px;
+    height: 28px;
+    width: 28px;
     position: relative;
-    top: -16px;
-    left: 14px;
+    top: -19px;
+    left: 11px;
     text-align: center;
     transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
@@ -106,8 +106,8 @@ h4 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 22px;
-    width: 22px;
+    height: 28px;
+    width: 28px;
     background: #8ec6ba;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
@@ -121,7 +121,7 @@ h4 {
         width: 47%;
     }
     div.image {
-        background-size: 100% auto;
+        background-size: 120% auto;
     }
 }
 

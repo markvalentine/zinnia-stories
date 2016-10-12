@@ -44,7 +44,7 @@ p {
 
 @media only screen and (max-width: 640px) {
     div.story {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     h3 {
@@ -53,7 +53,7 @@ p {
     }
 
     p {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.4;
     }
 }
