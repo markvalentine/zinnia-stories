@@ -1,6 +1,12 @@
-<div (click)="goToDetail(story?.$key)">
-  <h4>Featured Story</h4>
-  <h3>{{story?.title}}</h3>
-  <strong><i>{{story?.description}}</i></strong>
-  <p>{{(story?.text)?.substring(0, 300)}}...</p>
+<div class="background" (click)="goToDetail(story?.$key)">
+  <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
+    <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
+      <div id="burst-8"></div><div id="burst-8-2"></div>
+    </div>
+  </div>
+  <div class="story">
+    <h3>{{story?.title}}</h3>
+    <strong><i>{{story?.description}}</i></strong>
+    <p>{{story?.text}}</p>
+  </div>
 </div>

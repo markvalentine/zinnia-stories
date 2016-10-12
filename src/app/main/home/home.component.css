@@ -1,0 +1,12 @@
+div.background {
+    width: 100%;
+    background: #f6f6f6;
+    background-image: url("../../../assets/images/speckle.png");
+    background-repeat: repeat;
+    padding: 40px 10px;
+}
+div.stories {
+    max-width: 840px;
+    margin: auto;
+    padding: 0;
+}

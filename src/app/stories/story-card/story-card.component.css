@@ -6,7 +6,7 @@ div.card {
     display: inline-block;
     width: 260px;
     min-width: 260px;
-    height: 450px;
+    height: 470px;
     vertical-align: top;
     overflow: hidden;
 }
@@ -15,7 +15,7 @@ div.image {
     width: 100%;
     height: 240px;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/zinnia-stories.appspot.com/o/images%2Fstories%2F-KTp_095RfMKdmLCHkFS?alt=media&token=14d2a1de-8c1e-488f-b1c2-d6dd018ceb04"); 
-    background-size: auto 175%;
+    background-size: auto 110%;
     background-position: 50%;
     background-repeat: no-repeat;
 }
@@ -23,23 +23,97 @@ div.image {
 div.content {
     background-color: #ffffff;
     padding: 18px;
+    height: 230px;
+    text-overflow:  ellipsis;
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: column;
 
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: .01rem;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    line-height: 1.58;
+    line-height: 30px;
     letter-spacing: -.003em;
 }
 
 p {
-    margin: 10px 0;
+    margin: 0px 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1 1 auto;
 }
 
 h4 {
-    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
     font-size: 22px;
+    line-height: 30px;
+    flex: 0 1 auto;
+}
+
+.bursts{
+    opacity: 0.9;
+}
+
+#burst-8 {
+    background: #ffffff;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+       -moz-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+         -o-transform: rotate(20eg);
+}
+#burst-8:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background: #ffffff;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+       -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+         -o-transform: rotate(135deg);
+}
+
+#burst-8-2 {
+    background: #8ec6ba;
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: -16px;
+    left: 14px;
+    text-align: center;
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+       -moz-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+         -o-transform: rotate(20eg);
+}
+#burst-8-2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background: #8ec6ba;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+       -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+         -o-transform: rotate(135deg);
 }
 
 @media only screen and (max-width: 875px) {
@@ -47,7 +121,7 @@ h4 {
         width: 47%;
     }
     div.image {
-        background-size: 175% auto;
+        background-size: 100% auto;
     }
 }
 

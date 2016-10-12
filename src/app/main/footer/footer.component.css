@@ -1,4 +1,6 @@
 div {
     background: #ffffff;
+    background-image: url("../../../assets/images/speckle2.png");
+    background-repeat: repeat;
     padding: 10px;
 }

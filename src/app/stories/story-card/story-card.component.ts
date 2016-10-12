@@ -12,6 +12,8 @@ export class StoryCardComponent implements OnInit {
   storyString: string;
   @Input()
   story: Story;
+  @Input()
+  noShowStar = false;
 
   constructor(private router: Router) {
   }
