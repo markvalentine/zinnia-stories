@@ -1,46 +1,50 @@
-<h3>Edit Story</h3>
-<div *ngIf="(isAuth | async)">
-  <!--
-    hack to get the story object asycronously without having to subscribe 
-    maybe we can fix with forms?
-  -->
-  <div *ngFor="let storyObject of (story | async)">
-    <div>
-      <label>title: </label>
-      <input [(ngModel)]="storyObject.title" placeholder="title"/>
-    </div>
-    <br/>
-    <div>
-        <label>description: </label>
-        <input [(ngModel)]="storyObject.description" placeholder="description">
-    </div>
-    <br/>
-    <div>
-      <label>story: </label>
-      <textarea [(ngModel)]="storyObject.text" placeholder="story"></textarea>
-    </div>
-    <br/>
-    <button *ngIf="(!storyObject.featured)" (click)="featureStory(storyObject)">FeatureStory</button>
-    <button *ngIf="(storyObject.featured)" (click)="unfeatureStory(storyObject)">UnfeatureStory</button>
-    <br/><br/>
-    <button (click)="updateStory(storyObject)">Update Story</button>
-    <button (click)="deleteStory(storyObject)">Delete Story</button>
-    <hr/>
-    <h4>Collections</h4>
-    <ul>
-      <li *ngFor="let collection of (collections | async)">
-        <button (click)="addToCollection(storyObject, collection)">Add to {{collection.properties.title}}</button>
-        <button (click)="removeFromCollection(storyObject, collection)">Remove from {{collection.properties.title}}</button>
+<div class="background white">
+  <div class="content">
+    <h3>Edit Story</h3>
+    <div *ngIf="(isAuth | async)">
+      <!--
+        hack to get the story object asycronously without having to subscribe 
+        maybe we can fix with forms?
+      -->
+      <div *ngFor="let storyObject of (story | async)">
+        <div>
+          <label>title: </label>
+          <input [(ngModel)]="storyObject.title" placeholder="title"/>
+        </div>
         <br/>
-        <button (click)="featureInCollection(storyObject, collection)">Feature in {{collection.properties.title}}</button>
-        <button (click)="unfeatureInCollection(storyObject, collection)">Unfeature in {{collection.properties.title}}</button>
+        <div>
+            <label>description: </label>
+            <input [(ngModel)]="storyObject.description" placeholder="description">
+        </div>
+        <br/>
+        <div>
+          <label>story: </label>
+          <textarea [(ngModel)]="storyObject.text" placeholder="story"></textarea>
+        </div>
+        <br/>
+        <button *ngIf="(!storyObject.featured)" (click)="featureStory(storyObject)">FeatureStory</button>
+        <button *ngIf="(storyObject.featured)" (click)="unfeatureStory(storyObject)">UnfeatureStory</button>
         <br/><br/>
-      </li>
-    </ul>
-    <hr/>
-    <button (click)="goBack()">Back</button>
+        <button (click)="updateStory(storyObject)">Update Story</button>
+        <button (click)="deleteStory(storyObject)">Delete Story</button>
+        <hr/>
+        <h4>Collections</h4>
+        <ul>
+          <li *ngFor="let collection of (collections | async)">
+            <button (click)="addToCollection(storyObject, collection)">Add to {{collection.properties.title}}</button>
+            <button (click)="removeFromCollection(storyObject, collection)">Remove from {{collection.properties.title}}</button>
+            <br/>
+            <button (click)="featureInCollection(storyObject, collection)">Feature in {{collection.properties.title}}</button>
+            <button (click)="unfeatureInCollection(storyObject, collection)">Unfeature in {{collection.properties.title}}</button>
+            <br/><br/>
+          </li>
+        </ul>
+        <hr/>
+        <button (click)="goBack()">Back</button>
+      </div>
+    </div>
+    <div *ngIf="!(isAuth | async)">
+      <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to edit story details.</p>
+    </div>
   </div>
-</div>
-<div *ngIf="!(isAuth | async)">
-  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to edit story details.</p>
 </div>

@@ -1,25 +1,27 @@
-<div *ngIf="(isAuth | async)">
-    <h3>Add a Collection</h3>
-    <div>
-        <label>title: </label>
-        <input [(ngModel)]="collection.title" placeholder="title"/>
+<div class="background white">
+    <div class="content" *ngIf="(isAuth | async)">
+        <h3>Add a Collection</h3>
+        <div>
+            <label>title: </label>
+            <input [(ngModel)]="collection.title" placeholder="title"/>
+        </div>
+        <br/>
+        <div>
+            <label>description: </label>
+            <input [(ngModel)]="collection.description" placeholder="description"/>
+        </div>
+        <br/>
+        <br/>
+        <input type="file" (change)="changeListener($event)">
+        <br/>
+        <!--<div>
+            <label>featured?: </label>
+            <input type="checkbox" [(ngModel)]="newStory.featured"/>
+        </div>-->
+        <br/>
+        <button (click)="addCollection()" [disabled]="isAdding || !collection.title || !collection.description">Submit Collection</button>
     </div>
-    <br/>
-    <div>
-        <label>description: </label>
-        <input [(ngModel)]="collection.description" placeholder="description"/>
+    <div class="content" *ngIf="!(isAuth | async)">
+    <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a collection.</p>
     </div>
-    <br/>
-    <br/>
-    <input type="file" (change)="changeListener($event)">
-    <br/>
-    <!--<div>
-        <label>featured?: </label>
-        <input type="checkbox" [(ngModel)]="newStory.featured"/>
-    </div>-->
-    <br/>
-    <button (click)="addCollection()" [disabled]="isAdding || !collection.title || !collection.description">Submit Collection</button>
-</div>
-<div *ngIf="!(isAuth | async)">
-  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a collection.</p>
 </div>

@@ -1,22 +1,26 @@
-<h3>Admin</h3>
+<div class="background white">
+    <div class="content">
+        <h3>Admin</h3>
 
-<!-- if the user is not logged in -->
-<div *ngIf="!(isAuth | async)">
-    <div>
-        <label>email: </label>
-        <input [(ngModel)]="email" type="email" placeholder="email"/>
-        <label>password: </label>
-        <input [(ngModel)]="password" type="password" placeholder="password"/>
+        <!-- if the user is not logged in -->
+        <div *ngIf="!(isAuth | async)">
+            <div>
+                <label>email: </label>
+                <input [(ngModel)]="email" type="email" placeholder="email"/>
+                <label>password: </label>
+                <input [(ngModel)]="password" type="password" placeholder="password"/>
+            </div>
+            <br/>
+            <button (click)="login()">Login</button>
+        </div>
+
+        <!-- if the user is logged in already -->
+        <div *ngIf="(isAuth | async)">
+            <ul>
+                <li><a routerLink="/add-story/" routerLinkActive="active">Add a Story</a></li>
+                <li><a routerLink="/add-collection/" routerLinkActive="active">Add a Collection</a></li>
+            </ul>
+            <button (click)="logout()">Logout</button>
+        </div>
     </div>
-    <br/>
-    <button (click)="login()">Login</button>
-</div>
-
-<!-- if the user is logged in already -->
-<div *ngIf="(isAuth | async)">
-    <ul>
-        <li><a routerLink="/add-story/" routerLinkActive="active">Add a Story</a></li>
-        <li><a routerLink="/add-collection/" routerLinkActive="active">Add a Collection</a></li>
-    </ul>
-    <button (click)="logout()">Logout</button>
 </div>

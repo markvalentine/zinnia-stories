@@ -14,6 +14,9 @@ body {
     letter-spacing: -.003em;
 
     color: #444444;
+    background: #fdfcfc;
+    background-image: url("./assets/images/speckle2.png");
+    background-repeat: repeat;
 }
 
 div {
@@ -28,4 +31,33 @@ div {
 @font-face {
     font-family: "HarlowSolid";
     src: url("./assets/fonts/HarlowSolid.ttf");
+}
+
+.background {
+    width: 100%;
+    padding: 40px 10px;
+    margin: 0;
+    border: 0;
+}
+
+.background .content{
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+.background.speckle {
+    background: #f5f4f3;
+    background-image: url("./assets/images/speckle.png");
+    background-repeat: repeat;
+}
+
+.background.white {
+    background: #ffffff;
+}
+
+@media only screen and (max-width: 640px) {
+    .background {
+        padding: 10px;
+    }
 }

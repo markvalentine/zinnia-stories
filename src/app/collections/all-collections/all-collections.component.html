@@ -1,5 +1,7 @@
-<ul>
-  <li *ngFor="let collection of (collections | async)" (click)="goToDetail(collection.$key)">
-    <app-collection-card [collectionString]="collection"></app-collection-card>
-  </li>
-</ul>
+<div class="background speckle">
+  <div class="content">
+    <span *ngFor="let collection of (collections | async)" (click)="goToDetail(collection.$key)">
+      <app-collection-card [collectionString]="collection"></app-collection-card>
+    </span>
+  </div>
+</div>

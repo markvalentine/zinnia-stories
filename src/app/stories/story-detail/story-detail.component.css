@@ -1,11 +1,4 @@
-div.background {
-    background: #ffffff;
-    width: 100%;
-    padding: 20px 20px;
-    margin: 0;
-    border: 0;
-}
-div.story {
+.story {
     background: #ffffff;
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: .01rem;
@@ -14,11 +7,6 @@ div.story {
     font-size: 21px;
     line-height: 1.58;
     letter-spacing: -.003em;
-
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 840px;
-    margin: auto;
 }
 
 img {
@@ -43,7 +31,7 @@ p {
 }
 
 @media only screen and (max-width: 640px) {
-    div.story {
+    .story {
         font-size: 20px;
     }
 

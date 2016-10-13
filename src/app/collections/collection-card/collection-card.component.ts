@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Collection } from '../collection';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-collection-card',
@@ -12,10 +13,17 @@ export class CollectionCardComponent implements OnInit {
 
   collection: Collection
 
-  constructor() { }
+  constructor(
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.collection = new Collection(this.collectionString);
+  }
+
+  goToDetail(key: string) {
+    let link = ['/collections', key];
+    this.router.navigate(link);
   }
 
 }

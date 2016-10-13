@@ -1,31 +1,35 @@
-<div *ngIf="(isAuth | async)">
-    <h3>Add a story</h3>
-    <div>
-        <label>title: </label>
-        <input [(ngModel)]="story.title" placeholder="title"/>
+<div class="background white">
+    <div class="content">
+        <div *ngIf="(isAuth | async)">
+            <h3>Add a story</h3>
+            <div>
+                <label>title: </label>
+                <input [(ngModel)]="story.title" placeholder="title"/>
+            </div>
+            <br/>
+            <div>
+                <label>description: </label>
+                <input [(ngModel)]="story.description" placeholder="description"/>
+            </div>
+            <br/>
+            <div>
+                <label>story: </label>
+                <textarea [(ngModel)]="story.text" placeholder="story"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <input type="file" (change)="changeListener($event)">
+            <br/>
+            <br/>
+            <!--<div>
+                <label>featured?: </label>
+                <input type="checkbox" [(ngModel)]="newStory.featured"/>
+            </div>-->
+            <br/>
+            <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
+        </div>
+        <div *ngIf="!(isAuth | async)">
+            <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a story.</p>
+        </div>
     </div>
-    <br/>
-    <div>
-        <label>description: </label>
-        <input [(ngModel)]="story.description" placeholder="description"/>
-    </div>
-    <br/>
-    <div>
-        <label>story: </label>
-        <textarea [(ngModel)]="story.text" placeholder="story"></textarea>
-    </div>
-    <br/>
-    <br/>
-    <input type="file" (change)="changeListener($event)">
-    <br/>
-    <br/>
-    <!--<div>
-        <label>featured?: </label>
-        <input type="checkbox" [(ngModel)]="newStory.featured"/>
-    </div>-->
-    <br/>
-    <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
-</div>
-<div *ngIf="!(isAuth | async)">
-  <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a story.</p>
 </div>

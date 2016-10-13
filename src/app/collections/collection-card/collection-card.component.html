@@ -1,4 +1,5 @@
-<div>
-  <h4>{{collection.title}}</h4>
-  <p>{{collection.description}}</p>
+<div class="under-overlay" (click)="goToDetail(collection.$key)" [ngStyle]="{'background-image': 'url(' + collection.image_url + ')'}">
+  <div class="overlay"></div>
+  <h4 class="over-overlay">{{collection.title}}</h4>
+  <p class="over-overlay">{{collection.description}}</p>
 </div>

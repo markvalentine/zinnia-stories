@@ -1,8 +1,11 @@
-<div class="background">
-    <div class="stories">
+<div class="background speckle">
+    <div class="content">
         <span *ngFor="let story of (featuredStories | async); let first = first">
             <app-featured-story-card  *ngIf="first" [story]="(story | async)" [noShowStar]="true"></app-featured-story-card>
             <app-story-card  *ngIf="!first" [story]="(story | async)" [noShowStar]="true"></app-story-card>
+        </span>
+        <span *ngFor="let collection of (collections | async)" (click)="goToDetail(collection.$key)">
+            <app-collection-card [collectionString]="collection"></app-collection-card>
         </span>
     </div>
 </div>

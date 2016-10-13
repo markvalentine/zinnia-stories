@@ -1,8 +1,5 @@
-<div class="background">
-  <div class="stories">
-    <!--<span *ngFor="let story of (featuredStories | async)">
-      <app-featured-story-card [storyString]="(story | async)"></app-featured-story-card>
-    </span>-->
+<div class="background speckle">
+  <div class="content">
     <span *ngFor="let story of (stories | async); let index = index;">
       <app-featured-story-card *ngIf="(index % 7) == 0" [storyString]="story"></app-featured-story-card>
       <app-story-card *ngIf="(index % 7) != 0" [storyString]="story"></app-story-card>

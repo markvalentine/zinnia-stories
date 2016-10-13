@@ -1,26 +1,16 @@
-<div class="collection" *ngIf="collectionProperties | async">
-  <h3>{{(collectionProperties | async).title}}</h3>
-  <img *ngIf="(collectionProperties | async)?.image_url" src="{{(collectionProperties | async)?.image_url}}">
-  <p>{{(collectionProperties | async).description}}<p>
-  <span *ngIf="(isAuth | async)">
-    <br/>
-    <button (click)="toEdit()">Edit</button>  
-  </span>
+<div class="collection under-overlay" *ngIf="collectionProperties | async" [ngStyle]="{'background-image': 'url(' + (collectionProperties | async)?.image_url + ')'}">  
+  <div class="overlay"></div>
+  <h3 class="over-overlay">{{(collectionProperties | async).title}}</h3>
+  <p class="over-overlay">{{(collectionProperties | async).description}}</p>
+  <div *ngIf="(isAuth | async)" class="edit over-overlay"><button (click)="toEdit()">Edit</button></div>
 </div>
-<div>
-  <h3>Featured Stories:</h3>
-  <ul>
-    <li *ngFor="let story of (featuredStories | async)">
+<div class="background speckle">
+  <div class="content">
+    <span *ngFor="let story of (featuredStories | async)">
       <app-featured-story-card [story]="(story | async)"></app-featured-story-card>
-    </li>
-  </ul>
-</div>
-<div>
-  <h3>Stories:</h3>
-  <ul>
-    <li *ngFor="let story of (stories | async)">
-      <app-featured-story-card *ngIf="(story | async)?.featured" [story]="(story | async)"></app-featured-story-card>
-      <app-story-card *ngIf="!(story | async)?.featured" [story]="(story | async)"></app-story-card>  
-    </li>
-  </ul>
+    </span>
+    <span *ngFor="let story of (stories | async)">
+      <app-story-card [story]="(story | async)"></app-story-card>  
+    </span>
+  </div>
 </div>

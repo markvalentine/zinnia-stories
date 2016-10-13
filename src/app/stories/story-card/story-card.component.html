@@ -1,7 +1,7 @@
 <div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
-      <div id="burst-8"></div><div id="burst-8-2"></div>
+      <div id="burst-8"></div>
     </div>
   </div>
   <div class="content">

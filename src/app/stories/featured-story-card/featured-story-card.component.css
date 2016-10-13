@@ -1,4 +1,4 @@
-div.background {
+div.card {
     margin: 20px 0;
     padding: 0;
     background-color: #ffffff;
@@ -148,7 +148,7 @@ div.elipses {
 }
 
 @media only screen and (max-width: 640px) {
-    div.background {
+    div.card {
         height: 580px;
     }
     div.image{
