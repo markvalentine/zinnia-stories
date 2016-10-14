@@ -25,13 +25,13 @@ div.image {
 }
 
 div.story {
-    display: inline-flex;
-    flex-flow: column;
+    display: inline-block;
+    /*flex-flow: column;
 
 
     display: -webkit-inline-flex;
     -webkit-flex-flow: -webkit-column;
-    -ms-flex-flow: column;
+    -ms-flex-flow: column;*/
 
     /*display: inline-block;*/
     margin: 0;
@@ -47,27 +47,49 @@ div.story {
     line-height: 30px;
 }
 
+.overlay {
+    position: absolute;
+    z-index: 5;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    width: 100%;
+
+    bottom: 0;
+    left: 0;
+}
+
+.under-overlay {
+    position: relative;
+    z-index: 0;
+}
+
+.over-overlay {
+    position: relative;
+    z-index: 10;
+}
+
 h3 {
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 26px;
-    flex: 0 1 auto;
-    -webkit-flex: 0 1 auto;
-
+    /*flex: 0 1 auto;*/
+    /*-webkit-flex: 0 1 auto;*/
     line-height: 30px;
 }
 
-strong {
-    flex: 0 1 auto;
-    -webkit-flex: 0 1 auto;
+.description {
+    /*flex: 0 1 auto;*/
+    /*-webkit-flex: 0 1 auto;*/
 
     margin-top: 12px;
     margin-bottom: 12px;
 }
 
 p {
-    flex: 1 1 auto;
-    -webkit-flex: 1 1 auto;
+    /*flex: 1 1 auto;*/
+    /*-webkit-flex: 1 1 auto;*/
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
@@ -167,9 +189,10 @@ div.elipses {
         background-position-y: 0;
     }
     div.story {
-        height: 400px;
-        display: flex;
-        display: -webkit-flex;
+        height: 390px;
+        /*display: flex;
+        display: -webkit-flex;*/
+        display: block;
         width: 90%;
         margin: 0 auto;
         z-index: 10;
