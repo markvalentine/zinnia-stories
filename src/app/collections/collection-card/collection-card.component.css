@@ -3,7 +3,7 @@ div {
     margin: 10px 10px;
     padding: 20px;
     display: inline-block;
-    width: calc(49% - 20px);
+    width: calc(50% - 22px);
     min-width: 283px;
 
     text-align: center;

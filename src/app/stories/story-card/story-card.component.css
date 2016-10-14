@@ -119,7 +119,7 @@ h4 {
 
 @media only screen and (max-width: 875px) {
     div.card {
-        width: 47%;
+        width: calc(50% - 18px);
     }
     div.image {
         background-size: 120% auto;
