@@ -28,7 +28,9 @@ div.content {
     overflow: hidden;
 
     display: flex;
+    display: -webkit-flex;
     flex-flow: column;
+    -webkit-flex-flow: column;
 
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: .01rem;
@@ -44,6 +46,7 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
 }
 
 h4 {
@@ -52,6 +55,7 @@ h4 {
     font-size: 22px;
     line-height: 30px;
     flex: 0 1 auto;
+    -webkit-flex: 0 1 auto;
 }
 
 .bursts{
