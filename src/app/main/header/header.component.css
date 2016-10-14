@@ -1,7 +1,4 @@
-div {
-    /*position: fixed;
-    top: 0;
-    left: 0;*/
+/*div {
     background: #fdfcfc;
     background-image: url("../../../assets/images/speckle2.png");
     background-repeat: repeat;
@@ -44,4 +41,164 @@ a::visited {
 
 img {
     height: 40px;
+}*/
+
+img {
+    height: 40px;
+    padding: 12px 0;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  background: #fdfcfc;
+  background-image: url("../../../assets/images/speckle2.png");
+  background-repeat: repeat;
+}
+
+#logo {
+  display: block;
+  padding: 0 30px;
+  float: left;
+  font-size: 20px;
+  line-height: 60px;
+  height: 64px;
+}
+
+#drop {
+    display: none;
+}
+
+.toggle {
+    display: none;
+}
+
+nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav ul {
+  float: right;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+}
+
+nav ul li {
+  margin: 0px;
+  display: inline-block;
+  float: left;
+  height: 64px;
+}
+
+nav a {
+  display: block;
+  padding: 0 20px;
+  color: #4a4a4a;
+  font-size: 20px;
+  line-height: 60px;
+  text-decoration: none;
+}
+
+nav ul li ul li:hover { background: #eaebeb; }
+
+nav a:hover { text-decoration: underline }
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 60px;
+}
+
+nav ul li:hover > ul { display: inherit; }
+
+nav ul ul li {
+  width: 170px;
+  float: none;
+  display: list-item;
+  position: relative;
+}
+
+nav ul ul ul li {
+  position: relative;
+  top: -60px;
+  left: 170px;
+}
+
+/*li > a:after { content: ' +'; }*/
+
+@media all and (max-width : 768px) {
+
+#logo {
+  display: block;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  float: none;
+}
+
+nav { margin: 0; }
+
+.toggle + a,
+ .menu { display: none; }
+
+.toggle {
+  display: block;
+  padding: 0 20px;
+  color: #4a4a4a;
+  font-size: 20px;
+  line-height: 60px;
+  text-decoration: none;
+  border: none;
+}
+
+.toggle:hover { background-color: #eaebeb; }
+
+[id^=drop]:checked + ul { display: block; }
+
+nav ul li {
+  display: block;
+  width: 100%;
+}
+
+nav ul ul .toggle,
+ nav ul ul a { padding: 0 40px; }
+
+nav ul ul ul a { padding: 0 80px; }
+
+/*nav a:hover,*/
+ /*nav ul ul ul a { background-color: #cdcdcd; }*/
+
+/*nav ul li ul li .toggle,*/
+ /*nav ul ul a { background-color: #cdcdcd; }*/
+
+nav ul ul {
+  float: none;
+  position: static;
+  color: #ffffff;
+}
+
+nav ul ul li:hover > ul,
+nav ul li:hover > ul { display: none; }
+
+nav ul ul li {
+  display: block;
+  width: 100%;
+}
+
+nav ul ul ul li { position: static;
+
+}
+}
+
+@media all and (max-width : 330px) {
+
+nav ul li {
+  display: block;
+  width: 94%;
+}
+
 }

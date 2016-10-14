@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <nav>
     <a class="home" routerLink="/" routerLinkActive="active"><img src="../../../assets/images/brand.png"></a>
     <a routerLink="/help/" routerLinkActive="active">Help</a>
@@ -6,4 +6,16 @@
     <a routerLink="/collections/" routerLinkActive="active">Collections</a>
     <a routerLink="/stories/" routerLinkActive="active">Stories</a>
   </nav>
-</div>
+</div>-->
+
+<nav>
+  <div id="logo"><a class="home" routerLink="/" routerLinkActive="active"><img src="../../../assets/images/brand.png"></a></div>
+  <label for="drop" class="toggle">Menu</label>
+  <input type="checkbox" id="drop" />
+  <ul class="menu">
+    <li><a routerLink="/stories/" routerLinkActive="active">Stories</a></li>
+    <li><a routerLink="/collections/" routerLinkActive="active">Collections</a></li>
+    <li><a routerLink="/about/" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/help/" routerLinkActive="active">Help</a></li>
+  </ul>
+</nav>
