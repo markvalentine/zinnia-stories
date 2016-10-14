@@ -9,8 +9,9 @@
     <span *ngFor="let story of (featuredStories | async)">
       <app-featured-story-card [story]="(story | async)"></app-featured-story-card>
     </span>
-    <span *ngFor="let story of (stories | async)">
-      <app-story-card [story]="(story | async)"></app-story-card>  
+    <span *ngFor="let story of (stories | async); let index = index">
+      <app-featured-story-card *ngIf="(index % 7) == 6" [story]="(story | async)"></app-featured-story-card> 
+      <app-story-card *ngIf="(index % 7) != 6" [story]="(story | async)"></app-story-card>  
     </span>
   </div>
 </div>

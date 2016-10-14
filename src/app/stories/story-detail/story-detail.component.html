@@ -1,7 +1,8 @@
 <div class="background white">
   <div class="content story" *ngIf="story | async">
+    <span *ngIf="(isAuth | async)"><button (click)="toEdit()">Edit</button></span>
     <h3>{{(story | async).title}}</h3>
-    <strong><i>{{(story | async).description}}</i></strong>
+    <!--<strong><i>{{(story | async).description}}</i></strong>-->
     <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
     <p>{{(story | async).text}}</p>
     <div *ngIf="(story | async)?.featuredCollections.length > 0">
@@ -20,9 +21,5 @@
         </li>
       </ul>
     </div>
-    <span *ngIf="(isAuth | async)">
-      <br/><br/>
-      <button (click)="toEdit()">Edit</button>  
-    </span>
   </div>
 </div>

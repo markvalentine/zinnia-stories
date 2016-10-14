@@ -13,10 +13,12 @@ img.brand {
     vertical-align: top;
     display: inline-block;
     width: calc(25% - 3px);
-    min-width: 180px;
+    min-width: 148px;
     padding: 0 10px;
     text-align: left;
     margin-bottom: 20px;
+
+    border-left: 1px solid #4a4a4a;
 }
 
 .col.brand{
