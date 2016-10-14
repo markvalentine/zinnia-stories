@@ -11,11 +11,11 @@
 <nav>
   <div id="logo"><a class="home" routerLink="/" routerLinkActive="active"><img src="../../../assets/images/brand.png"></a></div>
   <label for="drop" class="toggle">Menu</label>
-  <input type="checkbox" id="drop" />
+  <input type="checkbox" id="drop" [(ngModel)]="checked"/>
   <ul class="menu">
-    <li><a routerLink="/stories/" routerLinkActive="active">Stories</a></li>
-    <li><a routerLink="/collections/" routerLinkActive="active">Collections</a></li>
-    <li><a routerLink="/about/" routerLinkActive="active">About</a></li>
-    <li><a routerLink="/help/" routerLinkActive="active">Help</a></li>
+    <li (click)="closeMenu()"><a routerLink="/stories/" routerLinkActive="active" (click)="closeMenu()">Stories</a></li>
+    <li (click)="closeMenu()"><a routerLink="/collections/" routerLinkActive="active">Collections</a></li>
+    <li (click)="closeMenu()"><a routerLink="/about/" routerLinkActive="active">About</a></li>
+    <li (click)="closeMenu()"><a routerLink="/help/" routerLinkActive="active">Help</a></li>
   </ul>
 </nav>

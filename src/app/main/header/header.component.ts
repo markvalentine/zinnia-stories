@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  checked: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closeMenu() {
+    console.log(this.checked);
+    this.checked = false;
+    console.log(this.checked);
   }
 
 }
