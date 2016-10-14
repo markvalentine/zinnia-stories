@@ -140,6 +140,10 @@ nav ul ul ul li {
   float: none;
 }
 
+.menu {
+  width: calc(100% - 20px);
+}
+
 nav { margin: 0; }
 
 .toggle + a,
