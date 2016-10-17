@@ -21,12 +21,18 @@
             <input type="file" (change)="changeListener($event)">
             <br/>
             <br/>
+            <div class="uploadProgress">
+                {{ uploaded }}
+            </div>
             <!--<div>
                 <label>featured?: </label>
                 <input type="checkbox" [(ngModel)]="newStory.featured"/>
             </div>-->
             <br/>
             <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
+
+            <app-story-preview [story]="story"></app-story-preview>
+
         </div>
         <div *ngIf="!(isAuth | async)">
             <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a story.</p>

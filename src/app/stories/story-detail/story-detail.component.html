@@ -5,21 +5,31 @@
     <!--<strong><i>{{(story | async).description}}</i></strong>-->
     <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
     <p>{{(story | async).text}}</p>
+    
+    <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
+      <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
+    </span>
+    <span *ngFor="let collectionKey of (story | async)?.collections">
+      <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
+    </span>
+
+
+  </div>
+</div>
+<!--<div class="background speckle">
+  <div class="content">
     <div *ngIf="(story | async)?.featuredCollections.length > 0">
       Featured Collections:
-      <ul>
-        <li *ngFor="let key of (story | async).featuredCollections">
-          <a routerLink="/collections/{{key}}" routerLinkActive="active" >{{(story | async)?.featuredCollectionsObject[key]}}</a>
-        </li>
-      </ul>
+      <span *ngFor="let key of (story | async).featuredCollections">
+        <app-related-stories [collectionKey]="key" [storyKey]="(story | async).$key"></app-related-stories>
+      </span>
     </div>
     <div *ngIf="(story | async)?.collections.length > 0">
       Collections:
-      <ul>
-        <li *ngFor="let key of (story | async).collections">
-          <a routerLink="/collections/{{key}}" routerLinkActive="active" >{{(story | async)?.collectionsObject[key]}}</a>
-        </li>
-      </ul>
+      <span *ngFor="let key of (story | async).collections">
+        {{key}} : {{(story | async).$key}}
+        <app-related-stories [collectionKey]="key" [storyKey]="(story | async).$key"></app-related-stories>
+      </span>
     </div>
   </div>
-</div>
+</div>-->

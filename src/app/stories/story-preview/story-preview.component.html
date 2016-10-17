@@ -1,0 +1,6 @@
+<div class="content story" *ngIf="story">
+    <h3>{{story?.title}}</h3>
+    <!--<strong><i>{{(story | async).description}}</i></strong>-->
+    <img *ngIf="story?.image_url" src="{{story?.image_url}}">
+    <p>{{story?.text}}</p>
+</div>

@@ -36,6 +36,7 @@ export class CollectionDetailComponent implements OnInit {
    * get key from params, get authentication from service, get story from service
    */
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.route.params.forEach((params: Params) => {
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();

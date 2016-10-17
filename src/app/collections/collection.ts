@@ -48,7 +48,7 @@ export class Collection {
      */
     getKeysFromJSONObject(object: any): string[] {
         if (object) {
-            return Object.keys(object);
+            return Object.keys(object).sort(function(a,b){return object[a]-object[b]});
         } else {
             return [];
         }

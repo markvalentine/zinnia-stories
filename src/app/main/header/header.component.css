@@ -90,7 +90,6 @@ nav ul {
 nav ul li {
   margin: 0px;
   display: inline-block;
-  float: left;
   height: 64px;
 }
 
@@ -133,11 +132,10 @@ nav ul ul ul li {
 @media all and (max-width : 768px) {
 
 #logo {
-  display: block;
+  display: inline-block;
   padding: 0;
-  width: 100%;
-  text-align: center;
-  float: none;
+  width: 70%;
+  text-align: left;
 }
 
 .menu {
@@ -150,16 +148,19 @@ nav { margin: 0; }
  .menu { display: none; }
 
 .toggle {
-  display: block;
+  display: inline-block;
+  width: calc(30% - 4px);
+  box-sizing: border-box;
   padding: 0 20px;
   color: #4a4a4a;
   font-size: 20px;
   line-height: 60px;
   text-decoration: none;
   border: none;
+  text-align: right;
 }
 
-.toggle:hover { background-color: #eaebeb; }
+.toggle:hover { text-decoration: underline }
 
 [id^=drop]:checked + ul { display: block; }
 

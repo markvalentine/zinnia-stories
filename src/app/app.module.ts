@@ -26,6 +26,7 @@ import { StoryCardComponent } from './stories/story-card/story-card.component';
 import { FeaturedStoryCardComponent } from './stories/featured-story-card/featured-story-card.component';
 import { EditStoryComponent } from './stories/edit-story/edit-story.component';
 import { AddStoryComponent } from './stories/add-story/add-story.component';
+import { StoryPreviewComponent } from './stories/story-preview/story-preview.component';
 import { StoryTextPipe } from './stories/story-text.pipe';
 
 import { CollectionService } from './collections/collection.service';
@@ -34,6 +35,7 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
 import { CollectionCardComponent } from './collections/collection-card/collection-card.component';
 import { EditCollectionComponent } from './collections/edit-collection/edit-collection.component';
 import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
+import { RelatedStoriesComponent } from './stories/related-stories/related-stories.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -68,7 +70,9 @@ export const myFirebaseAuthConfig = {
     CollectionCardComponent,
     EditCollectionComponent,
     AddCollectionComponent,
-    StoryTextPipe
+    StoryTextPipe,
+    StoryPreviewComponent,
+    RelatedStoriesComponent
   ],
   imports: [
     BrowserModule,

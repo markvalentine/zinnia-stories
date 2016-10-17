@@ -18,8 +18,8 @@ export class StoryService {
   imagesUrl = 'images/'
 
   // Default numbers for loading stories
-  defaultNumStories = 20;
-  defaultIncrement = 10;
+  defaultNumStories = 14;
+  defaultIncrement = 7;
   defaultNumFeaturedStories = 2;
 
   // Number of Stories loaded and BehaviorSubject for updating query
@@ -407,6 +407,7 @@ export class StoryService {
    * passing in undefined will load all stories (i think)
    */
   nextStories(increment?: number) {
+    console.log('next')
     if (increment) { this.numStories += increment }
     else { this.numStories += this.defaultIncrement }
     if (this.storiesLimit) { this.storiesLimit.next(this.numStories) }
@@ -483,6 +484,29 @@ export class StoryService {
       })
       .catch(err => subscriber.error(err));
     })
+  }
+
+  getRelatedStories(collection: Collection, storyKey: string) {
+    return Observable.create(subscriber => {
+      let relatedKeys = [];
+      let stories = [];
+      for (let key of collection.featuredStories) {
+        if (key != storyKey) relatedKeys.push(key);
+      }
+      relatedKeys.slice(0, 3);
+      let otherStories = collection.stories;
+      let indexOfStory = otherStories.indexOf(storyKey);
+      if (indexOfStory > -1) {
+        otherStories.splice(indexOfStory, 1);
+      }
+      relatedKeys = relatedKeys.concat(otherStories.slice(0, (3-relatedKeys.length)));
+      
+      for (let key of relatedKeys) {
+        stories.push(this.getStory(key));
+      }
+
+      subscriber.next(stories);
+    });
   }
 
 }

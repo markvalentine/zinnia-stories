@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-story-detail',
@@ -16,16 +15,13 @@ export class StoryDetailComponent implements OnInit {
   key: string;
   isAuth: any;
   story: Observable<Story>;
-  safeTransform: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private storyService: StoryService,
-    private adminService: AdminService,
-    private sanitizer: DomSanitizer
+    private adminService: AdminService
   ) {
-    this.safeTransform = sanitizer.bypassSecurityTrustStyle("margin-top: 0px; margin-bottom: 0px;");
   }
 
   /**
@@ -34,6 +30,7 @@ export class StoryDetailComponent implements OnInit {
    */
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
+      window.scrollTo(0, 0);
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();
       this.story = this.storyService.getStory(this.key);
