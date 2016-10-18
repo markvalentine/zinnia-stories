@@ -13,5 +13,11 @@
       <app-featured-story-card *ngIf="(index % 7) == 6" [story]="(story | async)"></app-featured-story-card> 
       <app-story-card *ngIf="(index % 7) != 6" [story]="(story | async)"></app-story-card>  
     </span>
+
+    <div *ngIf="!(collectionProperties | async) || !(featuredStories | async) || !(stories | async)" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
   </div>
 </div>

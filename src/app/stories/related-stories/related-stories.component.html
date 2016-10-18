@@ -1,4 +1,5 @@
-<div>Other stories from <a (click)="goToCollection()">{{collection?.title}}</a></div>
+<div>Other stories from <a (click)="goToCollection()">"{{collection?.title}}"</a></div>
+<hr/>
 <span *ngFor="let story of (relatedStories | async)">
     <app-story-card [story]="(story | async)"></app-story-card>  
 </span>

@@ -1,18 +1,25 @@
 <div class="background white">
-  <div class="content story" *ngIf="story | async">
-    <span *ngIf="(isAuth | async)"><button (click)="toEdit()">Edit</button></span>
-    <h3>{{(story | async).title}}</h3>
-    <!--<strong><i>{{(story | async).description}}</i></strong>-->
-    <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
-    <p>{{(story | async).text}}</p>
-    
-    <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
-      <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
-    </span>
-    <span *ngFor="let collectionKey of (story | async)?.collections">
-      <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
-    </span>
+  <div class="content story">
+    <div *ngIf="story | async">
+      <span *ngIf="(isAuth | async)"><button (click)="toEdit()">Edit</button></span>
+      <h3>{{(story | async).title}}</h3>
+      <!--<strong><i>{{(story | async).description}}</i></strong>-->
+      <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
+      <p>{{(story | async).text}}</p>
+      
+      <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
+        <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
+      </span>
+      <span *ngFor="let collectionKey of (story | async)?.collections">
+        <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
+      </span>
+    </div>
 
+    <div *ngIf="!(story | async)" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
 
   </div>
 </div>

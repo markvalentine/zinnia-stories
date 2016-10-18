@@ -43,7 +43,7 @@ export class RelatedStoriesComponent implements OnInit {
    * called by clicking on a story card in template
    */
   goToCollection() {
-    let link = ['/stories', this.collectionKey];
+    let link = ['/collections', this.collectionKey];
     this.router.navigate(link);
   }
 
