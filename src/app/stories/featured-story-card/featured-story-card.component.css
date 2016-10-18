@@ -7,6 +7,8 @@ div.card {
     vertical-align: top;
 
     position: relative;
+    
+    border: 1px solid #eaeaea;
 }
 
 div.image {

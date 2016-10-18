@@ -61,13 +61,13 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
   /**
    * listen to the scrolling to determine when to load next x stories
    */
-  @HostListener('window:scroll', ['$event']) 
-    checkScroll(event) {
-      if (document.body.scrollTop >= document.body.scrollHeight - window.innerHeight) {
-        if (!this.isLoadingNext) {
-          this.moreStories();
-        }
-      }
-    }
+  // @HostListener('window:scroll', ['$event']) 
+  //   checkScroll(event) {
+  //     if (document.body.scrollTop >= document.body.scrollHeight - window.innerHeight) {
+  //       if (!this.isLoadingNext) {
+  //         this.moreStories();
+  //       }
+  //     }
+  //   }
 
 }

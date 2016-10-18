@@ -81,7 +81,7 @@ nav:after {
 
 nav ul {
   float: right;
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
   list-style: none;
   position: relative;

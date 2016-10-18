@@ -9,6 +9,8 @@ div.card {
     height: 470px;
     vertical-align: top;
     overflow: hidden;
+
+    border: 1px solid #eaeaea;
 }
 
 div.image {

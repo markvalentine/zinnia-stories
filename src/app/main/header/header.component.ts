@@ -15,9 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   closeMenu() {
-    console.log(this.checked);
     this.checked = false;
-    console.log(this.checked);
   }
 
 }
