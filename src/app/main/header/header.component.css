@@ -54,6 +54,9 @@ nav {
   background: #fdfcfc;
   background-image: url("../../../assets/images/speckle2.png");
   background-repeat: repeat;
+
+
+    border-bottom: 1px solid #eaeaea;
 }
 
 #logo {

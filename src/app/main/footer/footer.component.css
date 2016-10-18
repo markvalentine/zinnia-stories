@@ -3,6 +3,9 @@
     background-image: url("../../../assets/images/speckle2.png");
     background-repeat: repeat;
     padding: 60px 10px;
+
+
+    border-top: 1px solid #eaeaea;
 }
 
 img.brand {
