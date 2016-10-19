@@ -4,7 +4,8 @@
       <app-featured-story-card *ngIf="(index % 7) == 0" [storyString]="story"></app-featured-story-card>
       <app-story-card *ngIf="(index % 7) != 0" [storyString]="story"></app-story-card>
     </span>
-    <div *ngIf="!isLoadingNext" class="load-more" (click)="moreStories()">Load More</div>
+    <!--This is a hack you should probably figure out the right way to do it-->
+    <div *ngIf="!isLoadingNext && ((stories | async)?.length % 7 == 0)" class="load-more" (click)="moreStories()">Load More</div>
     <div *ngIf="isLoadingNext" class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>

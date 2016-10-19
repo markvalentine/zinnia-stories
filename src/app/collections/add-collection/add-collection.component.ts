@@ -14,6 +14,8 @@ export class AddCollectionComponent implements OnInit {
   isAuth: any;
   isAdding: boolean;
 
+  uploaded: string;
+
   constructor(
     private adminService: AdminService,
     private collectionService: CollectionService,
@@ -21,6 +23,8 @@ export class AddCollectionComponent implements OnInit {
     this.collection = new Collection();
     this.isAuth = this.adminService.isAuth();
     this.isAdding = false;
+
+    this.uploaded = "No upload in progress";
   }
 
   ngOnInit() {
@@ -49,21 +53,22 @@ export class AddCollectionComponent implements OnInit {
     let file = event.target.files[0];
     let progress = 0;
     let downloadURL = '';
+    this.uploaded = progress+ '%';
     this.collectionService.uploadImage(file).subscribe(
       m => {
         console.log(m, progress);
         if (progress == 100) {
-          console.log('downloadURL: ', m);
           downloadURL = m;
+          this.uploaded = "finished uploading: " + downloadURL;
           this.collection.image_url = downloadURL;
         } else {
           progress = m;
-          console.log('progress: ', progress);
+          this.uploaded = progress+"%";
         }
       },
-      err => console.log(err),
+      err => this.uploaded = err+'',
       () => {
-        console.log('complete');
+        // this.uploaded = 'upload complete';
       }
     )
     

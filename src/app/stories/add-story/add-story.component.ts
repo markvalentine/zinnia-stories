@@ -26,7 +26,7 @@ export class AddStoryComponent implements OnInit {
     this.isAuth = this.adminService.isAuth();
     this.isAdding = false;
 
-    this.uploaded = "no upload in progess";
+    this.uploaded = "no upload in progress";
   }
 
   ngOnInit() {
@@ -61,19 +61,17 @@ export class AddStoryComponent implements OnInit {
       m => {
         console.log(m, progress);
         if (progress == 100) {
-          console.log('downloadURL: ', m);
           downloadURL = m;
           this.uploaded = "finished uploading: " + downloadURL;
           this.story.image_url = downloadURL;
         } else {
           progress = m;
           this.uploaded = progress+"%";
-          console.log('progress: ', progress);
         }
       },
-      err => console.log(err),
+      err => this.uploaded = err+'',
       () => {
-        console.log('complete');
+        // this.uploaded = 'upload complete';
       }
     )
     
