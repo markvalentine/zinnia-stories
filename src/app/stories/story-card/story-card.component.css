@@ -6,7 +6,7 @@ div.card {
     display: inline-block;
     width: 260px;
     min-width: 260px;
-    height: 470px;
+    height: 485px;
     vertical-align: top;
     overflow: hidden;
 
@@ -24,8 +24,8 @@ div.image {
 
 div.content {
     background-color: #ffffff;
-    padding: 18px;
-    height: 230px;
+    padding: 10px;
+    height: 240px;
     text-overflow:  ellipsis;
     overflow: hidden;
 
@@ -43,7 +43,7 @@ div.content {
 .overlay {
     position: absolute;
     width: 100%;
-    height: 20px;
+    height: 10px;
     bottom: 0;
     left: 0;
     background: #ffffff;
