@@ -7,7 +7,11 @@
   <div class="story under-overlay">
     <h3>{{story?.title}}</h3>
     <div class="description"><strong><i>{{story?.description}}</i></strong></div>
-    <p>{{story?.text}}</p>
-    <div class="overlay"></div>
+    <div class="overlay">
+      <span *ngIf="story?.featuredCollections.length > 0">Featured in:
+        <span *ngFor="let key of story?.featuredCollections; let last = last"><a click="goToDetail(key)"><i>{{story?.featuredCollectionsObject[key]}}</i></a><span *ngIf="!last"> | </span></span>
+      </span>
+      <span *ngFor="let key of story?.collections; let last = last"><a click="goToDetail(key)">{{story?.collectionsObject[key]}}</a><span *ngIf="!last"> | </span></span>
+    </div> 
   </div>
 </div>

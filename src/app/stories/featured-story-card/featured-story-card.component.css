@@ -54,8 +54,9 @@ div.story {
     z-index: 5;
     background: #ffffff;
     margin: 0;
-    padding: 0;
-    height: 20px;
+    padding: 20px;
+    min-height: 20px;
+    height: auto;
     width: 100%;
 
     bottom: 0;

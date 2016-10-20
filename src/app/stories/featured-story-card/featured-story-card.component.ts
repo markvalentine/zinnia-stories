@@ -36,4 +36,9 @@ export class FeaturedStoryCardComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  goToCollection(key: string) {
+    let link = ['/collections', key];
+    this.router.navigate(link);
+  }
+
 }

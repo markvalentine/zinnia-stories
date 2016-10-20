@@ -23,6 +23,16 @@ div {
     box-sizing: border-box;
 }
 
+a {
+    cursor: pointer;
+    color: inherit
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
 @font-face {
     font-family: 'Harlow';
     src: url("./assets/fonts/Harlow.ttf");
