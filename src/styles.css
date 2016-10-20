@@ -56,6 +56,18 @@ div {
     background: #ffffff;
 }
 
+.load-more {
+    height: 40px;
+    width: 160px;
+    background: #fff;
+    text-align: center;
+    margin: 33px auto;
+    font-size: 20px;
+    border: 1px solid #eaeaea;
+    color: #777;
+    padding: 4px 0;
+}
+
 .spinner {
   margin: 40px auto 40px;
   width: 70px;

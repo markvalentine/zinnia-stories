@@ -26,6 +26,10 @@ export class StoryService {
   numStories = this.defaultNumStories;
   storiesLimit: BehaviorSubject<number>;
 
+  // Number of Stories loaded for a collection and BehaviorSubject for updating query
+  numStoriesForCollection = this.defaultNumStories - 1;
+  storiesForCollectionLimit: BehaviorSubject<number>;
+
   constructor(
     private af: AngularFire,
     private collectionService: CollectionService
@@ -337,52 +341,6 @@ export class StoryService {
   }
 
   /**
-   * Get the first x featured stories
-   * I think this function could probably use a lot of work
-   */
-  // getFeaturedStories(): Observable<any> {
-  //   //get observable of featuredIds
-  //   let featuredIDsObserver = this.getFeaturedStoryIDs();
-
-  //   //create the observable i think we return
-  //   return Observable.create(observer => {
-  //     // subscribe to the ids
-
-  //     // we'll need to unsubscribe from this?
-  //     featuredIDsObserver.subscribe(ids => {
-
-  //       let featuredStories = [];
-  //       let featuredIDs = [];
-
-  //       let numIDs = ids.length;
-  //       let numLoaded = 0;
-
-  //       // for each id returned
-  //       for (let thisID of ids) {
-  //         //get id and push to id array
-  //         let id = thisID['$key'];
-  //         featuredIDs.push(id);
-
-  //         // subscribe to the story for the id
-  //         // maybe keep an array of subscribers and unsubscribe and resubscribe when we have to?
-  //         this.getStory(id).subscribe(story => {
-  //           //add into array (probably buggy)
-  //           let indexOfStory = featuredIDs.indexOf(id)
-  //           featuredStories.splice(indexOfStory, 1, story);
-  //           numLoaded++;
-
-  //           // observe when all loaded
-  //           if (numLoaded == numIDs) {observer.next(featuredStories)}
-  //         }, err => {
-  //           numIDs--;
-  //           if (numLoaded == numIDs) { observer.next(featuredStories) }
-  //         });
-  //       }
-  //     });
-  //   });
-  // }
-
-  /**
    * Gets the first x stories sorted by date_created
    * numStories is optional number of stories to load
    * see numStories in global variables for default value
@@ -407,22 +365,24 @@ export class StoryService {
    * passing in undefined will load all stories (i think)
    */
   nextStories(increment?: number) {
-    console.log('next')
     if (increment) { this.numStories += increment }
     else { this.numStories += this.defaultIncrement }
     if (this.storiesLimit) { this.storiesLimit.next(this.numStories) }
   }
 
   getStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
+    console.log('limit')
     return this.af.database.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
       query: {
-        orderByValue: true
+        orderByValue: true,
+        limitToFirst: this.storiesForCollectionLimit
       }
     })
   }
 
   // Remove the subsriber?
   getStoriesForCollection(key: string): Observable<any[]> {
+    this.storiesForCollectionLimit = new BehaviorSubject(this.numStoriesForCollection);
     let storyIDs = this.getStoryIDsForCollection(key);
     return Observable.create(subscriber => {
       storyIDs.subscribe(ids => {
@@ -435,8 +395,10 @@ export class StoryService {
     });
   }
 
-  nextStoriesForCollection() {
-    
+  nextStoriesForCollection(increment?: number) {
+    if (increment) { this.numStoriesForCollection += increment }
+    else { this.numStoriesForCollection += this.defaultIncrement }
+    if (this.storiesForCollectionLimit) { this.storiesForCollectionLimit.next(this.numStoriesForCollection) }
   }
 
     // Only two?

@@ -23,6 +23,8 @@ export class CollectionDetailComponent implements OnInit {
   featuredStoryIDs: FirebaseListObservable<any[]>;
   featuredStories: Observable<any[]>;
 
+  isLoadingNext = true;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -41,10 +43,11 @@ export class CollectionDetailComponent implements OnInit {
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();
       this.collectionProperties = this.collectionService.getCollectionProperties(this.key);
-      this.storyIDs = this.storyService.getStoryIDsForCollection(this.key);
+      // this.storyIDs = this.storyService.getStoryIDsForCollection(this.key);
       this.stories = this.storyService.getStoriesForCollection(this.key);
+      this.stories.subscribe(x => { this.isLoadingNext = false });
 
-      this.featuredStoryIDs = this.storyService.getFeaturedStoryIDsForCollection(this.key);
+      // this.featuredStoryIDs = this.storyService.getFeaturedStoryIDsForCollection(this.key);
       this.featuredStories = this.storyService.getFeaturedStoriesForCollection(this.key);
     });
   }
@@ -55,6 +58,11 @@ export class CollectionDetailComponent implements OnInit {
   toEdit(): void {
     let link = ['/edit-collection', this.key];
     this.router.navigate(link);
+  }
+
+  moreStories(increment?: number) {
+    this.isLoadingNext = true;
+    this.storyService.nextStoriesForCollection(increment);
   }
 
 }
