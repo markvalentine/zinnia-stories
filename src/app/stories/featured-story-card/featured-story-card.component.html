@@ -8,10 +8,23 @@
     <h3>{{story?.title}}</h3>
     <div class="description"><strong><i>{{story?.description}}</i></strong></div>
     <div class="overlay">
-      <span *ngIf="story?.featuredCollections.length > 0">Featured in:
-        <span *ngFor="let key of story?.featuredCollections; let last = last"><a click="goToDetail(key)"><i>{{story?.featuredCollectionsObject[key]}}</i></a><span *ngIf="!last"> | </span></span>
+      <span *ngIf="story?.featuredCollections.length > 0">Featured in:&nbsp;
+        <span *ngFor="let key of story?.featuredCollections; let last = last">
+          <a click="goToDetail(key)">
+            <i>{{story?.featuredCollectionsObject[key]}}</i>
+          </a>
+          <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span *ngIf="!last"><br/></span>
+        </span>
       </span>
-      <span *ngFor="let key of story?.collections; let last = last"><a click="goToDetail(key)">{{story?.collectionsObject[key]}}</a><span *ngIf="!last"> | </span></span>
+      <span *ngIf="story?.collections.length > 0">Found in:&nbsp;
+        <span *ngFor="let key of story?.collections; let last = last">
+          <a click="goToDetail(key)">
+            <i>{{story?.collectionsObject[key]}}</i>
+          </a>
+          <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        </span>
+      </span>
     </div> 
   </div>
 </div>
