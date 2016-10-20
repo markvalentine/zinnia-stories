@@ -120,6 +120,19 @@ div.elipses {
 
 .bursts{
     opacity: 0.9;
+    padding: 10px;
+}
+
+.featured{
+    top: 20px;
+    left: 20px;
+    height: 30px;
+    width: 30px;
+    background:#8ec6ba;
+    border-radius: 50%;
+    color: white;
+    overflow: hidden;
+    font-family: 'HarlowSolid', serif;
 }
 
 #burst-8 {

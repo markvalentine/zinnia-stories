@@ -1,7 +1,7 @@
 <div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
-      <div id="burst-8"></div>
+      <div class="featured"></div>
     </div>
   </div>
   <div class="story under-overlay">
@@ -10,7 +10,7 @@
     <div class="overlay">
       <span *ngIf="story?.featuredCollections.length > 0">Featured in:&nbsp;
         <span *ngFor="let key of story?.featuredCollections; let last = last">
-          <a click="goToDetail(key)">
+          <a (click)="goToCollection(key)">
             <i>{{story?.featuredCollectionsObject[key]}}</i>
           </a>
           <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
@@ -19,7 +19,7 @@
       </span>
       <span *ngIf="story?.collections.length > 0">Found in:&nbsp;
         <span *ngFor="let key of story?.collections; let last = last">
-          <a click="goToDetail(key)">
+          <a (click)="goToCollection(key)">
             <i>{{story?.collectionsObject[key]}}</i>
           </a>
           <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
