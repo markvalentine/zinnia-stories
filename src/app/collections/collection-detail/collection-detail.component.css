@@ -41,7 +41,9 @@ div.collection {
 }
 
 h3 {
-    font-size: 38px;
+    font-size: 46px;
+    font-weight: 200;
+    font-family: "Milkshake";
     margin-top: 20px;
     margin-bottom: 20px;
 }

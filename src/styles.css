@@ -43,6 +43,22 @@ a:hover {
     src: url("./assets/fonts/HarlowSolid.ttf");
 }
 
+@font-face {
+    font-family: 'FabfeltScript';
+    src: url("./assets/fonts/fabfeltscript.bold.ttf");
+}
+
+@font-face {
+    font-family: "WisdomScript";
+    src: url("./assets/fonts/Wisdom Script AJ.otf");
+}
+
+@font-face {
+    font-family: "Milkshake";
+    src: url("./assets/fonts/Milkshake.ttf");
+}
+
+
 .background {
     width: 100%;
     padding: 40px 10px;
