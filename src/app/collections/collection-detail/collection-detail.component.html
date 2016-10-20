@@ -6,11 +6,11 @@
 </div>
 <div class="background speckle">
   <div class="content">
-    <div style="text-align: center; font-family: 'Milkshake'; font-size: 40px; color: #7a7a7a">Featured Story</div>
+    <div class="featured title">Featured Story</div>
     <span *ngFor="let story of (featuredStories | async)">
       <app-featured-story-card [story]="(story | async)"></app-featured-story-card>
     </span>
-    <div style="margin: 30px auto 10px; text-align: center; font-family: 'Milkshake'; font-size: 32px; color: #7a7a7a">More Stories</div>
+    <div class="title more-stories">More Stories</div>
     <span *ngFor="let story of (stories | async); let index = index">
       <app-featured-story-card *ngIf="(index % 7) == 6" [story]="(story | async)"></app-featured-story-card> 
       <app-story-card *ngIf="(index % 7) != 6" [story]="(story | async)"></app-story-card>  

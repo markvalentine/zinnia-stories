@@ -65,14 +65,14 @@ h4 {
 .bursts{
     opacity: 0.9;
     position: absolute;
-    padding: 10px;
+    padding: 8px;
 }
 
 .featured{
     top: 20px;
     left: 20px;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background:#8ec6ba;
     border-radius: 50%;
     color: white;
