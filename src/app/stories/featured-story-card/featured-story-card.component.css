@@ -195,7 +195,8 @@ div.elipses {
 
 @media only screen and (max-width: 640px) {
     div.card {
-        height: 580px;
+        height: auto;
+        max-height: 580px;
     }
     div.image{
         display: block;
@@ -204,16 +205,22 @@ div.elipses {
         background-size: 100% auto;
         background-position-y: 0;
     }
+
+    .description {
+        margin-bottom: 60px;
+    }
+
     div.story {
-        height: 394px;
+        height: auto;
+        max-height: 394px;
         /*display: flex;
         display: -webkit-flex;*/
         display: block;
         width: 90%;
-        margin: 0 auto;
+        margin: -80px auto 0;
         z-index: 10;
-        position: relative;
-        top: -80px;
+        /*position: relative;*/
+        /*top: -80px;*/
         background: #ffffff;
 
     }
