@@ -1,6 +1,7 @@
 <div class="background speckle">
   <div class="content">
-    <span *ngFor="let story of (stories | async); let index = index;">
+    <span *ngFor="let story of (stories | async); let index = index; let first = first;">
+      <div *ngIf="first" class="title">Stories</div>
       <app-featured-story-card *ngIf="(index % 7) == 0" [storyString]="story"></app-featured-story-card>
       <app-story-card *ngIf="(index % 7) != 0" [storyString]="story"></app-story-card>
     </span>

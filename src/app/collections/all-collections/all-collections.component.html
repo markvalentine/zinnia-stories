@@ -1,6 +1,7 @@
 <div class="background speckle">
   <div class="content">
-    <span *ngFor="let collection of (collections | async)" (click)="goToDetail(collection.$key)">
+    <span *ngFor="let collection of (collections | async); let first = first;" (click)="goToDetail(collection.$key)">
+      <div *ngIf="first" class="title">Collections</div>
       <app-collection-card [collectionString]="collection"></app-collection-card>
     </span>
     <div *ngIf="!(collections | async)" class="spinner">
