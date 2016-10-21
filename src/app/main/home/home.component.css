@@ -53,3 +53,18 @@ hr {
     margin-top: -100px;
     margin-bottom: 40px;
 }
+
+@media only screen and (max-width: 640px) {
+    .banner {
+        padding: 20px 10px;
+    }
+
+    .banner-text {
+        padding: 10px;
+        font-size: 22px;
+    }
+
+    h1{
+        font-size: 28px;
+    }
+}
