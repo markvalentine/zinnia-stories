@@ -14,7 +14,7 @@
             <i>{{story?.featuredCollectionsObject[key]}}</i>
           </a>
           <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-          <span *ngIf="!last"><br/></span>
+          <span *ngIf="last"><br/></span>
         </span>
       </span>
       <span *ngIf="story?.collections.length > 0">Found in:&nbsp;

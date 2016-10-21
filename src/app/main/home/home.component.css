@@ -1,0 +1,55 @@
+.title {
+    text-align: center;
+    font-family: 'Milkshake';
+    color: #7a7a7a;
+}
+
+.banner {
+    width: 100%;
+    padding: 40px 60px;
+    text-align: center;
+}
+
+.banner-text {
+    text-align: left;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px;
+    color: #5a5a5a;
+    font-size: 26px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+    margin: 0 auto 20px auto;
+    font-size: 34px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#Line {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: dash 4s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+hr {
+    margin: 80px 0;
+    border-bottom: 1px solid #cecece;
+    border-left: 1px solid #cecece;
+    border-top: 1px solid #aeaeae;
+    border-right: 1px solid #aeaeae;
+}
+
+.load-more {
+    margin-top: -100px;
+    margin-bottom: 40px;
+}
