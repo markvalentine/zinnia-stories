@@ -52,11 +52,13 @@ div.content {
 }
 
 .read-more {
-    border: 1px solid #cecece;
+    border: 1px solid #e0e0e0;
+    color: #777;
     font-size: 15px;
     width: 100px;
     margin: 0 auto;
     height: 30px;
+    cursor: pointer;
 }
 
 p {
