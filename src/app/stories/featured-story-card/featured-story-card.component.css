@@ -63,6 +63,17 @@ div.story {
     left: 0;
 }
 
+.read-more {
+    border: 1px solid #cecece;
+    font-size: 15px;
+    width: 100px;
+    margin: 0 auto;
+    height: 30px;
+    text-align: center;
+    position: relative;
+    bottom: -8px;
+}
+
 .under-overlay {
     position: relative;
     z-index: 0;
@@ -207,7 +218,7 @@ div.elipses {
     }
 
     .description {
-        margin-bottom: 60px;
+        margin-bottom: 80px;
     }
 
     div.story {
