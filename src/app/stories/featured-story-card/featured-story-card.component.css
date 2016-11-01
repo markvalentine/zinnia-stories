@@ -64,7 +64,8 @@ div.story {
 }
 
 .read-more {
-    border: 1px solid #e0e0e0;
+    /*border: 1px solid #e0e0e0;*/
+    text-decoration: underline;
     color: #777;
     font-size: 15px;
     width: 100px;
@@ -74,6 +75,10 @@ div.story {
     position: relative;
     bottom: -8px;
     cursor: pointer;
+}
+
+.read-more:hover {
+    color: #4a4a4a;
 }
 
 .under-overlay {
@@ -134,6 +139,7 @@ div.elipses {
 .bursts{
     opacity: 0.9;
     padding: 10px;
+    text-align: center;
 }
 
 .featured{
@@ -236,5 +242,9 @@ div.elipses {
         /*top: -80px;*/
         background: #ffffff;
 
+    }
+
+    .banner {
+        height: 48px;
     }
 }
