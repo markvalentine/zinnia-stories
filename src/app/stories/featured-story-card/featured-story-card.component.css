@@ -19,11 +19,30 @@ div.image {
     height: 100%;
     vertical-align: top;
     overflow: hidden;
+    position: relative;
 
     background-image: url();
     background-size: auto 100%;
     background-position: 50%;
     background-repeat: no-repeat;
+}
+
+.bar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background-image: -webkit-linear-gradient(top, #8EC6BA 0%, #96B6BF 100%);
+    background-image: -o-linear-gradient(top, #8EC6BA 0%, #96B6BF 100%);
+    background-image: linear-gradient(to bottom, #8EC6BA 0%, #96B6BF 100%);
+}
+
+.bar.feature {
+    opacity: 0.9;
+    background-image: -webkit-linear-gradient(top, #EE7474 0%, #E1AAAA 100%);
+    background-image: -o-linear-gradient(top, #EE7474 0%, #E1AAAA 100%);
+    background-image: linear-gradient(to bottom, #EE7474 0%, #E1AAAA 100%);
 }
 
 div.story {
@@ -223,6 +242,15 @@ div.elipses {
         width: 100%;
         background-size: 100% auto;
         background-position-y: 0;
+        
+    }
+
+    .bar {
+        top: initial;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 7px;
     }
 
     .description {

@@ -4,6 +4,8 @@
       <!--<div class="featured"></div>-->
       <img class="banner" src="assets/images/banner.png">
     </div>
+    <div *ngIf="!story?.featured && !(noShowStar)" class="bar"></div>
+    <div *ngIf="story?.featured || (noShowStar)" class="bar feature"></div>
   </div>
   <div class="story under-overlay">
     <h3>{{story?.title}}</h3>

@@ -89,7 +89,7 @@ h4 {
 }
 
 .featured{
-    height: 10px;
+    height: 7px;
     width: 100%;
     /*background: #d96f6e;*/
     /*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);*/
@@ -106,15 +106,15 @@ h4 {
 }
 
 .unfeatured{
-    height: 10px;
+    height: 7px;
     width: 100%;
     /*background: #d96f6e;*/
     /*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);*/
     /* Rectangle: */
     /* Rectangle: */
-    background-image: -webkit-linear-gradient(left, #96ABBF 0%, #8EC6BA 100%);
-    background-image: -o-linear-gradient(left, #96ABBF 0%, #8EC6BA 100%);
-    background-image: linear-gradient(to right, #96ABBF 0%, #8EC6BA 100%);
+    background-image: -webkit-linear-gradient(left, #8EC6BA 0%, #96B6BF 100%);
+    background-image: -o-linear-gradient(left, #8EC6BA 0%, #96B6BF 100%);
+    background-image: linear-gradient(to right, #8EC6BA 0%, #96B6BF 100%);
     /* border-radius: 50%; */
     color: white;
     overflow: hidden;

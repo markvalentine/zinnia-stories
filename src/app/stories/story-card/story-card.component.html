@@ -1,8 +1,8 @@
 <div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
-    <div *ngIf="!(noShowStar)" class="bursts">
-      <div *ngIf="story?.featured"  class="featured"></div>
-      <div *ngIf="!story?.featured"  class="unfeatured"></div>
+    <div class="bursts">
+      <div *ngIf="story?.featured && !(noShowStar)"  class="featured"></div>
+      <div *ngIf="!story?.featured || (noShowStar)"  class="unfeatured"></div>
     </div>
   </div>
   <div class="content">
