@@ -87,6 +87,7 @@ h4 {
     /*padding: 8px;*/
     width: 100%;
     bottom: 0;
+    height: 100%;
 }
 
 .featured{
@@ -103,7 +104,21 @@ h4 {
     /* border-radius: 50%; */
     color: white;
     overflow: hidden;
-    font-family: 'HarlowSolid', serif;
+    font-family: 'Milkshake', serif;
+    font-size: 22px;
+    padding: 7px 0 0 0;
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
+
+	-webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+.bursts:hover > .featured {
+    height: 50px;
 }
 
 .unfeatured{
@@ -119,7 +134,13 @@ h4 {
     /* border-radius: 50%; */
     color: white;
     overflow: hidden;
-    font-family: 'HarlowSolid', serif;
+    font-family: 'Milkshake', serif;
+    font-size: 22px;
+    padding: 7px 0 0 0;
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
 }
 
 #burst-8 {

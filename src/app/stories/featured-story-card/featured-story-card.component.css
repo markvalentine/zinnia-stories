@@ -46,8 +46,15 @@ div.image {
     background-image: linear-gradient(to bottom, #EE7474 0%, #E1AAAA 100%);
 }
 
-.grow { transition: all .16s ease-in-out; }
-.grow:hover { transform: scale(1.05); }
+.grow {
+    position: relative;
+    top: 0;
+    transition: all .1s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.1);
+    top: 20px;
+}
 
 div.story {
     display: inline-block;

@@ -37,7 +37,7 @@ h3 {
     font-family: 'EB Garamond', serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 34px;
+    font-size: 38px;
 }
 
 p {
@@ -45,6 +45,7 @@ p {
     font-size: 24px;
     line-height: 1.7;
     letter-spacing: 0em;
+    margin-bottom: 40px;
 }
 
 @media only screen and (max-width: 640px) {
@@ -64,5 +65,6 @@ p {
     p {
         font-size: 20px;
         line-height: 1.4;
+        margin-bottom: 20px;
     }
 }
