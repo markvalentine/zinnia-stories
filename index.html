@@ -19,5 +19,24 @@
       <div class="bounce3"></div>
     </div>
   </app-root>
-<script type="text/javascript" src="inline.js"></script><script type="text/javascript" src="styles.e835250960bf5b0ed70d.bundle.js"></script><script type="text/javascript" src="main.23e89595437c74f1ea69.bundle.js"></script></body>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1731698693820081',
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript" src="inline.js"></script><script type="text/javascript" src="styles.e835250960bf5b0ed70d.bundle.js"></script><script type="text/javascript" src="main.8d15c9b0f35de371ed02.bundle.js"></script></body>
 </html>
