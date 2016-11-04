@@ -171,7 +171,7 @@ div.elipses {
 	transition: height 0.5s;
 }
 
-.bursts:hover > .banner {
+.card:hover .banner {
     height: 75px;
 }
 

@@ -117,7 +117,7 @@ h4 {
 	transition: height 0.5s;
 }
 
-.bursts:hover > .featured {
+.card:hover .featured {
     height: 50px;
 }
 
