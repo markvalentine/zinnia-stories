@@ -1,12 +1,19 @@
 <div class="background white">
   <div class="content story">
     <div *ngIf="story | async">
-      <span *ngIf="(isAuth | async)"><button (click)="toEdit()">Edit</button></span>
+      <span *ngIf="(isAuth | async)"><br/><button (click)="toEdit()">Edit</button></span>
       <h3>{{(story | async).title}}</h3>
+      <div class="social-media">
+        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
+        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+      </div>
       <!--<strong><i>{{(story | async).description}}</i></strong>-->
-      <img *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
+      <img class="image" *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
       <p>{{(story | async).text}}</p>
-      
+      <div class="social-media">
+        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
+        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+      </div>
       <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
         <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
       </span>

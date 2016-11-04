@@ -9,11 +9,23 @@
     letter-spacing: -.003em;
 }
 
-img {
+.social-media {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.social-media-icon {
+    height: 30px;
+    width: 30px;
+    margin: 5px 10px;
+    border-radius: 30px;
+}
+
+.image {
     display: block;
     height: auto;
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto 40px auto;
 }
 
 h3 {
