@@ -8,7 +8,7 @@ div.card {
 
     position: relative;
     
-    /*border: 1px solid #eaeaea;*/
+    border: 1px solid #eaeaea;
     box-shadow: rgba(0,0,0,0.1) 0 1px 0px,rgba(0,0,0,0.1) 0 2px 2px 0px;
 }
 
@@ -45,6 +45,9 @@ div.image {
     background-image: -o-linear-gradient(top, #EE7474 0%, #E1AAAA 100%);
     background-image: linear-gradient(to bottom, #EE7474 0%, #E1AAAA 100%);
 }
+
+.grow { transition: all .16s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
 
 div.story {
     display: inline-block;
@@ -157,9 +160,15 @@ div.elipses {
 }
 
 .bursts{
-    opacity: 0.9;
-    padding: 10px;
+    /*opacity: 0.9;*/
+    padding: 15px;
     text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.banner {
+    height: 60px;
 }
 
 .featured{
