@@ -46,19 +46,6 @@ div.image {
     background-image: linear-gradient(to bottom, #EE7474 0%, #E1AAAA 100%);
 }
 
-.grow {
-    position: relative;
-    top: 0;
-    -webkit-transition: all .2s;
-	-moz-transition: all .2s;
-    transition: all .2s;
-
-}
-.grow:hover {
-    transform: scale(1.15);
-    top: 10%;
-}
-
 div.story {
     display: inline-block;
     /*flex-flow: column;
@@ -179,6 +166,13 @@ div.elipses {
 
 .banner {
     height: 60px;
+    -webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+.bursts:hover > .banner {
+    height: 75px;
 }
 
 .featured{
