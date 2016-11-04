@@ -49,11 +49,14 @@ div.image {
 .grow {
     position: relative;
     top: 0;
-    transition: all .1s ease-in-out;
+    -webkit-transition: all .2s;
+	-moz-transition: all .2s;
+    transition: all .2s;
+
 }
 .grow:hover {
-    transform: scale(1.1);
-    top: 20px;
+    transform: scale(1.15);
+    top: 10%;
 }
 
 div.story {
