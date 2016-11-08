@@ -1,3 +1,4 @@
+<a id="proxyAnchor-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{story?.title}}">proxy</a>
 <div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
@@ -28,7 +29,13 @@
           <span *ngIf="!last">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
         </span>
       </div>
-      <div class="read-more">Read More</div>
+      <div class="read-more">
+        <span class="underline">Read More</span>
+        <span class="social-media">
+          <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb.svg"></a>
+          <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        </span>
+      </div>
     </div> 
   </div>
 </div>

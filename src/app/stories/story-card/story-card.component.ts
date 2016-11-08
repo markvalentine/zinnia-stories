@@ -36,4 +36,22 @@ export class StoryCardComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  facebook(event: Event) {
+    event.stopPropagation();
+    console.log(this.router.url);
+    FB.ui(
+      {
+        method: 'feed',
+        name: this.story.title,
+        description: this.story.description,
+        picture: this.story.image_url,
+        link: 'https://markvalentine.github.io/zinnia-stories'+this.router.url
+      }, function(response){});
+  }
+
+  stopProp(event: Event) {
+    event.stopPropagation();
+    document.getElementById("proxyAnchor-"+this.story.$key).click();
+  }
+
 }

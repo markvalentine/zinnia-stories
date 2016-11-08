@@ -57,6 +57,10 @@ p {
         margin: 5px;
     }
 
+    .image {
+        margin: 0 auto 20px auto;
+    }
+
     h3 {
         font-size: 26px;
         margin: 10px auto;
