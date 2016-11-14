@@ -15,10 +15,10 @@
 }
 
 .social-media-icon {
-    height: 30px;
-    width: 30px;
-    margin: 5px 10px;
-    border-radius: 30px;
+    height: 35px;
+    width: 35px;
+    margin: 5px 7px;
+    border-radius: 35px;
     transition: all .16s ease-in-out;
 }
 
