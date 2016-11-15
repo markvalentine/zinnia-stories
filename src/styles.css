@@ -90,7 +90,7 @@ a:hover {
 .load-more {
     height: 40px;
     width: 160px;
-    background: #8ec6ba;
+    background: #74c7b6;
     text-align: center;
     margin: 33px auto;
     font-size: 20px;
@@ -102,7 +102,7 @@ a:hover {
 
 .load-more:hover {
     cursor: pointer;
-    background: #7aaba0;
+    background: #63a99b;
 }
 
 .spinner {

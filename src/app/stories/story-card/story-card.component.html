@@ -3,13 +3,9 @@
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div class="bursts">
       <div *ngIf="story?.featured && !(noShowStar)"  class="featured">
-        Featured Story<br/>
-        <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb-white.svg"></a>
-        <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter-white.svg"></a>
+        Featured Story
       </div>
       <div *ngIf="!story?.featured || (noShowStar)"  class="unfeatured">
-        <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb-white.svg"></a>
-        <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter-white.svg"></a>
       </div>
     </div>
   </div>
@@ -18,6 +14,10 @@
     <p>{{story?.description}}</p>
     <div class="overlay">
       <div class="read-more">Read More</div>
+      <span class="social-media">
+        <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb.svg"></a>
+        <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+      </span>
     </div>
   </div>
   <!--<div *ngIf="story?.featuredCollections?.length > 0">

@@ -38,9 +38,9 @@ div.image {
     top: 0;
     width: 7px;
     height: 100%;
-    background-image: -webkit-linear-gradient(top, #8EC6BA 0%, #96B6BF 100%);
-    background-image: -o-linear-gradient(top, #8EC6BA 0%, #96B6BF 100%);
-    background-image: linear-gradient(to bottom, #8EC6BA 0%, #96B6BF 100%);
+    background-image: -webkit-linear-gradient(top, #7ED2C0 0%, #7ECDD2 100%);
+    background-image: -o-linear-gradient(top, #7ED2C0 0%, #7ECDD2 100%);
+    background-image: linear-gradient(to bottom, #7ED2C0 0%, #7ECDD2 100%);
 }
 
 .bar.feature {
@@ -207,7 +207,7 @@ div.elipses {
     left: 20px;
     height: 30px;
     width: 30px;
-    background:#8ec6ba;
+    background:#7ED2C0;
     border-radius: 50%;
     color: white;
     overflow: hidden;
@@ -244,7 +244,7 @@ div.elipses {
 }
 
 #burst-8-2 {
-    background: #8ec6ba;
+    background: #7ED2C0;
     width: 28px;
     height: 28px;
     position: relative;
@@ -264,7 +264,7 @@ div.elipses {
     left: 0;
     height: 28px;
     width: 28px;
-    background: #8ec6ba;
+    background: #7ED2C0;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
        -moz-transform: rotate(135deg);
