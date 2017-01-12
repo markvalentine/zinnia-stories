@@ -15,6 +15,8 @@ export class Story {
     collections: string[];
     collectionsObject: any;
 
+    delta: any;
+
     //Maybe we have a array of ids and also the object so we can get the name as the value??
 
     /**
@@ -47,6 +49,8 @@ export class Story {
         this.featuredCollectionsObject = {};
         this.collections = [];
         this.collectionsObject = {};
+
+        this.delta = null;
     }
 
     /**
@@ -79,6 +83,8 @@ export class Story {
         this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections']);
         this.collectionsObject = json['collections'];
         this.collections = this.getKeysFromJSONObject(json['collections']);
+
+        this.delta = json['delta'];
     }
 
 }

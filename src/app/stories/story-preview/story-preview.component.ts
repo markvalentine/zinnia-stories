@@ -25,4 +25,11 @@ export class StoryPreviewComponent implements OnInit {
     }
   }
 
+  previewStory() {
+    var tempCont = document.getElementById('delta');
+    (new Quill(tempCont, {readOnly: true})).setContents(this.story.delta);
+    tempCont.getElementsByClassName("ql-editor")[0].setAttribute("style", "padding: 0;");
+    return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
+  }
+
 }

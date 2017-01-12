@@ -12,9 +12,12 @@
                 <input [(ngModel)]="story.description" placeholder="description"/>
             </div>
             <br/>
-            <div>
+            <!--<div>
                 <label>story: </label>
                 <textarea [(ngModel)]="story.text" placeholder="story"></textarea>
+            </div>-->
+            <span>story: </span>
+            <div id="editor" (click)="loadEditor()">
             </div>
             <br/>
             <br/>
@@ -29,9 +32,17 @@
                 <input type="checkbox" [(ngModel)]="newStory.featured"/>
             </div>-->
             <br/>
+            <button (click)="previewStory()">Preview Story</button><br/>
+
+            <!--<app-story-preview [story]="story"></app-story-preview>-->
+            <h2>{{storyPreview?.title}}</h2>
+            <!--<strong><i>{{(story | async).description}}</i></strong>-->
+            <img *ngIf="storyPreview?.image_url" src="{{storyPreview?.image_url}}">
+            <!--<p>{{story?.text}}</p>-->
+            <div id="delta"></div>
+
             <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
 
-            <app-story-preview [story]="story"></app-story-preview>
 
         </div>
         <div *ngIf="!(isAuth | async)">

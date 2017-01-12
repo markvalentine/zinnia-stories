@@ -44,7 +44,8 @@ export class StoryService {
         'description': story.description,
         'text': story.text,
         'image_url': story.image_url,
-        'date_created': -date
+        'date_created': -date,
+        'delta': story.delta
       })
         .then(story => {
           resolve(story.key);

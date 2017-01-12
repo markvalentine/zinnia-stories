@@ -37,6 +37,12 @@ export class StoryDetailComponent implements OnInit {
       this.story = this.storyService.getStory(this.key);
       this.story.subscribe(x => {
         this.storyObject = x;
+        if (this.storyObject.delta) {
+          var tempCont = document.getElementById('delta');
+          (new Quill(tempCont, {readOnly: true})).setContents(this.storyObject.delta);
+          tempCont.getElementsByClassName("ql-editor")[0].setAttribute("style", "padding: 0;");
+          return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
+        }
       });
     });
   }

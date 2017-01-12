@@ -19,6 +19,20 @@ body {
     background-repeat: repeat;
 }
 
+.ql-font-cormorant-garamond {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.ql-container {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    font-size: 20px;
+}
+
 .state-back {
     background-image: url("./assets/images/state-outline.png");
     background-repeat: repeat;
@@ -26,6 +40,17 @@ body {
 
 div {
     box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+iframe {
+    max-width: 100%;
+    width: 640px;
+    height: 360px;
+    margin: 0 auto;
 }
 
 a {
