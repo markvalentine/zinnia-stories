@@ -9,18 +9,13 @@
 </div>-->
 
 <nav>
-  <div id="logo">
-    <a class="home" routerLink="/" routerLinkActive="active" style="color: #ff8b92" (click)="closeMenu()">
-      <!--<img src="./assets/images/brand.svg">-->
-      <span style="font-family: 'Milkshake'; font-size: 38px;">Ramblin</span>
-    </a>
-  </div>
-  <label for="drop" class="toggle">Menu</label>
+  <label for="drop" class="toggle"><img src="../../../assets/images/hamburger.png"></label>
   <input type="checkbox" id="drop" [(ngModel)]="checked"/>
   <ul class="menu">
-    <li (click)="closeMenu()"><a routerLink="/stories/" routerLinkActive="active" (click)="closeMenu()">Stories</a></li>
-    <li (click)="closeMenu()"><a routerLink="/collections/" routerLinkActive="active">Collections</a></li>
-    <li (click)="closeMenu()"><a routerLink="/about/" routerLinkActive="active">About</a></li>
-    <li (click)="closeMenu()"><a routerLink="/help/" routerLinkActive="active">Help</a></li>
+    <li class="left" (click)="closeMenu()"><a routerLink="/stories/" routerLinkActive="active" (click)="closeMenu()">Stories</a></li>
+    <li class="left" (click)="closeMenu()"><a routerLink="/about/" routerLinkActive="active">About</a></li>
+    <li class="right" (click)="closeMenu()"><a routerLink="/team/" routerLinkActive="active">Team</a></li>
+    <li class="right" (click)="closeMenu()"><a routerLink="/contact/" routerLinkActive="active">Contact</a></li>
   </ul>
+  <a class="home" id="logo" routerLink="/" routerLinkActive="active" (click)="closeMenu()">Ramblin</a>
 </nav>

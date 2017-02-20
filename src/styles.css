@@ -3,20 +3,11 @@ body {
     margin: 0;
     border: 0;
     padding: 0;
-    /*background-color: #fafafa;*/
+    background-color: #ffffff;
     height: 100%;
+    color: #666;
 
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: .01rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.58;
-    letter-spacing: -.003em;
-
-    color: #444444;
-    background: #fdfcfc;
-    background-image: url("./assets/images/speckle2.png");
-    background-repeat: repeat;
+    font-family: "Georgia", "Times New Roman", Times, serif;
 }
 
 .ql-font-cormorant-garamond {
@@ -64,28 +55,124 @@ a:hover {
 }
 
 @font-face {
-    font-family: 'Harlow';
-    src: url("./assets/fonts/Harlow.ttf");
-}
-
-@font-face {
-    font-family: "HarlowSolid";
-    src: url("./assets/fonts/HarlowSolid.ttf");
-}
-
-@font-face {
-    font-family: 'FabfeltScript';
-    src: url("./assets/fonts/fabfeltscript.bold.ttf");
-}
-
-@font-face {
-    font-family: "WisdomScript";
-    src: url("./assets/fonts/Wisdom Script AJ.otf");
-}
-
-@font-face {
     font-family: "Milkshake";
     src: url("./assets/fonts/Milkshake.ttf");
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_ultra_light-webfont.woff");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_light-webfont.woff");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_regular-webfont.woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_medium-webfont.woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_bold-webfont.woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_extrabold-webfont.woff");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Butler";
+    src: url("./assets/fonts/butler_black-webfont.woff");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url("./assets/fonts/Georgia.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url("./assets/fonts/Georgia Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url("./assets/fonts/Georgia Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url("./assets/fonts/Georgia Bold Italic.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("./assets/fonts/Times New Roman.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("./assets/fonts/Times New Roman Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("./assets/fonts/Times New Roman Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("./assets/fonts/Times New Roman Bold Italic.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Phosphate";
+    src: url("./assets/fonts/Phosphate-Inline.ttf");
+}
+
+h1 {
+    font-family: "Phosphate";
+    font-size: 50px;
+    font-weight: normal;
 }
 
 
@@ -98,18 +185,8 @@ a:hover {
 
 .background .content{
     width: 100%;
-    max-width: 840px;
+    max-width: 720px;
     margin: 0 auto;
-}
-
-.background.speckle {
-    background: #f5f4f3;
-    background-image: url("./assets/images/speckle.png");
-    background-repeat: repeat;
-}
-
-.background.white {
-    background: #ffffff;
 }
 
 .load-more {

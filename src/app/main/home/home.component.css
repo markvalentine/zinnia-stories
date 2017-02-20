@@ -8,6 +8,7 @@
     width: 100%;
     padding: 40px 60px;
     text-align: center;
+    background: #F8503F;
 }
 
 .banner-text {
@@ -15,15 +16,14 @@
     max-width: 840px;
     margin: 0 auto;
     padding: 40px;
-    color: #777;
-    font-size: 26px;
-    background: rgba(255, 255, 255, 0.8);
-    background-image: url(./assets/images/speckle2.png);
+    color: #fff;
+    font-family: "Butler";
+    font-weight: 700;
+    font-size: 24px;
 }
 
 h1 {
-    margin: 0 auto 20px auto;
-    font-size: 34px;
+    margin: 0 auto 15px auto;
 }
 
 a {
@@ -67,7 +67,7 @@ hr {
     }
 
     h1{
-        font-size: 28px;
+        font-size: 45px;
         margin-bottom: 10px;
     }
 }
