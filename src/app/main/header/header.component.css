@@ -110,7 +110,7 @@ nav ul ul ul li {
 
 /*li > a:after { content: ' +'; }*/
 
-@media all and (max-width : 768px) {
+@media all and (max-width : 740px) {
 
 #logo {
   display: inline-block;

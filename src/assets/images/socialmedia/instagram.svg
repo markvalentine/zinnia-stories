@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>instagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M16.98075,12.3007246 C13.848779,12.3007246 11.3007246,14.848779 11.3007246,17.9807101 C11.3007246,21.1126413 13.848779,23.6607355 16.98075,23.6607355 C20.112721,23.6607355 22.6607754,21.1126812 22.6607754,17.9807101 C22.6607754,14.8487391 20.112721,12.3007246 16.98075,12.3007246 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="11.3600507" height="11.3600109" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-200.000000, -5022.000000)" id="Footer">
+            <g transform="translate(0.000000, 4876.000000)">
+                <g id="Share" transform="translate(110.000000, 146.000000)">
+                    <g id="instagram" transform="translate(90.000000, 0.000000)">
+                        <path d="M0,17.5 C0,7.8350164 7.63427546,0 17.0516326,0 C26.4689896,0 34.1032651,7.8350164 34.1032651,17.5 C34.1032651,27.1649836 26.4689896,35 17.0516326,35 C7.63427546,35 0,27.1649836 0,17.5 Z M25.7521739,22.4190507 L25.7521739,13.5424493 C25.7521739,11.1493116 23.8121486,9.20932609 21.4190507,9.20932609 L12.5424493,9.20932609 C10.1493514,9.20932609 8.20932609,11.1493116 8.20932609,13.5424493 L8.20932609,22.4190507 C8.20932609,24.8121486 10.1493514,26.7521739 12.5424493,26.7521739 L21.4190507,26.7521739 C23.8121486,26.7521739 25.7521739,24.8121486 25.7521739,22.4190507 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                        <ellipse id="Combined-Shape" fill="#FFFFFF" cx="22.6716159" cy="12.3434493" rx="1.36101087" ry="1.36101087"></ellipse>
+                        <use id="XMLID_81_-path" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="3" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
