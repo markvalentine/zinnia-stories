@@ -18,8 +18,8 @@ export class StoryService {
   imagesUrl = 'images/'
 
   // Default numbers for loading stories
-  defaultNumStories = 14;
-  defaultIncrement = 7;
+  defaultNumStories = 10;
+  defaultIncrement = 5;
   defaultNumFeaturedStories = 2;
 
   // Number of Stories loaded and BehaviorSubject for updating query

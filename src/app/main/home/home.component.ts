@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.featuredStories = this.storyService.getXFeaturedStories(4);
+    this.featuredStories = this.storyService.getXFeaturedStories(3);
     this.collections = this.collectionService.getCollections();
   }
 

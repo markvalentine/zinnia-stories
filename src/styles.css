@@ -169,10 +169,16 @@ a:hover {
     src: url("./assets/fonts/Phosphate-Inline.ttf");
 }
 
+@font-face {
+    font-family: "Phosphate White"; 
+    src: url("./assets/fonts/Phosphorious.otf");
+}
+
 h1 {
     font-family: "Phosphate";
     font-size: 50px;
     font-weight: normal;
+    letter-spacing: 0.65px;
 }
 
 

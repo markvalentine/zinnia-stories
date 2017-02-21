@@ -75,6 +75,10 @@ nav ul li {
   height: 55px;
 }
 
+nav ul li.mobile-only {
+  display: none;
+}
+
 nav a {
   display: block;
   padding: 0 20px;
@@ -165,6 +169,10 @@ nav { margin: 0; }
 nav ul li {
   display: block;
   width: 100%;
+}
+
+nav ul li.mobile-only {
+  display: block;
 }
 
 nav ul ul .toggle,

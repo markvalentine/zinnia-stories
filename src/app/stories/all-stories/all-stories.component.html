@@ -1,12 +1,12 @@
 <div class="background speckle">
   <div class="content">
     <span *ngFor="let story of (stories | async); let index = index; let first = first;">
-      <div *ngIf="first" class="title">Stories</div>
-      <app-featured-story-card *ngIf="(index % 7) == 0" [storyString]="story"></app-featured-story-card>
-      <app-story-card *ngIf="(index % 7) != 0" [storyString]="story"></app-story-card>
+      <app-featured-story-card *ngIf="(index % 5) == 0" [storyString]="story"></app-featured-story-card>
+      <app-story-card *ngIf="(index % 5) == 1 || (index % 5) == 3" [storyString]="story" [position]="'left'"></app-story-card>
+      <app-story-card *ngIf="(index % 5) == 2 || (index % 5) == 4" [storyString]="story" [position]="'right'"></app-story-card>
     </span>
     <!--This is a hack you should probably figure out the right way to do it-->
-    <div *ngIf="!isLoadingNext && ((stories | async)?.length % 7 == 0)" class="load-more" (click)="moreStories()">Load More</div>
+    <div *ngIf="!isLoadingNext && ((stories | async)?.length % 5 == 0)" class="load-more" (click)="moreStories()">Load More</div>
     <div *ngIf="isLoadingNext" class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>

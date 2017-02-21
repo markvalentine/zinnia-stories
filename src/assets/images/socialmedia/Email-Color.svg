@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="25px" viewBox="0 0 26 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Email-Color</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-517.000000, -1031.000000)" id="Top-Stories">
+            <g transform="translate(152.000000, 550.000000)">
+                <g id="Featured-Story" transform="translate(0.000000, 70.000000)">
+                    <g id="Share" transform="translate(292.000000, 411.000000)">
+                        <g id="Email-Color" transform="translate(73.437500, 0.000000)">
+                            <path d="M12.5,25 C19.403125,25 25,19.4039062 25,12.5 C25,5.59609375 19.403125,0 12.5,0 C5.596875,0 0,5.59609375 0,12.5 C0,19.4039062 5.596875,25 12.5,25" id="Shape" fill="#333333"></path>
+                            <path d="M12.925,13.9132813 C12.8015625,14.0132813 12.65,14.0632813 12.5,14.0632813 C12.35,14.0632813 12.1984375,14.0132813 12.075,13.9132813 L7.16484375,9.8921875 C7.16015625,9.8765625 7.153125,9.8609375 7.14140625,9.85 L7.14140625,8.92734375 L8.1015625,8.92734375 L12.5,12.5289063 L16.8984375,8.928125 L17.8585938,8.928125 L17.8585938,9.85078125 C17.8460938,9.8609375 17.8414063,9.87578125 17.8296875,9.88515625 L12.925,13.9132813 Z M6.25,17.1875 L18.75,17.1875 L18.75,7.8125 L6.25,7.8125 L6.25,17.1875 Z" id="Shape" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

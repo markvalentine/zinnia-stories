@@ -1,6 +1,6 @@
 <div class="banner">
     <div class="banner-text">
-        <h1>Not older, just better</h1>
+        <h1>NOT OLDER, JUST BETTER</h1>
         Old-timers have the best stories.  We’re traveling across America to share them with you.
     </div>
 </div>
@@ -16,7 +16,8 @@
                 <!--<div *ngIf="first" class="title" style="font-size: 40px;">Story of the Day</div>-->
                 <app-featured-story-card  *ngIf="first" [story]="(story | async)" [noShowStar]="false"></app-featured-story-card>
                 <!--<div *ngIf="first" class="title" style="font-size: 38px;">Other Stories</div>-->
-                <app-story-card  *ngIf="!first" [story]="(story | async)" [noShowStar]="true"></app-story-card>
+                <app-story-card  *ngIf="!first && !last" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="last" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
@@ -33,7 +34,4 @@
             <div class="bounce3"></div>
         </div>
     </div>
-</div>
-
-<div class="banner">
 </div>

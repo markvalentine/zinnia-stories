@@ -14,6 +14,8 @@ export class StoryCardComponent implements OnInit {
   story: Story;
   @Input()
   noShowStar = false;
+  @Input()
+  position = "left";
 
   constructor(private router: Router) {
   }
