@@ -1,0 +1,136 @@
+h1 {
+    font-family: "Butler";
+    font-size: 32px;
+    color: #666;
+    letter-spacing: 0.21px;
+    line-height: 42px;
+    margin: 10px 0;
+}
+
+.title {
+    display: inline-block;
+    width: 600px;
+    vertical-align: top;
+}
+
+.bracket {
+    display: inline-block;
+    width: 35px;
+    margin: 0 20px 40px 10px;
+    vertical-align: top;
+}
+
+h2 {
+    font-family: "Butler";
+    font-size: 32px;
+    letter-spacing: 0.21px;
+    line-height: 42px;
+    margin: 10px 0;
+    color: #FE6859;
+}
+
+p {
+    font-family: "Butler";
+    font-size: 24px;
+    color: #666;
+    letter-spacing: 0.16px;
+    line-height: 36px;
+    margin: 0 0 30px 0;
+}
+
+.block-quote {
+    font-weight: 700;
+    padding-left: 60px;
+    margin: 20px 0 0 0;
+}
+
+.before-block {
+    margin-bottom: 20px;
+}
+
+.quoted {
+    font-family: "Butler";
+    font-weight: 200;
+    font-size: 20px;
+    color: #666;
+    letter-spacing: 0.13px;
+    line-height: 36px;
+    text-align: right;
+    margin: 0 0 20px 0;
+}
+
+.banner {
+    width: 100%;
+    height: 55px;
+    text-align: center;
+    background-image: url(./assets/images/pattern_red.png);
+    background-repeat: repeat;
+    background-size: 80px 40px;
+    margin: 0;
+    padding: 9px 0 8px 0;
+}
+
+#partners{
+    font-family: "Butler";
+    font-size: 32px;
+    color: #FFFFFF;
+    letter-spacing: 0.21px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.join-us {
+    font-family: "Butler";
+    font-size: 32px;
+    color: #666;
+    letter-spacing: 0.21px;
+    line-height: 42px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+@media all and (max-width : 690px) {
+    .title {
+        width: calc(100% - 69px);
+    }
+}
+
+@media all and (max-width : 550px) {
+    h1 {
+        color: #444;
+    }
+
+    p {
+        color: #444;
+    }
+
+    .bracket {
+        display: none;
+    }
+    
+    .title {
+       display: block;
+       margin-bottom: 30px;
+    }
+
+    .block-quote {
+        padding-left: 30px;
+    }
+
+    .quoted {
+        margin-bottom: 30px;
+        font-size: 18px;
+        letter-spacing: 0.12px;
+        line-height: 36px;
+        color: #444;
+    }
+
+    .join-us {
+        font-size: 28px;
+        letter-spacing: 0.18px;
+        line-height: 28px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        color: #444;
+    }
+}

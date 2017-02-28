@@ -1,3 +1,13 @@
+<div class="banner">
+    <div class="banner-text">
+        <h1>WHAT'S YOUR STORY?</h1>
+        Everyone has a story.  Whether its your own, your grandma's, or your neighbor's, we want to hear it.
+    </div>
+    <button class="share-your-story">SHARE YOUR STORY!</button>
+</div>
+<div class="triangles">
+  <img src="./assets/images/Triangles-long.svg">
+</div>
 <div class="background speckle">
   <div class="content">
     <span *ngFor="let story of (stories | async); let index = index; let first = first;">
@@ -6,7 +16,10 @@
       <app-story-card *ngIf="(index % 5) == 2 || (index % 5) == 4" [storyString]="story" [position]="'right'"></app-story-card>
     </span>
     <!--This is a hack you should probably figure out the right way to do it-->
-    <div *ngIf="!isLoadingNext && ((stories | async)?.length % 5 == 0)" class="load-more" (click)="moreStories()">Load More</div>
+    <div *ngIf="!isLoadingNext && ((stories | async)?.length % 5 == 0)">
+      <hr/>
+      <div class="load-more" (click)="moreStories()">More Stories</div>
+    </div>
     <div *ngIf="isLoadingNext" class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>

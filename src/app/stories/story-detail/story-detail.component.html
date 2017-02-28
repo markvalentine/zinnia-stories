@@ -7,8 +7,15 @@
         <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
         <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
       </div>
-      <!--<strong><i>{{(story | async).description}}</i></strong>-->
-      <img class="image" *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
+    </div>
+  </div>
+</div>
+<div *ngIf="story | async">
+  <img class="image" *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
+</div>
+<div class="background white">
+  <div class="content story">
+    <div *ngIf="story | async">
       <p *ngIf="(!(story | async)?.delta)">{{(story | async).text}}</p>
     </div>
     <div id="delta"></div>

@@ -10,9 +10,9 @@
     padding: 40px 60px;
     text-align: center;
     background: #F8503F;
-    background-image: url("./assets/images/ivy_house.jpg");
+    background-image: url("./assets/images/forest.jpg");
     background-size: cover;
-    background-position-y: 85%;
+    background-position-y: 90%;
 }
 
 .banner-text {
@@ -26,9 +26,34 @@
     font-size: 24px;
 }
 
+.who-are-we {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    background-image: url(./assets/images/pattern_green.png);
+    background-size: 80px 40px;
+    background-repeat: repeat;
+    padding: 15px;
+    text-align: center;
+    height: 55px;
+    position: relative;
+    overflow: hidden
+}
+
+.who-are-we img {
+    min-width: 2722px;
+    min-height: 25px;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+
 h1 {
     margin: 0 auto 30px auto;
-    font-family: "Phosphate White";
+    font-family: "Phosphate";
 }
 
 a {

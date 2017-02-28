@@ -73,8 +73,8 @@ h2 {
     }
 
     .image {
-        height: 250px;
-        padding: 10px;
+        height: 300px;
+        padding: 7px;
     }
 
     .outline {
@@ -82,7 +82,7 @@ h2 {
     }
 
     .card {
-        width: calc(100% - 20px);
+        width: calc(100% - 30px);
         padding: 10px;
     }
 
@@ -101,5 +101,11 @@ h2 {
         height: 34px;
         width: 34px;
         border-radius: 34px;
+    }
+}
+
+@media only screen and (max-width: 534px) {
+    .image {
+        height: 250px;
     }
 }

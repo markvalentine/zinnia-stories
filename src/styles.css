@@ -8,20 +8,21 @@ body {
     color: #666;
 
     font-family: "Georgia", "Times New Roman", Times, serif;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .ql-font-cormorant-garamond {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Georgia", "Times New Roman", Times, serif;
 }
 
 .ql-container {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: .01rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.58;
-    letter-spacing: -.003em;
+    font-family: "Georgia", "Times New Roman", Times, serif;
     font-size: 20px;
+    color: #666666;
+    letter-spacing: 0.26px;
+    line-height: 35px;
 }
 
 .state-back {
@@ -181,6 +182,9 @@ h1 {
     letter-spacing: 0.65px;
 }
 
+h2, h3, h4, h5, h6 {
+    font-family: "Butler";
+}
 
 .background {
     width: 100%;
@@ -191,26 +195,29 @@ h1 {
 
 .background .content{
     width: 100%;
-    max-width: 720px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .load-more {
     height: 40px;
-    width: 160px;
-    background: #74c7b6;
+    width: 200px;
+    background: #FE6859;
     text-align: center;
-    margin: 33px auto;
-    font-size: 20px;
-    /*border: 1px solid #eaeaea;*/
     color: #fff;
-    padding: 4px 0;
+    padding: 7px 0;
     border-radius: 20px;
+
+    font-family: "Butler";
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 0.26px;
+    margin: 33px auto;
 }
 
 .load-more:hover {
     cursor: pointer;
-    background: #63a99b;
+    background: #E25B4E;
 }
 
 .spinner {
