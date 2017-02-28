@@ -28,6 +28,7 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
    * infinite scroll is done loading
    */
   ngOnInit() {
+    window.scrollTo(0, 0);
     // this.featuredStoryIDs = this.storyService.getFeaturedStoryIDs();
     // this.featuredStories = this.storyService.getFeaturedStories();
     this.stories = this.storyService.getStories();
@@ -55,7 +56,7 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
    */
   moreStories() {
     this.isLoadingNext = true;
-    this.storyService.nextStories();
+    this.storyService.nextStories(10);
   }
 
   /**
