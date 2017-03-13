@@ -1,0 +1,65 @@
+h1 {
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+.company {
+    display: inline-block;
+    width: calc(50% - 2px);
+}
+
+.individuals {
+    display: inline-block;
+    width: calc(50% - 2px);
+}
+
+.contact-card {
+    margin: 20px 0 30px;
+}
+
+h3 {
+    font-family: "Butler";
+    font-weight: 500;
+    font-size: 24px;
+    color: #666666;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.position, .label {
+    font-family: "Butler";
+    font-family: 200;
+    font-size: 16px;
+    color: #999999;
+    line-height: 24px;
+    margin: 5px 0 0 0;
+}
+
+.email {
+    font-family: "Butler";
+    font-size: 20px;
+    color: #666666;
+    margin: 0 0 20px 0;
+}
+
+.address {
+    font-family: "Butler";
+    font-size: 20px;
+    color: #999999;
+    margin: 5px 0 20px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media all and (max-width : 600px) {
+    .individuals, .company {
+        display: block;
+        width: 100%;
+    }
+}

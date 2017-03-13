@@ -1,0 +1,19 @@
+h1 {
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #666666;
+    margin-bottom: 0;
+}
+
+p {
+    font-family: "Butler";
+    font-size: 18px;
+    color: #666666;
+    line-height: 27px;
+    margin-bottom: 40px;
+    margin-top: 0;
+}

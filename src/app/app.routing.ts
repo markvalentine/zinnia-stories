@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './main/home/home.component';
 import { AboutComponent } from './main/about/about.component';
 import { HelpComponent } from './main/help/help.component';
+import { TeamComponent } from './main/team/team.component';
+import { ContactComponent } from './main/contact/contact.component';
+import { TermsComponent } from './main/terms/terms.component';
 
 import { AdminComponent } from './admin/admin.component';
 
@@ -29,8 +32,20 @@ const appRoutes: Routes = [
         component: AboutComponent
     },
     {
-        path: 'help',
+        path: 'faq',
         component: HelpComponent
+    },
+    {
+        path: 'team',
+        component: TeamComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'terms-of-use',
+        component: TermsComponent
     },
     {
         path: 'admin',

@@ -33,11 +33,12 @@
     margin: 20px auto 40px auto;
 }
 
-h3 {
-    font-family: 'EB Garamond', serif;
+/* Roy Dow: Colonel San: */
+.title {
+    font-size: 32px;
+    color: #666666;
+    letter-spacing: 0.42px;
     font-weight: 400;
-    font-style: normal;
-    font-size: 38px;
 }
 
 p, .ql-container {

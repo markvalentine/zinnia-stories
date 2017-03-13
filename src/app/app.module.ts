@@ -36,6 +36,9 @@ import { CollectionCardComponent } from './collections/collection-card/collectio
 import { EditCollectionComponent } from './collections/edit-collection/edit-collection.component';
 import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
 import { RelatedStoriesComponent } from './stories/related-stories/related-stories.component';
+import { TermsComponent } from './main/terms/terms.component';
+import { ContactComponent } from './main/contact/contact.component';
+import { TeamComponent } from './main/team/team.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -72,7 +75,10 @@ export const myFirebaseAuthConfig = {
     AddCollectionComponent,
     StoryTextPipe,
     StoryPreviewComponent,
-    RelatedStoriesComponent
+    RelatedStoriesComponent,
+    TermsComponent,
+    ContactComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
