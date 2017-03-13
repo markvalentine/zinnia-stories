@@ -1,0 +1,163 @@
+.banner {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    background: #7ED2C4;
+    background-image: url("./assets/images/pattern_green.png");
+    background-size: 80px 40px;
+    background-repeat: repeat;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+}
+
+#raja {
+    background-image: url("./assets/images/team/raja.jpg");
+}
+
+#mark {
+    background-image: url("./assets/images/team/me.jpg");
+}
+
+#kevin {
+    background-image: url("./assets/images/team/kevin.jpg");
+}
+
+.person-card, .advisor-card {
+    margin: 40px 0;
+}
+
+.image {
+    height: 280px;
+    width: 280px;
+    display: inline-block;
+    margin-right: 30px;
+    background-size: cover;
+    vertical-align: top;
+}
+
+.advisor-card .image {
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.info {
+    height: 280px;
+    width: calc(100% - 314px);
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.advisor-card .info {
+    height: auto;
+    vertical-align: middle;
+}
+
+.name {
+    margin: 0;
+    font-family: "Butler";
+    font-weight: 500;
+    font-size: 24px;
+    color: #666666;
+    text-transform: uppercase;
+}
+
+.position {
+    margin: 0;
+    font-family: "Butler";
+    font-weight: 200;
+    font-size: 18px;
+    color: #999999;
+    line-height: 24px;
+}
+
+.credentials {
+    margin: 0;
+    font-family: "Butler";
+    font-size: 20px;
+    color: #666666;
+    line-height: 30px;
+}
+
+.quote {
+    margin: 20px 0;
+    font-family: "Butler";
+    font-size: 20px;
+    color: #666666;
+    line-height: 30px;
+}
+
+.email {
+    margin: 0;
+    font-family: "Butler";
+    font-weight: 200;
+    font-size: 20px;
+    color: #999999;
+    position: absolute;
+    bottom: -6px;
+}
+
+.advisors {
+    width: 100%;
+    padding: 15px 0 8px 0;
+    text-align: center;
+    background: #F8503F;
+    background-image: url("./assets/images/pattern_red.png");
+    background-size: 80px 40px;
+    background-repeat: repeat;
+    color: white;
+}
+
+h2 {
+    margin: 0 auto;
+    font-size: 32px;
+    color: #FFFFFF;
+    letter-spacing: 0.21px;
+    text-transform: uppercase;
+}
+
+@media all and (max-width : 640px) {
+    .person-card, .advisor-card {
+        margin: 30px 0;
+    }
+    
+    .image {
+        height: 300px;
+        width: 100%;
+        display: block;
+        margin: 20px 0;
+    }
+
+    .advisor-card .image {
+        width: 300px;
+        margin: 20px auto;
+    }
+
+    .info {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+
+     .advisor-card .info {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .advisor-card .info .name {
+        text-align: center;
+    }
+
+    .advisor-card .info .position {
+        text-align: center;
+    }
+    
+
+    .email {
+        position: initial;
+    }
+}

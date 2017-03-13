@@ -1,6 +1,10 @@
 h1 {
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
     font-size: 45px;
+}
+
+.content {
+    padding: 0 0 60px 0;
 }
 
 .company {
@@ -14,7 +18,7 @@ h1 {
 }
 
 .contact-card {
-    margin: 20px 0 30px;
+    margin-bottom: 30px;
 }
 
 h3 {
