@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { enableProdMode, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import {  } from 'firebase';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -39,6 +39,9 @@ import { RelatedStoriesComponent } from './stories/related-stories/related-stori
 import { TermsComponent } from './main/terms/terms.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { TeamComponent } from './main/team/team.component';
+import { InstagramComponent } from './main/instagram/instagram.component';
+import { InstagramService } from './main/instagram/instagram.service';
+import { EmailComponent } from './main/email/email.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -78,19 +81,23 @@ export const myFirebaseAuthConfig = {
     RelatedStoriesComponent,
     TermsComponent,
     ContactComponent,
-    TeamComponent
+    TeamComponent,
+    InstagramComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
-    routing
+    routing,
+    JsonpModule
   ],
   providers: [
     AdminService,
     StoryService,
-    CollectionService
+    CollectionService,
+    InstagramService,
   ],
   bootstrap: [AppComponent]
 })

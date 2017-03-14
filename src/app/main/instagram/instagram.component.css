@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+}
+
+.follow {
+    font-family: "Milkshake";
+    font-size: 28px;
+    color: #666666;
+    letter-spacing: 0.37px;
+    text-align: center;
+}
+
+hr {
+    margin: 0 40px;
+    position: relative;
+    top: 38px;
+    border: 1px solid #FE968C;
+}
+
+.instagram {
+    font-family: "Phosphate";
+    font-size: 58px;
+    color: #7ED2C6;
+    letter-spacing: 0.76px;
+    text-align: center;
+    padding: 0 40px;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+}
+
+.image-stream {
+    padding: 10px;
+    overflow: visible;
+    height: 170px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: middle;
+    margin-bottom: 40px;
+}
+
+img {
+    display: inline-block;
+    white-space: normal;
+    text-align: center;
+    margin: 5px;
+}

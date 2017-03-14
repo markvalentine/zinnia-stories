@@ -1,0 +1,10 @@
+<a href="https://www.instagram.com/ramblinstories/">
+  <div class="follow">follow us on</div>
+  <hr/>
+  <div class="instagram">Instagram</div>
+  <div class="image-stream">
+    <span *ngFor="let image of (images | async)">
+      <a href="{{image.link}}"><img src="{{image.images.thumbnail.url}}"></a>
+    </span>
+  </div>
+</a>
