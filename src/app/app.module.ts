@@ -44,6 +44,7 @@ import { InstagramService } from './main/instagram/instagram.service';
 
 import { EmailComponent } from './main/email/email.component';
 import { EmailService } from './main/email/email.service';
+import { OnTheRoadComponent } from './main/on-the-road/on-the-road.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -85,7 +86,8 @@ export const myFirebaseAuthConfig = {
     ContactComponent,
     TeamComponent,
     InstagramComponent,
-    EmailComponent
+    EmailComponent,
+    OnTheRoadComponent
   ],
   imports: [
     BrowserModule,

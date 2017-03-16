@@ -51,9 +51,14 @@ export class StoryCardComponent implements OnInit {
       }, function(response){});
   }
 
-  stopProp(event: Event) {
+  stopPropTwitter(event: Event) {
     event.stopPropagation();
-    document.getElementById("proxyAnchor-"+this.story.$key).click();
+    document.getElementById("proxyAnchor-twitter-"+this.story.$key).click();
+  }
+
+  stopPropPinterest(event: Event) {
+    event.stopPropagation();
+    document.getElementById("proxyAnchor-pinterest-"+this.story.$key).click();
   }
 
 }

@@ -52,7 +52,7 @@ button {
     border: 0;
     height: 35px;
     width: 100px;
-    font-size: 14px;
+    font-size: 16px;
     color: #FFFFFF;
     letter-spacing: 0.18px;
     font-family: "Butler";
@@ -83,7 +83,7 @@ button {
     .email-banner {
         height: 105px;
     }
-    
+
     .label {
         display: block;
         margin-bottom: 10px;

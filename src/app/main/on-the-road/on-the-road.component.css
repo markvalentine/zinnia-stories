@@ -1,0 +1,62 @@
+#truck {
+    padding: 60px 10;
+
+    background-image: url("./assets/images/longtruck.png");
+    background-repeat: none;
+    background-size: cover;
+    background-position-x: left;
+    background-position-y: center;
+}
+
+h1 {
+    color: #fff;
+    margin: 20px auto;
+    font-size: 45px;
+    letter-spacing: 0.59px;
+}
+
+p {
+    font-family: "OpenSans";
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 0.26px;
+    line-height: 30px;
+    margin: 0 0 10px 0;
+}
+
+@media all and (max-width: 900px) {
+    #truck {
+        background-position-x: 60%;
+        padding: 40px 10;
+    }
+}
+
+@media all and (max-width: 720px) {
+    h1 {
+        font-size: 40px;
+        margin: 15px 0;
+    }
+}
+
+@media all and (max-width: 460px) {
+    h1 {
+        font-size: 35px;
+        margin: 10px 0;
+    }
+    p {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+@media all and (max-width: 400px) {
+    h1 {
+        font-size: 30px;
+        margin: 5px 0;
+    }
+    p {
+        font-size: 16px;
+        line-height: 25px;
+        margin-bottom: 5px;
+    }
+}
