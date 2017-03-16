@@ -1,7 +1,7 @@
 .banner {
     width: 100%;
     height: 400px;
-    padding: 40px 60px;
+    padding: 40px 20px;
     text-align: center;
     background: #F8503F;
     background-image: url("./assets/images/pattern_red.png");
@@ -13,11 +13,11 @@
     text-align: left;
     max-width: 840px;
     margin: 0 auto;
-    padding: 20px 40px 40px 40px;
+    padding: 20px 0px 40px 0px;
     color: #fff;
     font-family: "Butler";
     font-weight: 500;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 h1 {
@@ -93,8 +93,8 @@ hr {
     }
 
     .banner-text {
-        padding: 20px 20px 40px 20px;
-        font-size: 22px;
+        padding: 20px 0px 40px 0px;
+        font-size: 24px;
     }
 
     h1{
