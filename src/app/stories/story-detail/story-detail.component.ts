@@ -17,6 +17,8 @@ export class StoryDetailComponent implements OnInit {
   story: Observable<Story>;
   storyObject: Story;
 
+  encodedURL: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -37,6 +39,7 @@ export class StoryDetailComponent implements OnInit {
       this.story = this.storyService.getStory(this.key);
       this.story.subscribe(x => {
         this.storyObject = x;
+        this.encodedURL = encodeURI(this.storyObject.image_url);
         if (this.storyObject.delta) {
           var tempCont = document.getElementById('delta');
           (new Quill(tempCont, {readOnly: true})).setContents(this.storyObject.delta);

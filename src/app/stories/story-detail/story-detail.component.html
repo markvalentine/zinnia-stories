@@ -6,6 +6,7 @@
       <div class="social-media">
         <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
         <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{(story | async)?.title}}" data-pin-shape="round"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
     </div>
   </div>
@@ -23,6 +24,7 @@
       <div class="social-media">
         <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
         <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{(story | async)?.title}}" data-pin-shape="round"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
       <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
         <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>

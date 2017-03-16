@@ -15,6 +15,8 @@ export class FeaturedStoryCardComponent implements OnInit {
   @Input()
   noShowStar = false;
 
+  encodedURL: string;
+
   constructor(private router: Router) {
   }
 
@@ -24,6 +26,7 @@ export class FeaturedStoryCardComponent implements OnInit {
   ngOnInit() {
     if(this.storyString){
       this.story = new Story(this.storyString);
+      this.encodedURL = encodeURI(this.story.image_url);
     }
   }
 
@@ -54,9 +57,14 @@ export class FeaturedStoryCardComponent implements OnInit {
       }, function(response){});
   }
 
-  stopProp(event: Event) {
+  stopPropTwitter(event: Event) {
     event.stopPropagation();
-    document.getElementById("proxyAnchor-"+this.story.$key).click();
+    document.getElementById("proxyAnchor-twitter-"+this.story.$key).click();
+  }
+  
+  stopPropPinterest(event: Event) {
+    event.stopPropagation();
+    document.getElementById("proxyAnchor-pinterest-"+this.story.$key).click();
   }
 
 }

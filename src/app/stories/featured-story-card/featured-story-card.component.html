@@ -1,4 +1,5 @@
-<a id="proxyAnchor-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{story?.title}}">proxy</a>
+<a id="proxyAnchor-twitter-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{story?.title}}">proxy</a>
+<a  target="_blank"  id="proxyAnchor-pinterest-{{story?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{story?.title}}" data-pin-shape="round"></a>
 <!--<div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
@@ -48,9 +49,9 @@
       <hr/>
       <div class="icons">
         <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb.svg"></a>
-        <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <a (click)="stopPropTwitter($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
         <a><img class="social-media-icon" src="assets/images/socialmedia/Email-Color.svg"></a>
-        <a><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
+        <a (click)="stopPropPinterest($event)"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
     </div>
     <div class="tags">
