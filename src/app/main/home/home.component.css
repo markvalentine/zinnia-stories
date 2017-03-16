@@ -73,16 +73,16 @@ a {
 }
 
 hr {
-    margin: 60px 0;
+    margin: 40px 0;
     border-bottom: 0;
     border-left: 0;
-    border-top: 1px solid #979797;
+    border-top: 1px solid #ccc;
     border-right: 0;
 }
 
 .load-more {
-    margin-top: -80px;
-    margin-bottom: 40px;
+    margin-top: -60px;
+    margin-bottom: 0px;
     font-weight: 400;
     background: #fff;
     color: #777;

@@ -26,7 +26,6 @@ label {
     text-transform: uppercase;
     color: #FFFFFF;
     letter-spacing: 0.31px;
-    margin-right: 30px;
     position: relative;
     left: 2px;
     top: 3px;
@@ -69,4 +68,28 @@ button {
 
 .green button {
     background: #FE6859;
+}
+
+.label {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.input {
+    display: inline-block;
+}
+
+@media all and (max-width: 720px) {
+    .email-banner {
+        height: 105px;
+    }
+    
+    .label {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 0px;
+    }
+    .input {
+        display: block;
+    }
 }

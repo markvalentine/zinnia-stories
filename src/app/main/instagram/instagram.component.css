@@ -8,12 +8,17 @@ a {
     color: #666666;
     letter-spacing: 0.37px;
     text-align: center;
+    padding: 0 20px;
+    width: 220px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
 }
 
 hr {
     margin: 0 40px;
     position: relative;
-    top: 38px;
+    top: 80px;
     border: 1px solid #FE968C;
 }
 
@@ -33,7 +38,7 @@ hr {
 .image-stream {
     padding: 10px;
     overflow: visible;
-    height: 170px;
+    height: 220px;
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -44,9 +49,35 @@ hr {
     margin-bottom: 40px;
 }
 
-img {
+.image {
     display: inline-block;
     white-space: normal;
     text-align: center;
     margin: 5px;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+}
+
+@media all and (max-width: 720px) {
+    hr {
+        margin: 0 20px;
+        top: 24px;
+    }
+
+    .instagram {
+        width: 100%;
+        padding: 0;
+        font-size: 48px;
+        letter-spacing: 0.63px;
+    }
+
+    .image-stream {
+        height: 170px;
+    }
+
+    .image {
+        height: 150px;
+        width: 150px;
+    }
 }

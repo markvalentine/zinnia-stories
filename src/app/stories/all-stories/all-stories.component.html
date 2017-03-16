@@ -15,7 +15,7 @@
       <app-story-card *ngIf="(index % 5) == 1 || (index % 5) == 3" [storyString]="story" [position]="'left'"></app-story-card>
       <app-story-card *ngIf="(index % 5) == 2 || (index % 5) == 4" [storyString]="story" [position]="'right'"></app-story-card>
 
-      <div *ngIf="index == 4" style="height: 55px; margin: 35px auto 60px auto;">
+      <div *ngIf="index == 4" class="email-input">
         <app-email [backgroundColor]="'green'" style="position: absolute; left: 0; right: 0;"></app-email>
       </div>
     </span>
