@@ -1,0 +1,72 @@
+.email-banner {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    text-align: center;
+}
+
+.red {
+    background: #F8503F;
+    background-image: url("./assets/images/pattern_red.png");
+    background-repeat: repeat;
+    background-size: 80px 40px;
+}
+
+.green {
+    background: #7ED2C4;
+    background-image: url("./assets/images/pattern_green.png");
+    background-repeat: repeat;
+    background-size: 80px 40px;
+}
+
+label {
+    font-family: "Butler";
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    letter-spacing: 0.31px;
+    margin-right: 30px;
+    position: relative;
+    left: 2px;
+    top: 3px;
+    vertical-align: top;
+}
+
+input {
+    border: 0;
+    height: 35px;
+    width: 200px;
+    font-family: Arial;
+    font-size: 12px;
+    color: #A4A4A4;
+    letter-spacing: 0.16px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: relative;
+    left: 2px;
+    vertical-align: top;
+}
+
+button {
+    margin: 0;
+    border: 0;
+    height: 35px;
+    width: 100px;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0.18px;
+    font-family: "Butler";
+    font-weight: 500;
+    vertical-align: top;
+    position: relative;
+    left: -2px;
+}
+
+.red button {
+    background: #2C4263;
+}
+
+.green button {
+    background: #FE6859;
+}

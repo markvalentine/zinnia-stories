@@ -41,7 +41,9 @@ import { ContactComponent } from './main/contact/contact.component';
 import { TeamComponent } from './main/team/team.component';
 import { InstagramComponent } from './main/instagram/instagram.component';
 import { InstagramService } from './main/instagram/instagram.service';
+
 import { EmailComponent } from './main/email/email.component';
+import { EmailService } from './main/email/email.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -98,6 +100,7 @@ export const myFirebaseAuthConfig = {
     StoryService,
     CollectionService,
     InstagramService,
+    EmailService
   ],
   bootstrap: [AppComponent]
 })

@@ -22,6 +22,8 @@ import { AddCollectionComponent } from './collections/add-collection/add-collect
 
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
+import { EmailComponent } from './main/email/email.component';
+
 const appRoutes: Routes = [
     {
         path: '',
@@ -30,6 +32,10 @@ const appRoutes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+    {
+        path: 'email',
+        component: EmailComponent
     },
     {
         path: 'faq',

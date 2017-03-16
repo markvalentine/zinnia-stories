@@ -25,6 +25,11 @@
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
         </div>
+    </div>
+</div>
+<app-email></app-email>
+<div class="background speckle">
+    <div class="content">
         <div>
             <span *ngFor="let collection of (collections | async); let first = first" (click)="goToDetail(collection.$key)">
                 <div *ngIf="first" class="title" style="font-size: 40px;">Collections</div>

@@ -1,3 +1,5 @@
-<p>
-  email works!
-</p>
+<div class="email-banner {{backgroundColor}}">
+    <label>Stay in the loop!</label>
+    <input [(ngModel)]="email" type="email" placeholder="EMAIL"/>
+    <button (click)="registerEmail()">Sign Up</button>
+</div>
