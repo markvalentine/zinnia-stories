@@ -25,6 +25,30 @@ h1 {
     background-image: url("./assets/images/team/kevin.jpg");
 }
 
+#holly {
+    background-image: url("./assets/images/team/hollygirl.png");
+}
+
+#heba {
+    background-image: url("./assets/images/team/heba.jpg");
+}
+
+#truck {
+    background-image: url("./assets/images/team/truck.jpg");
+}
+
+#anousheh {
+    background-image: url("./assets/images/team/anousheh.jpg");
+}
+
+#harrymoody {
+    background-image: url("./assets/images/team/harrymoody.jpg");
+}
+
+#mramin {
+    background-image: url("./assets/images/team/mramin.jpg");
+}
+
 .person-card, .advisor-card {
     margin: 40px 0;
 }

@@ -10,11 +10,13 @@ h1 {
 .company {
     display: inline-block;
     width: calc(50% - 2px);
+    vertical-align: top;
 }
 
 .individuals {
     display: inline-block;
     width: calc(50% - 2px);
+    vertical-align: top;
 }
 
 .contact-card {

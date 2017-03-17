@@ -22,8 +22,6 @@ import { AddCollectionComponent } from './collections/add-collection/add-collect
 
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
-import { EmailComponent } from './main/email/email.component';
-
 const appRoutes: Routes = [
     {
         path: '',
@@ -32,10 +30,6 @@ const appRoutes: Routes = [
     {
         path: 'about',
         component: AboutComponent
-    },
-    {
-        path: 'email',
-        component: EmailComponent
     },
     {
         path: 'faq',
@@ -72,22 +66,23 @@ const appRoutes: Routes = [
     {
         path: 'add-story',
         component: AddStoryComponent
-    },{
-        path: 'collections',
-        component: AllCollectionsComponent
     },
-    {
-        path: 'collections/:key',
-        component: CollectionDetailComponent
-    },
-    {
-        path: 'edit-collection/:key',
-        component: EditCollectionComponent
-    },
-    {
-        path: 'add-collection',
-        component: AddCollectionComponent
-    },
+    // {
+    //     path: 'collections',
+    //     component: AllCollectionsComponent
+    // },
+    // {
+    //     path: 'collections/:key',
+    //     component: CollectionDetailComponent
+    // },
+    // {
+    //     path: 'edit-collection/:key',
+    //     component: EditCollectionComponent
+    // },
+    // {
+    //     path: 'add-collection',
+    //     component: AddCollectionComponent
+    // },
     {
         path: '**',
         component: PageNotFoundComponent
