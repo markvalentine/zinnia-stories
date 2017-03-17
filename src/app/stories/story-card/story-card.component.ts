@@ -19,8 +19,6 @@ export class StoryCardComponent implements OnInit {
   @Input()
   smaller = "";
 
-  encodedURL: string
-
   constructor(private router: Router) {
   }
 
@@ -30,8 +28,11 @@ export class StoryCardComponent implements OnInit {
   ngOnInit() {
     if(this.storyString){
       this.story = new Story(this.storyString);
-      this.encodedURL = encodeURI(this.story.image_url);
     }
+  }
+
+  encodeURL(url: string): string {
+    return encodeURI(url);
   }
 
   /**

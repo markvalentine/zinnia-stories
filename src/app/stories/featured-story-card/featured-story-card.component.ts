@@ -15,8 +15,6 @@ export class FeaturedStoryCardComponent implements OnInit {
   @Input()
   noShowStar = false;
 
-  encodedURL: string;
-
   constructor(private router: Router) {
   }
 
@@ -26,8 +24,11 @@ export class FeaturedStoryCardComponent implements OnInit {
   ngOnInit() {
     if(this.storyString){
       this.story = new Story(this.storyString);
-      this.encodedURL = encodeURI(this.story.image_url);
     }
+  }
+
+  encodeURL(url: string): string {
+    return encodeURI(url);
   }
 
   /**
