@@ -1,0 +1,49 @@
+.share-banner {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+
+    background: #7ED2C4;
+    background-image: url("./assets/images/pattern_green.png");
+    background-repeat: repeat;
+    background-size: 80px 40px;
+}
+
+.label {
+    font-family: "Butler";
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0.31px;
+    text-transform: uppercase;
+    margin-right: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.button {
+    width: 200px;
+    height: 35px;
+    background: #40B2FF;
+    display: inline-block;
+    padding: 4px;
+    text-align: center;
+
+    font-family: "Butler";
+    font-weight: 500;
+    font-size: 21px;
+    color: #FFFFFF;
+    letter-spacing: 0.27px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+@media all and (max-width : 650px) {
+    .label {
+        margin-right: 0;
+    }
+    .button {
+        display: block;
+        margin: 0 auto;
+    }
+}

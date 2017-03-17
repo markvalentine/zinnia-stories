@@ -26,13 +26,18 @@
         <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
         <a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{(story | async)?.title}}" data-pin-shape="round"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
+    </div>
+  </div>
+</div>
+<app-share-a-story></app-share-a-story>
+<div class="background">
+  <div class="content">
       <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
         <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
       </span>
       <span *ngFor="let collectionKey of (story | async)?.collections">
         <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
       </span>
-    </div>
     <div *ngIf="!(story | async)" class="spinner">
       <div class="bounce1"></div>
       <div class="bounce2"></div>
