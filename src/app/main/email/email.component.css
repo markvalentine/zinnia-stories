@@ -92,4 +92,9 @@ button {
     .input {
         display: block;
     }
+
+    input {
+        width: 196px;
+    }
 }
+

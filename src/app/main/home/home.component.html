@@ -33,7 +33,7 @@
     </div>
 </div>
 <app-email></app-email>
-<div class="background speckle">
+<!--<div class="background speckle">
     <div class="content">
         <div>
             <span *ngFor="let collection of (collections | async); let first = first" (click)="goToDetail(collection.$key)">
@@ -47,7 +47,51 @@
             <div class="bounce2"></div>
             <div class="bounce3"></div>
         </div>
+</div>-->
+<div class="background speckle">
+    <div class="content">
+        <!--<div style="text-align:center">
+            <svg width="54px" height="69px" viewBox="125 10 54 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M145.815558,14 L168.412735,14 L151.087635,34.3670014 C151.087635,34.3670014 162.288898,38.8978328 162.288898,51.5167062 C162.288898,64.1355797 151.559925,74 142.15136,74 C132.742795,74 129,65.7435176 129,61.9001859 C129,58.0568542 131.839599,48.9641982 145.115401,48.9641982 C158.391204,48.9641982 174.777391,48.9641982 174.777391,48.9641982" id="Line" stroke="#8ec6ba" stroke-width="8" stroke-linecap="round" fill="none"></path>
+            </svg>
+        </div>-->
+        <div>
+            <span *ngFor="let story of (featuredStoriesMiddle | async); let index = index; let last = last">
+                <app-story-card  *ngIf="index > 2 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="index > 2 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+                <hr *ngIf="last"/>
+                <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
+            </span>
+        </div>
+        <div *ngIf="!(featuredStoriesMiddle | async)" class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
 </div>
 <app-instagram></app-instagram>
 <app-share-a-story></app-share-a-story>
+<div class="background speckle">
+    <div class="content">
+        <!--<div style="text-align:center">
+            <svg width="54px" height="69px" viewBox="125 10 54 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M145.815558,14 L168.412735,14 L151.087635,34.3670014 C151.087635,34.3670014 162.288898,38.8978328 162.288898,51.5167062 C162.288898,64.1355797 151.559925,74 142.15136,74 C132.742795,74 129,65.7435176 129,61.9001859 C129,58.0568542 131.839599,48.9641982 145.115401,48.9641982 C158.391204,48.9641982 174.777391,48.9641982 174.777391,48.9641982" id="Line" stroke="#8ec6ba" stroke-width="8" stroke-linecap="round" fill="none"></path>
+            </svg>
+        </div>-->
+        <div>
+            <span *ngFor="let story of (featuredStoriesLast | async); let index = index; let last = last">
+                <app-story-card  *ngIf="index > 6 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="index > 6 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+                <hr *ngIf="last"/>
+                <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
+            </span>
+        </div>
+        <div *ngIf="!(featuredStoriesLast | async)" class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+</div>
 <app-on-the-road></app-on-the-road>
