@@ -1,5 +1,5 @@
-<hr/>
-<div>Other stories from <a (click)="goToCollection()">"{{collection?.title}}"</a></div>
-<span *ngFor="let story of (relatedStories | async)">
-    <app-story-card [story]="(story | async)"></app-story-card>  
+<div class="others">Other stories from "{{collection?.title}}"</div>
+<span *ngFor="let story of (relatedStories | async); let first = first;">
+    <app-story-card *ngIf="first" [story]="(story | async)" [position]="'left'"></app-story-card> 
+    <app-story-card *ngIf="!first" [story]="(story | async)" [position]="'right'" [smaller]="'smaller'"></app-story-card>  
 </span>

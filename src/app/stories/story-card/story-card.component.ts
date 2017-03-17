@@ -16,6 +16,8 @@ export class StoryCardComponent implements OnInit {
   noShowStar = false;
   @Input()
   position = "left";
+  @Input()
+  smaller = "";
 
   encodedURL: string
 

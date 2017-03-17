@@ -7,6 +7,10 @@
     vertical-align: top;
 }
 
+.smaller {
+    width: calc(50% - 23px);
+}
+
 .left {
     margin-right: 20px;
 }

@@ -456,13 +456,13 @@ export class StoryService {
       for (let key of collection.featuredStories) {
         if (key != storyKey) relatedKeys.push(key);
       }
-      relatedKeys.slice(0, 3);
+      relatedKeys.slice(0, 2);
       let otherStories = collection.stories;
       let indexOfStory = otherStories.indexOf(storyKey);
       if (indexOfStory > -1) {
         otherStories.splice(indexOfStory, 1);
       }
-      relatedKeys = relatedKeys.concat(otherStories.slice(0, (3-relatedKeys.length)));
+      relatedKeys = relatedKeys.concat(otherStories.slice(0, (2-relatedKeys.length)));
       
       for (let key of relatedKeys) {
         stories.push(this.getStory(key));

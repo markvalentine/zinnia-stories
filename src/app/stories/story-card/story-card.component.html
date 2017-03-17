@@ -29,7 +29,7 @@
     </ul>
   </div>
 </div>-->
-<div class="story {{position}}" (click)="goToDetail(story?.$key)">
+<div class="story {{position}} {{smaller}}" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}"> </div>
   <div class="card">
     <h2>{{story?.title}}</h2>
