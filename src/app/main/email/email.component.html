@@ -5,5 +5,7 @@
     <div class="input">
         <input [(ngModel)]="email" type="email" placeholder="EMAIL"/>
         <button (click)="registerEmail()">Sign Up</button>
+        <div class="message {{background_color}}" [style.max-height]="max_height" [style.padding]="padding" [style.transition]="transition"><span [style.transition]="transition_long"  [style.opacity]="opacity">{{message}}</span></div>
+        <div (click)="removeMessage()" class="button {{background_color}}" [style.max-height]="max_height" [style.padding]="padding_image" [style.transition]="transition"><img [style.transition]="transition_long"  [style.opacity]="opacity" src="./assets/images/x.svg"></div>
     </div>
 </div>

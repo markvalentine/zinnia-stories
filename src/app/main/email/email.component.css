@@ -77,6 +77,43 @@ button {
 
 .input {
     display: inline-block;
+    position: relative;
+}
+
+.message {
+    position: absolute;
+    background: #DF3333;
+    color: #fff;
+    font-family: "Arial";
+    left: 2px;
+    width: 162px;
+    text-align: left;
+}
+
+.button {
+    position: absolute;
+    background: #DF3333;
+    color: #fff;
+    font-family: "Arial";
+    left: 164px;
+    width: 38px;
+    text-align: center;
+}
+
+.invalid {
+    background: #DF3333;
+}
+
+.button.invalid:hover {
+    background: #C82D2D;
+}
+
+.valid {
+    background: #22C196;
+}
+
+.button.valid:hover {
+    background: #1EAC86;
 }
 
 @media all and (max-width: 720px) {

@@ -46,6 +46,8 @@ import { EmailComponent } from './main/email/email.component';
 import { EmailService } from './main/email/email.service';
 import { OnTheRoadComponent } from './main/on-the-road/on-the-road.component';
 import { ShareAStoryComponent } from './main/share-a-story/share-a-story.component';
+import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
+import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -89,7 +91,9 @@ export const myFirebaseAuthConfig = {
     InstagramComponent,
     EmailComponent,
     OnTheRoadComponent,
-    ShareAStoryComponent
+    ShareAStoryComponent,
+    StoryCardFullWidthComponent,
+    StoryCardRoundComponent
   ],
   imports: [
     BrowserModule,
