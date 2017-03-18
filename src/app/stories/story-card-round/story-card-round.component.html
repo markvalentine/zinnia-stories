@@ -1,3 +1,22 @@
-<p>
-  story-card-round works!
-</p>
+<a id="proxyAnchor-twitter-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{story?.title}}">proxy</a>
+<a  target="_blank"  id="proxyAnchor-pinterest-{{story?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodeURL(story?.image_url)}}&description={{story?.title}}" data-pin-shape="round"></a>
+
+<div class="story" (click)="goToDetail(story?.$key)">
+  <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}"> </div>
+  <div class="card">
+    <h2>{{story?.title}}</h2>
+    <hr/>
+    <div class="tags">
+      <span *ngFor="let key of story?.featuredCollections; let last = last">{{story?.featuredCollectionsObject[key]}}<span *ngIf="!last || (last && story?.collections.length > 0)"> | </span></span>
+      <span *ngFor="let key of story?.collections; let last = last">{{story?.collectionsObject[key]}}<span *ngIf="!last"> | </span></span>
+    </div>
+    <div class="social-media">
+      <div class="icons">
+        <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb.svg"></a>
+        <a (click)="stopPropTwitter($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <!--<a><img class="social-media-icon" src="assets/images/socialmedia/Email-Color.svg"></a>-->
+        <a (click)="stopPropPinterest($event)"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
+      </div>
+    </div>
+  </div>
+</div>

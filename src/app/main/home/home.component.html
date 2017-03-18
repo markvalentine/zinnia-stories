@@ -57,8 +57,7 @@
         </div>-->
         <div>
             <span *ngFor="let story of (featuredStoriesMiddle | async); let index = index; let last = last">
-                <app-story-card  *ngIf="index > 2 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
-                <app-story-card  *ngIf="index > 2 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+                <app-story-card-round  *ngIf="index > 2" [story]="(story | async)"></app-story-card-round>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
@@ -81,8 +80,8 @@
         </div>-->
         <div>
             <span *ngFor="let story of (featuredStoriesLast | async); let index = index; let last = last">
-                <app-story-card  *ngIf="index > 6 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
-                <app-story-card  *ngIf="index > 6 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+                <app-story-card  *ngIf="index > 5 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="index > 5 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>

@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.featuredStories = this.storyService.getXFeaturedStories(3);
-    this.featuredStoriesMiddle = this.storyService.getXFeaturedStories(7);
-    this.featuredStoriesLast = this.storyService.getXFeaturedStories(11);
+    this.featuredStoriesMiddle = this.storyService.getXFeaturedStories(6);
+    this.featuredStoriesLast = this.storyService.getXFeaturedStories(10);
     this.collections = this.collectionService.getCollections();
   }
 
