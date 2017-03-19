@@ -38,6 +38,10 @@
     vertical-align: middle;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media all and (max-width : 650px) {
     .label {
         margin-right: 0;
