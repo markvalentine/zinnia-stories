@@ -19,15 +19,17 @@ export class HomeComponent implements OnInit {
   collections: FirebaseListObservable<any[]>;
 
   background_url = "./assets/images/0.jpg";
+  background_color= "#C58B57";
+
+  colors = ["#C58B57", "#28342E", "#233128", "#E6BB58"];
 
   constructor(
     private storyService: StoryService,
     private collectionService: CollectionService
   ) {
-    let date = Math.round((Date.now()/600000));
-    this.background_url = "url(./assets/images/backgrounds/"+date%4+".jpg)";
-    console.log(date%4);
-    console.log(date);
+    let index = (Math.round((Date.now()/600000))%4);
+    this.background_url = "url(./assets/images/backgrounds/"+index+".jpg)";
+    this.background_color = this.colors[index];
   }
 
   ngOnInit() {
