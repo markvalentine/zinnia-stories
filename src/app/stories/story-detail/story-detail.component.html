@@ -4,8 +4,8 @@
       <span *ngIf="(isAuth | async)"><br/><button (click)="toEdit()">Edit</button></span>
       <h3 class="title">{{(story | async).title}}</h3>
       <div class="social-media">
-        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
-        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/socialmedia/facebook-color.svg"></a>
+        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/socialmedia/twitter-color.svg"></a>
         <a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{(story | async)?.title}}" data-pin-shape="round"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
     </div>
@@ -22,8 +22,8 @@
     <div id="delta"></div>
     <div *ngIf="story | async">
       <div class="social-media">
-        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/fb.svg"></a>
-        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
+        <a (click)="facebook()"><img class="social-media-icon" src="assets/images/socialmedia/facebook-color.svg"></a>
+        <a href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/socialmedia/twitter-color.svg"></a>
         <a target="_blank" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodedURL}}&description={{(story | async)?.title}}" data-pin-shape="round"><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
       </div>
     </div>

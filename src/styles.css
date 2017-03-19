@@ -25,11 +25,6 @@ body {
     line-height: 35px;
 }
 
-.state-back {
-    background-image: url("./assets/images/state-outline.png");
-    background-repeat: repeat;
-}
-
 div {
     box-sizing: border-box;
 }
