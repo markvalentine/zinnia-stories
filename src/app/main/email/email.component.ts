@@ -52,7 +52,7 @@ export class EmailComponent implements OnInit {
     else this.background_color = "invalid";
     this.message = message;
     this.max_height = "200px";
-    this.padding = "10px 10px 10px 20px";
+    this.padding = "10px 48px 10px 20px";
     this.padding_image = "12px 11px 8px";
     this.transition = "all .16s ease-in-out";
     this.transition_long = "all .16s ease-in-out";
@@ -71,6 +71,7 @@ export class EmailComponent implements OnInit {
   registerEmail() {
     this.emailService.addEmail(this.email)
       .then(message => {
+        this.email = "";
         this.displayMessage(message, true);
       })
       .catch(err => {

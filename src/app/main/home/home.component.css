@@ -43,12 +43,6 @@
 .who-are-we img {
     min-width: 2722px;
     min-height: 25px;
-    position: absolute;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
-    margin: auto;
 }
 
 h1 {

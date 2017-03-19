@@ -45,6 +45,7 @@ input {
     position: relative;
     left: 2px;
     vertical-align: top;
+    border-radius: 0;
 }
 
 button {
@@ -86,7 +87,7 @@ button {
     color: #fff;
     font-family: "Arial";
     left: 2px;
-    width: 162px;
+    width: 200px;
     text-align: left;
 }
 

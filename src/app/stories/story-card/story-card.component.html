@@ -1,34 +1,6 @@
 <a id="proxyAnchor-twitter-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}&text={{story?.title}}">proxy</a>
-<!--<a  data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=http://www.foodiecrush.com/2014/03/filet-mignon-with-porcini-mushroom-compound-butter/&media=https://s-media-cache-ak0.pinimg.com/736x/17/34/8e/17348e163a3212c06e61c41c4b22b87a.jpg&description=So%20delicious!" data-pin-custom="true">proxy</a>-->
 <a  target="_blank"  id="proxyAnchor-pinterest-{{story?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://markvalentine.github.io/zinnia-stories{{this.router.url}}/&media={{encodeURL(story?.image_url)}}&description={{story?.title}}" data-pin-shape="round"></a>
-<!--<div class="card" (click)="goToDetail(story?.$key)">
-  <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
-    <div class="bursts">
-      <div *ngIf="story?.featured && !(noShowStar)"  class="featured">
-        Featured Story
-      </div>
-      <div *ngIf="!story?.featured || (noShowStar)"  class="unfeatured">
-      </div>
-    </div>
-  </div>
-  <div class="content">
-    <h4>{{story?.title}}</h4>
-    <p>{{story?.description}}</p>
-    <div class="overlay">
-      <div class="read-more">Read More</div>
-      <span class="social-media">
-        <a (click)="facebook($event)"><img class="social-media-icon" src="assets/images/fb.svg"></a>
-        <a (click)="stopProp($event)"><img class="social-media-icon" src="assets/images/twitter.svg"></a>
-      </span>
-    </div>
-  </div>
-  <div *ngIf="story?.featuredCollections?.length > 0">
-    <h5>Featured In:</h5>
-    <ul>
-      <li *ngFor="let featuredCollection of story?.featuredCollections">{{featuredCollection}}</li>
-    </ul>
-  </div>
-</div>-->
+
 <div class="story {{position}} {{smaller}}" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}"> </div>
   <div class="card">
@@ -43,8 +15,6 @@
       </div>
     </div>
     <div class="tags">
-      <!--<span *ngFor="let key of story?.featuredCollections; let last = last"><a (click)="goToCollection(key)">{{story?.featuredCollectionsObject[key]}}</a><span *ngIf="!last || (last && story?.collections.length > 0)"> | </span></span>
-      <span *ngFor="let key of story?.collections; let last = last"><a (click)="goToCollection(key)">{{story?.collectionsObject[key]}}</a><span *ngIf="!last"> | </span></span>-->
       <span *ngFor="let key of story?.featuredCollections; let last = last">{{story?.featuredCollectionsObject[key]}}<span *ngIf="!last || (last && story?.collections.length > 0)"> | </span></span>
       <span *ngFor="let key of story?.collections; let last = last">{{story?.collectionsObject[key]}}<span *ngIf="!last"> | </span></span>
     </div>

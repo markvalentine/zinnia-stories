@@ -24,14 +24,17 @@ export class EmailService {
 
   addEmail(email: string): Promise<any> {
     let validation = this.validateEmail(email);
-    let cleanedEmail = email.replace(/\./g, ',');
+    let cleanedEmail = email;
+    if (email) {
+      cleanedEmail = email.replace(/\./g, ',');
+    }
     let emailRef = this.af.database.object(this.emailsUrl+cleanedEmail);
 
     return new Promise(function(resolve, reject) {
       if (validation) {
         emailRef.set(0)
           .then(x => resolve("email recieved!"))
-          .catch(err => reject("sry try again :("));
+          .catch(err => reject("server error :(\nplease try again!"));
       } else {
         reject("invalid email :(");
       }
