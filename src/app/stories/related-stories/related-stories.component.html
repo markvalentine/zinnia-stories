@@ -1,6 +1,6 @@
 <div class="background" id="related-background">
   <div class="content">
-        <div class="others">Other stories tagged "{{collection?.title}}"</div>
+        <div *ngIf="collection" class="others">Other stories tagged "{{collection?.title}}"</div>
         <span *ngFor="let story of (relatedStories | async); let first = first;">
             <app-story-card *ngIf="first" [story]="(story | async)" [position]="'left'"></app-story-card> 
             <app-story-card *ngIf="!first" [story]="(story | async)" [position]="'right'" [smaller]="'smaller'"></app-story-card>  

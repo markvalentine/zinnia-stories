@@ -25,6 +25,10 @@ h1 {
     font-family: "Phosphate";
 }
 
+a {
+    text-decoration: none;
+}
+
 .share-your-story {
     margin: 0 auto;
     border-top: 1px solid #a7f1e6;
@@ -34,13 +38,13 @@ h1 {
     /*border: 0;*/
     box-shadow: 0;
     background: #65C3B6;
-    width: 320;
+    max-width: 320px;
     font-family: "Butler";
     font-weight: 700;
     font-size: 24px;
     color: #FFFFFF;
     letter-spacing: 0.31px;
-    padding: 11px 60px 7px 60px;
+    padding: 11px 10px 7px 10px;
     text-align: center;
 }
 

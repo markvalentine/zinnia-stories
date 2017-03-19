@@ -20,7 +20,7 @@ export class RelatedStoriesComponent implements OnInit {
 
   collection: Collection;
 
-  relatedStories: Observable<Story>;
+  relatedStories: Observable<any>;
 
   constructor(
     private storyService: StoryService,
@@ -32,6 +32,9 @@ export class RelatedStoriesComponent implements OnInit {
   }
 
   ngOnChanges() {
+    if (this.collectionKey == undefined) {
+      this.relatedStories = this.storyService.getXFeaturedStories(2);
+    }
     this.collectionService.getCollection(this.collectionKey).subscribe(collectionString => {
       this.collection = new Collection(collectionString);
       this.relatedStories = this.storyService.getRelatedStories(this.collection, this.storyKey);

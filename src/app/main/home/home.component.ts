@@ -18,10 +18,17 @@ export class HomeComponent implements OnInit {
   featuredStoriesLast: Observable<any[]>;
   collections: FirebaseListObservable<any[]>;
 
+  background_url = "./assets/images/0.jpg";
+
   constructor(
     private storyService: StoryService,
     private collectionService: CollectionService
-  ) { }
+  ) {
+    let date = Math.round((Date.now()/600000));
+    this.background_url = "url(./assets/images/backgrounds/"+date%4+".jpg)";
+    console.log(date%4);
+    console.log(date);
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);

@@ -41,6 +41,9 @@
 <span *ngFor="let collectionKey of (story | async)?.collections">
   <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
 </span>
+<span *ngIf="(story | async)?.featuredCollections == '' && (story | async)?.collections == ''">
+  <app-related-stories [storyKey]="key"></app-related-stories>
+</span>
 <app-email></app-email>
 <!--<div class="background speckle">
   <div class="content">
