@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ramblin Stories</title>
+  <base href="/zinnia-stories/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./assets/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./assets/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="./assets/favicons/manifest.json">
+  <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href="https://cdn.quilljs.com/1.1.5/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+  <app-root>
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </app-root>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1731698693820081',
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <script src="https://cdn.quilljs.com/1.1.5/quill.js"></script>
+  <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+  <script type="text/javascript" src="https://assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" src="inline.js"></script><script type="text/javascript" src="styles.ca29501e50573c3bc654.bundle.js"></script><script type="text/javascript" src="main.8fdd078e943b157bdbbd.bundle.js"></script></body>
+</html>
