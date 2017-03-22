@@ -7,13 +7,14 @@
 
 .image {
     width: 100%;
+    max-width: 1600px;
     height: 400px;
     background: #eaeaea;
     background-size: cover;
     background-position: center center;
     padding: 25px;
     border: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .outline {
