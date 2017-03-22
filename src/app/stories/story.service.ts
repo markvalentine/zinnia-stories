@@ -133,11 +133,13 @@ export class StoryService {
   featureStory(story: Story) {
     let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
     let featuredStoriesRef = this.af.database.object(this.featuredUrl+this.storiesUrl+story.$key);
+    let date = new Date().getTime();
 
     return new Promise(function(resolve, reject) {
       storyRef.set(true)
         .then(_ => {
-          featuredStoriesRef.set(story.date_created)
+          //This lets us change order of featured
+          featuredStoriesRef.set(-date)
             .then(_ => resolve('featured story '+story.$key))
             .catch(err => reject(err));
         })

@@ -40,7 +40,7 @@
   </div>
 </div>-->
 <div class="story" (click)="goToDetail(story?.$key)">
-  <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
+  <div class="image" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div class="outline">  </div>
   </div>
   <div class="card">

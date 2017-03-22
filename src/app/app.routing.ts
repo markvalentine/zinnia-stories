@@ -75,14 +75,14 @@ const appRoutes: Routes = [
     //     path: 'collections/:key',
     //     component: CollectionDetailComponent
     // },
-    // {
-    //     path: 'edit-collection/:key',
-    //     component: EditCollectionComponent
-    // },
-    // {
-    //     path: 'add-collection',
-    //     component: AddCollectionComponent
-    // },
+    {
+        path: 'edit-collection/:key',
+        component: EditCollectionComponent
+    },
+    {
+        path: 'add-collection',
+        component: AddCollectionComponent
+    },
     {
         path: '**',
         component: PageNotFoundComponent

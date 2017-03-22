@@ -30,6 +30,7 @@
     display: block;
     height: auto;
     width: 100%;
+    max-width: 1600px;
     margin: 20px auto 40px auto;
 }
 
