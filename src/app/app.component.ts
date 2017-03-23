@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+declare let ga: Function;
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class AppComponent {
       (event:Event) => {
         if (event instanceof NavigationEnd) {
           // put google analytics here
+          ga('set', 'page', event.urlAfterRedirects);
+          ga('send', 'pageview');
         }
       });
     }
