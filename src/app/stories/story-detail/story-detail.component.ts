@@ -5,6 +5,8 @@ import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-story-detail',
   templateUrl: './story-detail.component.html',
@@ -64,15 +66,24 @@ export class StoryDetailComponent implements OnInit {
   }
 
   facebook() {
-    console.log(this.router.url);
+    this.handleShare('facebook');
     FB.ui(
       {
         method: 'feed',
         name: this.storyObject.title,
         description: this.storyObject.description,
         picture: this.storyObject.image_url,
-        link: 'https://markvalentine.github.io/zinnia-stories'+this.router.url
+        link: 'https://ramblinstories.com'+this.router.url
       }, function(response){});
+  }
+
+  handleShare(socialNetwork: string) {
+    ga('send', {
+      hitType: 'social',
+      socialNetwork: socialNetwork,
+      socialAction: 'share',
+      socialTarget: this.storyObject.$key+"-detail"
+    });
   }
 
 }

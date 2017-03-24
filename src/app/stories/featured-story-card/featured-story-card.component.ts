@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Story } from '../story';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-featured-story-card',
   templateUrl: './featured-story-card.component.html',
@@ -47,25 +49,36 @@ export class FeaturedStoryCardComponent implements OnInit {
 
   facebook(event: Event) {
     event.stopPropagation();
-    console.log(this.router.url);
+    this.handleShare('facebook');
     FB.ui(
       {
         method: 'feed',
         name: this.story.title,
         description: this.story.description,
         picture: this.story.image_url,
-        link: 'https://markvalentine.github.io/zinnia-stories'+this.router.url
+        link: 'https://ramblinstories.com'+this.router.url
       }, function(response){});
   }
 
   stopPropTwitter(event: Event) {
     event.stopPropagation();
+    this.handleShare('twitter');
     document.getElementById("proxyAnchor-twitter-"+this.story.$key).click();
   }
   
   stopPropPinterest(event: Event) {
     event.stopPropagation();
+    this.handleShare('pinterest');
     document.getElementById("proxyAnchor-pinterest-"+this.story.$key).click();
+  }
+
+  handleShare(socialNetwork: string) {
+    ga('send', {
+      hitType: 'social',
+      socialNetwork: socialNetwork,
+      socialAction: 'share',
+      socialTarget: this.story.$key+"-card"
+    });
   }
 
 }
