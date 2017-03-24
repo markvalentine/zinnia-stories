@@ -84,6 +84,13 @@ export class StoryDetailComponent implements OnInit {
       socialAction: 'share',
       socialTarget: this.storyObject.$key+"-detail"
     });
+
+    ga('send', 'event', {
+      eventCategory: 'share',
+      eventAction: socialNetwork,
+      eventLabel: this.storyObject.$key+"-detail",
+      transport: 'beacon'
+    });
   }
 
 }

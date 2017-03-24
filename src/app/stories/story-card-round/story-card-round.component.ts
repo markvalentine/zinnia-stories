@@ -72,6 +72,13 @@ export class StoryCardRoundComponent implements OnInit {
       socialAction: 'share',
       socialTarget: this.story.$key+"-card"
     });
+
+    ga('send', 'event', {
+      eventCategory: 'share',
+      eventAction: socialNetwork,
+      eventLabel: this.story.$key+"-card",
+      transport: 'beacon'
+    });
   }
 
 }
