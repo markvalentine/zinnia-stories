@@ -374,7 +374,6 @@ export class StoryService {
   }
 
   getStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
-    console.log('limit')
     return this.af.database.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
       query: {
         orderByValue: true,

@@ -18,7 +18,6 @@ export class InstagramComponent implements OnInit {
   ngOnInit() {
     this.images = Observable.create( subscriber => {
       this.instagramService.getInsta().subscribe(x => {
-        console.log(x);
         subscriber.next(x['data']);
       }, error => {
         console.log("ERRRORORROORR", error);
