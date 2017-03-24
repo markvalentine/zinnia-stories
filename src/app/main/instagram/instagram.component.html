@@ -1,10 +1,10 @@
-<a href="https://www.instagram.com/ramblinstories/">
+<a (click)="handleOutboundLinkClicks(event, 'instagram-banner')" target="_blank" href="https://www.instagram.com/ramblinstories/">
   <hr/>
   <div class="follow">follow us on</div>
   <div class="instagram">Instagram</div>
   <div class="image-stream">
     <span *ngFor="let image of (images | async)">
-      <a href="{{image.link}}"><div class="image" [ngStyle]="{'background-image': 'url(' + image.images.low_resolution.url + ')'}"></div></a>
+      <a (click)="handleOutboundLinkClicks(event, 'instagram-image')" target="_blank" href="{{image.link}}"><div class="image" [ngStyle]="{'background-image': 'url(' + image.images.low_resolution.url + ')'}"></div></a>
     </span>
   </div>
 </a>

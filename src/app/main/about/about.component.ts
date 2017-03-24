@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -20,6 +22,15 @@ export class AboutComponent implements OnInit {
       } else {
         window.scrollTo(0, 0);
       }
+    });
+  }
+
+  handleOutboundLinkClicks(event, link: string) {
+    ga('send', 'event', {
+      eventCategory: 'Outbound Link',
+      eventAction: 'click',
+      eventLabel: link,
+      transport: 'beacon'
     });
   }
 

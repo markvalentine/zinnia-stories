@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { StoryService } from '../story.service';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-all-stories',
   templateUrl: './all-stories.component.html',
@@ -70,5 +72,14 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
   //       }
   //     }
   //   }
+
+  handleOutboundLinkClicks(event, link: string) {
+    ga('send', 'event', {
+      eventCategory: 'Outbound Link',
+      eventAction: 'click',
+      eventLabel: link,
+      transport: 'beacon'
+    });
+  }
 
 }

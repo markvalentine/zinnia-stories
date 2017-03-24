@@ -13,12 +13,11 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleOutboundLinkClicks(event) {
-    console.log(event);
+  handleOutboundLinkClicks(event, link: string) {
     ga('send', 'event', {
       eventCategory: 'Outbound Link',
       eventAction: 'click',
-      eventLabel: event.target.href,
+      eventLabel: link,
       transport: 'beacon'
     });
   }

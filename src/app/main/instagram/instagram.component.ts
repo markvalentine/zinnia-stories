@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { InstagramService } from './instagram.service';
 import { Observable } from 'rxjs/Observable';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-instagram',
   templateUrl: './instagram.component.html',
@@ -26,6 +28,15 @@ export class InstagramComponent implements OnInit {
 
   getInsta() {
 
+  }
+
+  handleOutboundLinkClicks(event, link: string) {
+    ga('send', 'event', {
+      eventCategory: 'Outbound Link',
+      eventAction: 'click',
+      eventLabel: link,
+      transport: 'beacon'
+    });
   }
 
 
