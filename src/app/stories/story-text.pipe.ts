@@ -7,7 +7,6 @@ export class StoryTextPipe implements PipeTransform {
 
   transform(value: string, args?: any): any {
     console.log(value);
-    console.log()
     let newString = this.replaceAll(value, '\n\n\n\n\n', '</p><p>', false);
     newString = this.replaceAll(newString, '\n\n\n\n', '</p><p>', false);
     newString = this.replaceAll(newString, '\n\n\n', '</p><p>', false);

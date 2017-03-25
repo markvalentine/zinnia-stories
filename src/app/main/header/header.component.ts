@@ -9,6 +9,8 @@ export class HeaderComponent implements OnInit {
 
   checked: boolean;
 
+  display = "block";
+
   constructor() { }
 
   ngOnInit() {
@@ -16,6 +18,10 @@ export class HeaderComponent implements OnInit {
 
   closeMenu() {
     this.checked = false;
+  }
+
+  clearUnderConstruction() {
+    this.display = "none";
   }
 
 }
