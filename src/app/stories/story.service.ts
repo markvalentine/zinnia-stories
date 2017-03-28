@@ -38,12 +38,14 @@ export class StoryService {
   addStory(story: Story): Promise<any> {
     let date = new Date().getTime();
     let storiesRef = this.af.database.list(this.storiesUrl)
+
     return new Promise(function(resolve, reject) {
       storiesRef.push({
         'title': story.title,
         'description': story.description,
         'text': story.text,
         'image_url': story.image_url,
+        'show_image': story.show_image,
         'date_created': -date,
         'delta': story.delta
       })
@@ -118,6 +120,7 @@ export class StoryService {
       storyRef.update({
         'title': story.title,
         'description': story.description,
+        'show_image': story.show_image,
         'text': story.text
       })
         .then(_ => resolve('updated'))
