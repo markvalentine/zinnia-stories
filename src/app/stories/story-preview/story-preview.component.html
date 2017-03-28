@@ -1,9 +1,35 @@
-<div class="content story" *ngIf="story">
-    <button (click)="previewStory()">Preview Story</button>
-
-    <h3>{{story?.title}}</h3>
-    <!--<strong><i>{{(story | async).description}}</i></strong>-->
-    <img *ngIf="story?.image_url" src="{{story?.image_url}}">
-    <!--<p>{{story?.text}}</p>-->
+<div class="background white">
+  <div class="content story">
+    <div *ngIf="story">
+      <h3 class="title">{{(story | async).title}}</h3>
+      <div class="social-media">
+        <a><img class="social-media-icon" src="assets/images/socialmedia/facebook-color.svg"></a>
+        <a><img class="social-media-icon" src="assets/images/socialmedia/twitter-color.svg"></a>
+        <a><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="story | async">
+  <img class="image" *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
+</div>
+<div class="background white">
+  <div class="content story">
+    <div *ngIf="story | async">
+      <p *ngIf="(!(story | async)?.delta)">{{(story | async).text}}</p>
+    </div>
     <div id="delta"></div>
+    <div *ngIf="story | async">
+      <div class="social-media">
+        <a><img class="social-media-icon" src="assets/images/socialmedia/facebook-color.svg"></a>
+        <a><img class="social-media-icon" src="assets/images/socialmedia/twitter-color.svg"></a>
+        <a><img class="social-media-icon" src="assets/images/socialmedia/Pinterest-Color.svg"></a>
+      </div>
+    </div>
+    <div *ngIf="!(story | async)" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
 </div>

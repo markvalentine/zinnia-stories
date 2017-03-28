@@ -9,6 +9,7 @@ export class Story {
     featured: boolean;
 
     image_url: string;
+    show_image: boolean;
 
     featuredCollections: string[];
     featuredCollectionsObject: any;
@@ -44,6 +45,7 @@ export class Story {
         this.featured = false;
 
         this.image_url = "";
+        this.show_image = true;
 
         this.featuredCollections = [];
         this.featuredCollectionsObject = {};
@@ -78,6 +80,7 @@ export class Story {
         this.featured = json['featured'];
 
         this.image_url = json['image_url'];
+        this.show_image = json['show_image'];
 
         this.featuredCollectionsObject = json['featured_collections'];
         this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections']);

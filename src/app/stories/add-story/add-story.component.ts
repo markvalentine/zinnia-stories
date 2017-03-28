@@ -74,6 +74,8 @@ export class AddStoryComponent {
   }
 
   previewStory() {
+    console.log("what now?");
+    console.log("Show image? ", this.story.show_image);
     this.getDelta();
     this.getText();
     this.storyPreview = this.story;
