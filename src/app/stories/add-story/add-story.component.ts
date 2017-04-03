@@ -86,15 +86,10 @@ export class AddStoryComponent {
   getDelta() {
     var delta = this.quill.getContents();
     this.story.delta = delta;
-    // console.log(delta);
-    //  var tempCont = document.getElementById('read-only-editor');
-    // (new Quill(tempCont, {readOnly: true})).setContents(delta);
-    // return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
   }
 
   getText() {
     var text = this.quill.getText();
-    // console.log(text);
     this.story.text = text;
   }
 

@@ -65,7 +65,7 @@ export const firebaseConfig = {
 //     projectId: "zinnia-test",
 //     storageBucket: "zinnia-test.appspot.com",
 //     messagingSenderId: "405819933312"
-//   };
+// };
 
 export const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,

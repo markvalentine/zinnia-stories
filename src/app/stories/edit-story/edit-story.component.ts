@@ -21,6 +21,12 @@ export class EditStoryComponent implements OnInit {
 
   collections: FirebaseListObservable<any[]>
 
+  editorLoaded: boolean;
+
+  uploaded: string;
+  quill: any;
+  readOnlyQuill: any;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -43,6 +49,42 @@ export class EditStoryComponent implements OnInit {
     });
   }
 
+  loadEditor(storyObject: Story) {
+    if (!this.editorLoaded) {
+      this.editorLoaded = true;
+
+      // var FontAttributor = Quill.import('attributors/class/font');
+      // FontAttributor.whitelist = [
+      //   'cormorant-garamond', 'milkshake'
+      // ];
+      // Quill.register(FontAttributor, true);
+
+      // var toolbarOptions = [['bold', 'italic', 'underline', 'strike'], ['link', 'image']];
+      var toolbarOptions = [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+        [{ 'direction': 'rtl' }],                         // text direction
+        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        [{ 'align': [] }],
+        ['link', 'image', 'video'],
+        ['clean']
+        // [{ 'font': ['cormorant-garamond', 'serif', 'sans serif', 'monospace', 'milkshake'] }]                                         // remove formatting button
+      ];
+
+      this.quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+          toolbar: toolbarOptions
+        }
+      });
+      this.quill.setContents(storyObject.delta);
+    }
+  }
+
   featureStory(story: Story) {
     this.storyService.featureStory(story)
       .then(_ => this.goBack())
@@ -60,6 +102,14 @@ export class EditStoryComponent implements OnInit {
    * update story and wait for completion to navigate away
    */
   updateStory(story: Story) {
+    var delta = this.quill.getContents();
+    story.delta = delta;
+
+    var text = this.quill.getText();
+    story.text = text;
+
+    console.log(story);
+
     this.storyService.updateStory(story)
       .then(_ => this.goBack())
       .catch(err => console.log(err));

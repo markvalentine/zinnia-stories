@@ -121,7 +121,8 @@ export class StoryService {
         'title': story.title,
         'description': story.description,
         'show_image': story.show_image,
-        'text': story.text
+        'text': story.text,
+        'delta': story.delta
       })
         .then(_ => resolve('updated'))
         .catch(err => reject(err));

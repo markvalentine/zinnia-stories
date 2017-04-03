@@ -19,7 +19,7 @@
         <br/>
         <div>
           <label>story: </label>
-          <textarea [(ngModel)]="storyObject.text" placeholder="story"></textarea>
+          <div id="editor" (click)="loadEditor(storyObject)">{{storyObject.text}}</div>
         </div>
         <br/>
         <button *ngIf="(!storyObject.featured)" (click)="featureStory(storyObject)">FeatureStory</button>
