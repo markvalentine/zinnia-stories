@@ -37,7 +37,7 @@
             <button (click)="previewStory()">Preview Story</button><br/>
 
             <!--<app-story-preview [story]="story"></app-story-preview>-->
-            <h2>{{storyPreview?.title}}</h2>
+            <h2 class="title">{{storyPreview?.title}}</h2>
             <!--<strong><i>{{(story | async).description}}</i></strong>-->
             <img *ngIf="storyPreview?.image_url" src="{{storyPreview?.image_url}}">
             <!--<p>{{story?.text}}</p>-->

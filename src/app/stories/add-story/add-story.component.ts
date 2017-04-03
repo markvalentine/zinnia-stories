@@ -42,11 +42,11 @@ export class AddStoryComponent {
     if (!this.editorLoaded) {
       this.editorLoaded = true;
 
-      var FontAttributor = Quill.import('attributors/class/font');
-      FontAttributor.whitelist = [
-        'cormorant-garamond', 'milkshake'
-      ];
-      Quill.register(FontAttributor, true);
+      // var FontAttributor = Quill.import('attributors/class/font');
+      // FontAttributor.whitelist = [
+      //   'cormorant-garamond', 'milkshake'
+      // ];
+      // Quill.register(FontAttributor, true);
 
       // var toolbarOptions = [['bold', 'italic', 'underline', 'strike'], ['link', 'image']];
       var toolbarOptions = [
