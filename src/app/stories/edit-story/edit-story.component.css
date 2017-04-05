@@ -5,13 +5,26 @@ textarea {
 
 input {
     width: 100%;
+    border: 0;
+    padding: 0;
+    box-shadow: 0;
+    outline: none;
 }
 
-#editor {
-    height: 500px;
-    width: 100%;
-    background: #fff;
-    border: 1px solid #cdcdcd;
+input.title {
+    font-family: "Butler";
+    font-size: 32px;
+    color: #444;
+    letter-spacing: 0.42px;
+    font-weight: 400;
+}
+
+input.description {
+    font-family: "Butler";
+    font-size: 24px;
+    color: #666;
+    letter-spacing: 0.42px;
+    font-weight: 400;
 }
 
 .title {
@@ -19,6 +32,14 @@ input {
     color: #444;
     letter-spacing: 0.42px;
     font-weight: 400;
+}
+
+#editor {
+    height: 500px;
+    width: 100%;
+    background: #fff;
+    padding: 0;
+    border: 0;
 }
 
 p, .ql-container {

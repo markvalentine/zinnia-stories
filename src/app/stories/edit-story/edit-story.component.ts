@@ -47,6 +47,15 @@ export class EditStoryComponent implements OnInit {
 
       this.collections = this.collectionService.getCollections();
     });
+    
+    this.story.subscribe(x => {
+      let timeout = setTimeout(() => {
+        this.loadEditor(x[0]);
+        clearTimeout(timeout);
+      }, 500);
+    });
+
+    
   }
 
   loadEditor(storyObject: Story) {

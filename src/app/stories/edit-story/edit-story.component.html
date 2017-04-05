@@ -1,6 +1,6 @@
 <div class="background white">
   <div class="content">
-    <h3>Edit Story</h3>
+    <h1 class="red centered">Edit story</h1>
     <div *ngIf="(isAuth | async)">
       <!--
         hack to get the story object asycronously without having to subscribe 
@@ -8,18 +8,15 @@
       -->
       <div *ngFor="let storyObject of (story | async)">
         <div>
-          <label>title: </label>
-          <input [(ngModel)]="storyObject.title" placeholder="title"/>
+          <input class="title" [(ngModel)]="storyObject.title" placeholder="title"/>
         </div>
         <br/>
         <div>
-            <label>description: </label>
-            <input [(ngModel)]="storyObject.description" placeholder="description">
+            <input class="description" [(ngModel)]="storyObject.description" placeholder="description">
         </div>
         <br/>
         <div>
-          <label>story: </label>
-          <div id="editor" (click)="loadEditor(storyObject)">{{storyObject.text}}</div>
+          <div id="editor"></div>
         </div>
         <br/>
         <button *ngIf="(!storyObject.featured)" (click)="featureStory(storyObject)">FeatureStory</button>
