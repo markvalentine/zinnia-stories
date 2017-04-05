@@ -5,20 +5,45 @@ textarea {
 
 input {
     width: 100%;
+    border: 0;
+    padding: 0;
+    box-shadow: 0;
+    outline: none;
+}
+
+input.title {
+    font-family: "Butler";
+    font-size: 32px;
+    color: #444;
+    letter-spacing: 0.42px;
+    font-weight: 400;
+}
+
+input.description {
+    font-family: "Butler";
+    font-size: 24px;
+    color: #666;
+    letter-spacing: 0.42px;
+    font-weight: 400;
 }
 
 #editor {
     height: 500px;
     width: 100%;
     background: #fff;
-    border: 1px solid #cdcdcd;
+    padding: 0;
+    border: 0;
+}
+
+.uploadProgress {
+    height: 20px;
+    background: #8ccdff;
+    width: 0px;
+    transition: all .16s ease-in-out;
 }
 
 img {
     max-width: 100%;
-}
-
-img {
     display: block;
     height: auto;
     width: 100%;
@@ -47,10 +72,6 @@ p, .ql-container {
     letter-spacing: 0.26px;
     line-height: 35px;
     margin-bottom: 40px;
-}
-
-.ql-container.ql-editor {
-    padding: 0;
 }
 
 @media only screen and (max-width: 640px) {

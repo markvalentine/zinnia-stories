@@ -1,49 +1,28 @@
 <div class="background white">
     <div class="content">
         <div *ngIf="(isAuth | async)">
-            <h3>Add a story</h3>
+            <h1 class="red centered">Add a story</h1>
             <div>
-                <label>title: </label>
-                <input [(ngModel)]="story.title" placeholder="title"/>
+                <input class="title" [(ngModel)]="story.title" placeholder="title"/>
             </div>
             <br/>
             <div>
-                <label>description: </label>
-                <input [(ngModel)]="story.description" placeholder="description"/>
+                <input class="description" [(ngModel)]="story.description" placeholder="description"/>
             </div>
             <br/>
-            <!--<div>
-                <label>story: </label>
-                <textarea [(ngModel)]="story.text" placeholder="story"></textarea>
-            </div>-->
-            <span>story: </span>
-            <div id="editor" (click)="loadEditor()">
-            </div>
+            <input type="file" (change)="changeListener($event)" placeholder="upload image">
+            <label>Display the image in the story?</label><input type="checkbox" style="width: 20px; margin-left: 10px; margin-top: 20px;"[checked]="story.show_image" (change)="story.show_image = !story.show_image" />
+            <div *ngIf="!imageUploaded" class="uploadProgress" [style.width]="uploaded" [style.margin]="margin"></div>
+            <img *ngIf="imageUploaded" src="{{ imageUrl }}">
+            <div id="editor" (click)="loadEditor()"></div>
             <br/>
             <br/>
-            <input type="file" (change)="changeListener($event)">
-            <br/>
-            <br/>
-            <div class="uploadProgress">
-                {{ uploaded }}
-            </div>
-            <!--<div>
-                <label>featured?: </label>
-                <input type="checkbox" [(ngModel)]="newStory.featured"/>
-            </div>-->
-            <br/>
-            <label>Show Image?</label><input type="checkbox" [checked]="story.show_image" (change)="story.show_image = !story.show_image" />
-            <br/><br/>
-            <button (click)="previewStory()">Preview Story</button><br/>
-
-            <!--<app-story-preview [story]="story"></app-story-preview>-->
+            <button (click)="previewStory()">Preview Story (you must preview before submiting)</button><br/>
             <h2 class="title">{{storyPreview?.title}}</h2>
-            <!--<strong><i>{{(story | async).description}}</i></strong>-->
-            <img *ngIf="storyPreview?.image_url" src="{{storyPreview?.image_url}}">
-            <!--<p>{{story?.text}}</p>-->
+            <img *ngIf="storyPreview?.image_url && storyPreview?.show_image" src="{{storyPreview?.image_url}}">
             <div id="delta"></div>
 
-            <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text">Submit Story</button>
+            <button (click)="addStory()" [disabled]="isAdding || !story.title || !story.description || !story.text || !story.image_url">Submit Story</button>
 
 
         </div>

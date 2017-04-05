@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
@@ -11,7 +11,7 @@ import { AngularFire, FirebaseObjectObservable, AngularFireAuth, AuthProviders, 
   templateUrl: './add-story.component.html',
   styleUrls: ['./add-story.component.css']
 })
-export class AddStoryComponent {
+export class AddStoryComponent implements OnInit {
   
   story: Story;
   storyPreview: Story;
@@ -20,6 +20,9 @@ export class AddStoryComponent {
   editorLoaded: boolean;
 
   uploaded: string;
+  imageUploaded = false;
+  margin = "0";
+  imageUrl = "";
   quill: any;
   readOnlyQuill: any;
 
@@ -36,6 +39,13 @@ export class AddStoryComponent {
     this.editorLoaded = false;
 
     this.uploaded = "no upload in progress";
+  }
+
+  ngOnInit() {
+    let timeout = setTimeout(() => {
+      this.loadEditor();
+      clearTimeout(timeout);
+    }, 750);
   }
 
   loadEditor() {
@@ -68,7 +78,8 @@ export class AddStoryComponent {
         theme: 'snow',
         modules: {
           toolbar: toolbarOptions
-        }
+        },
+        placeholder: "Compose your magnum opus here..."
       });
     }
   }
@@ -121,6 +132,8 @@ export class AddStoryComponent {
     let file = event.target.files[0];
     let progress = 0;
     let downloadURL = '';
+    this.imageUploaded = false;
+    this.margin = "20px 0";
     this.storyService.uploadImage(file).subscribe(
       m => {
         console.log(m, progress);
@@ -128,6 +141,9 @@ export class AddStoryComponent {
           downloadURL = m;
           this.uploaded = "finished uploading: " + downloadURL;
           this.story.image_url = downloadURL;
+          this.imageUrl = downloadURL;
+          this.imageUploaded = true;
+          this.margin = "0";
         } else {
           progress = m;
           this.uploaded = progress+"%";

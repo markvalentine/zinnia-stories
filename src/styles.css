@@ -25,6 +25,10 @@ body {
     line-height: 35px;
 }
 
+.centered {
+    text-align: center;
+}
+
 div {
     box-sizing: border-box;
 }
@@ -175,6 +179,11 @@ h1 {
     font-size: 50px;
     font-weight: normal;
     letter-spacing: 0.65px;
+}
+
+.ql-editor {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .ql-container h2 {
