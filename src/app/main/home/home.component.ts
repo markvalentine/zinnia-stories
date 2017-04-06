@@ -13,9 +13,9 @@ import { Collection } from '../../collections/collection';
 })
 export class HomeComponent implements OnInit {
 
-  featuredStories: Observable<any[]>;
-  featuredStoriesMiddle: Observable<any[]>;
-  featuredStoriesLast: Observable<any[]>;
+  featuredStoryCards: Observable<any[]>;
+  featuredStoryCardsMiddle: Observable<any[]>;
+  featuredStoryCardsLast: Observable<any[]>;
   collections: FirebaseListObservable<any[]>;
 
   background_url = "./assets/images/0.jpg";
@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.featuredStories = this.storyService.getXFeaturedStories(3);
-    this.featuredStoriesMiddle = this.storyService.getXFeaturedStories(6);
-    this.featuredStoriesLast = this.storyService.getXFeaturedStories(10);
+    this.featuredStoryCards = this.storyService.getXFeaturedStoryCards(3);
+    this.featuredStoryCardsMiddle = this.storyService.getXFeaturedStoryCards(6);
+    this.featuredStoryCardsLast = this.storyService.getXFeaturedStoryCards(10);
     this.collections = this.collectionService.getCollections();
   }
 

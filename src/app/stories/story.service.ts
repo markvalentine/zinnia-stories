@@ -411,6 +411,7 @@ export class StoryService {
    * i.e. deleted from featured, deleted from colleciton, deleted from featured collections
    * finally deleted then completion
    * passes errors when errors occur
+   * TODO: DELETE IMAGES
    */
   deleteStory(story: Story): Observable<any> {
     let storyRef = this.af.database.object(this.storiesUrl+story.$key);

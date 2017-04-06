@@ -1,10 +1,10 @@
-<a id="proxyAnchor-twitter-{{story?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://ramblinstories.com{{this.router.url}}&text={{story?.title}}">proxy</a>
-<a  target="_blank"  id="proxyAnchor-pinterest-{{story?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://ramblinstories.com{{this.router.url}}/&media={{encodeURL(story?.image_url)}}&description={{story?.title}}" data-pin-shape="round"></a>
+<a id="proxyAnchor-twitter-{{storycard?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://ramblinstories.com{{this.router.url}}&text={{storycard?.title}}">proxy</a>
+<a  target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://ramblinstories.com{{this.router.url}}/&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
 
-<div class="story {{position}} {{smaller}}" (click)="goToDetail(story?.$key)">
-  <div class="image" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}"> </div>
+<div class="story {{position}} {{smaller}}" (click)="goToDetail(storycard?.$key)">
+  <div class="image" [ngStyle]="{'background-image': 'url(' + storycard?.image_url + ')'}"> </div>
   <div class="card">
-    <h2>{{story?.title}}</h2>
+    <h2>{{storycard?.title}}</h2>
     <div class="social-media">
       <hr/>
       <div class="icons">
@@ -15,8 +15,8 @@
       </div>
     </div>
     <div class="tags">
-      <span *ngFor="let key of story?.featuredCollections; let last = last">{{story?.featuredCollectionsObject[key]}}<span *ngIf="!last || (last && story?.collections.length > 0)"> | </span></span>
-      <span *ngFor="let key of story?.collections; let last = last">{{story?.collectionsObject[key]}}<span *ngIf="!last"> | </span></span>
+      <span *ngFor="let key of storycard?.featuredCollections; let last = last">{{storycard?.featuredCollectionsObject[key]}}<span *ngIf="!last || (last && storycard?.collections.length > 0)"> | </span></span>
+      <span *ngFor="let key of storycard?.collections; let last = last">{{storycard?.collectionsObject[key]}}<span *ngIf="!last"> | </span></span>
     </div>
   </div>
 </div>

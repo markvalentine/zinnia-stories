@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { StoryService} from '../story.service';
-import { Story } from '../story';
+import { StoryCard } from '../story';
 import { CollectionService} from '../../collections/collection.service';
 import { Collection } from '../../collections/collection';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class RelatedStoriesComponent implements OnInit {
 
   shouldDisplay = true;
 
-  relatedStories: Observable<any>;
+  relatedStorycards: Observable<any>;
 
   constructor(
     private storyService: StoryService,
@@ -36,12 +36,12 @@ export class RelatedStoriesComponent implements OnInit {
   ngOnChanges() {
     if (this.collectionKey == undefined) {
       this.shouldDisplay = false;
-      this.relatedStories = this.storyService.getXFeaturedStories(2);
+      this.relatedStorycards = this.storyService.getXFeaturedStoryCards(2);
     }
     this.collectionService.getCollection(this.collectionKey).subscribe(collectionString => {
       this.collection = new Collection(collectionString);
-      this.relatedStories = this.storyService.getRelatedStories(this.collection, this.storyKey);
-      this.relatedStories.subscribe(x => {
+      this.relatedStorycards = this.storyService.getRelatedStoryCards(this.collection, this.storyKey);
+      this.relatedStorycards.subscribe(x => {
         if (x.length < 1) {
           this.shouldDisplay = false;
         }

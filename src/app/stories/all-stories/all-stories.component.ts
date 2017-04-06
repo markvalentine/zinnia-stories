@@ -15,8 +15,8 @@ declare let ga: Function;
 export class AllStoriesComponent implements OnInit, OnDestroy {
   featuredStoryIDs: FirebaseListObservable<any[]>;
   featuredStories: Observable<any>;
-  stories: FirebaseListObservable<any[]>;
-  storySubscription: Subscription
+  storycards: FirebaseListObservable<any[]>;
+  storycardSubscription: Subscription
   // don't load next stories until the previous load finishes
   isLoadingNext = true;
 
@@ -33,15 +33,15 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
     window.scrollTo(0, 0);
     // this.featuredStoryIDs = this.storyService.getFeaturedStoryIDs();
     // this.featuredStories = this.storyService.getFeaturedStories();
-    this.stories = this.storyService.getStories();
-    this.storySubscription = this.stories.subscribe(x => this.isLoadingNext = false );
+    this.storycards = this.storyService.getStoryCards();
+    this.storycardSubscription = this.storycards.subscribe(x => this.isLoadingNext = false );
   }
 
   /**
    * unsubscribe from the stories
    */
   ngOnDestroy() {
-    this.storySubscription.unsubscribe();
+    this.storycardSubscription.unsubscribe();
   }
 
   /**
@@ -58,7 +58,7 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
    */
   moreStories() {
     this.isLoadingNext = true;
-    this.storyService.nextStories(10);
+    this.storyService.nextStorycards(10);
   }
 
   /**

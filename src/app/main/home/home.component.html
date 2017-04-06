@@ -15,17 +15,17 @@
             </svg>
         </div>-->
         <div>
-            <span *ngFor="let story of (featuredStories | async); let first = first; let last = last;">
+            <span *ngFor="let storycard of (featuredStoryCards | async); let first = first; let last = last;">
                 <!--<div *ngIf="first" class="title" style="font-size: 40px;">Story of the Day</div>-->
-                <app-featured-story-card  *ngIf="first" [story]="(story | async)" [noShowStar]="false"></app-featured-story-card>
+                <app-featured-story-card  *ngIf="first" [storycard]="(storycard | async)" [noShowStar]="false"></app-featured-story-card>
                 <!--<div *ngIf="first" class="title" style="font-size: 38px;">Other Stories</div>-->
-                <app-story-card  *ngIf="!first && !last" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
-                <app-story-card  *ngIf="last" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+                <app-story-card  *ngIf="!first && !last" [storycard]="(storycard | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="last" [storycard]="(storycard | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
         </div>
-        <div *ngIf="!(featuredStories | async)" class="spinner">
+        <div *ngIf="!(featuredStoryCards | async)" class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>
@@ -56,13 +56,13 @@
             </svg>
         </div>-->
         <div>
-            <span *ngFor="let story of (featuredStoriesMiddle | async); let index = index; let last = last">
-                <app-story-card-round  *ngIf="index > 2" [story]="(story | async)"></app-story-card-round>
+            <span *ngFor="let storycard of (featuredStoryCardsMiddle | async); let index = index; let last = last">
+                <app-story-card-round  *ngIf="index > 2" [storycard]="(storycard | async)"></app-story-card-round>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
         </div>
-        <div *ngIf="!(featuredStoriesMiddle | async)" class="spinner">
+        <div *ngIf="!(featuredStoryCardsMiddle | async)" class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>
@@ -79,14 +79,14 @@
             </svg>
         </div>-->
         <div>
-            <span *ngFor="let story of (featuredStoriesLast | async); let index = index; let last = last">
-                <app-story-card  *ngIf="index > 5 && (index % 2) == 0" [story]="(story | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
-                <app-story-card  *ngIf="index > 5 && (index % 2) == 1" [story]="(story | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
+            <span *ngFor="let storycard of (featuredStoryCardsLast | async); let index = index; let last = last">
+                <app-story-card  *ngIf="index > 5 && (index % 2) == 0" [storycard]="(storycard | async)" [noShowStar]="true" [position]="'left'"></app-story-card>
+                <app-story-card  *ngIf="index > 5 && (index % 2) == 1" [storycard]="(storycard | async)" [noShowStar]="true" [position]="'right'"></app-story-card>
                 <hr *ngIf="last"/>
                 <a routerLink="/stories/" routerLinkActive="active"><div *ngIf="last" class="load-more">More Stories</div></a>
             </span>
         </div>
-        <div *ngIf="!(featuredStoriesLast | async)" class="spinner">
+        <div *ngIf="!(featuredStoryCardsLast | async)" class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
             <div class="bounce3"></div>

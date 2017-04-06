@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Story } from '../story';
+import { StoryCard } from '../story';
 
 declare let ga: Function;
 
@@ -11,9 +11,9 @@ declare let ga: Function;
 })
 export class FeaturedStoryCardComponent implements OnInit {
   @Input()
-  storyString: string;
+  storycardString: string;
   @Input()
-  story: Story;
+  storycard: StoryCard;
   @Input()
   noShowStar = false;
 
@@ -24,8 +24,8 @@ export class FeaturedStoryCardComponent implements OnInit {
    * create the story from input json string
    */
   ngOnInit() {
-    if(this.storyString){
-      this.story = new Story(this.storyString);
+    if(this.storycardString){
+      this.storycard = new StoryCard(this.storycardString);
     }
   }
 
@@ -53,9 +53,9 @@ export class FeaturedStoryCardComponent implements OnInit {
     FB.ui(
       {
         method: 'feed',
-        name: this.story.title,
-        description: this.story.description,
-        picture: this.story.image_url,
+        name: this.storycard.title,
+        description: this.storycard.description,
+        picture: this.storycard.image_url,
         link: 'https://ramblinstories.com'+this.router.url
       }, function(response){});
   }
@@ -63,13 +63,13 @@ export class FeaturedStoryCardComponent implements OnInit {
   stopPropTwitter(event: Event) {
     event.stopPropagation();
     this.handleShare('twitter');
-    document.getElementById("proxyAnchor-twitter-"+this.story.$key).click();
+    document.getElementById("proxyAnchor-twitter-"+this.storycard.$key).click();
   }
   
   stopPropPinterest(event: Event) {
     event.stopPropagation();
     this.handleShare('pinterest');
-    document.getElementById("proxyAnchor-pinterest-"+this.story.$key).click();
+    document.getElementById("proxyAnchor-pinterest-"+this.storycard.$key).click();
   }
 
   handleShare(socialNetwork: string) {
@@ -77,13 +77,13 @@ export class FeaturedStoryCardComponent implements OnInit {
       hitType: 'social',
       socialNetwork: socialNetwork,
       socialAction: 'share',
-      socialTarget: this.story.$key+"-card"
+      socialTarget: this.storycard.$key+"-card"
     });
 
     ga('send', 'event', {
       eventCategory: 'share',
       eventAction: socialNetwork,
-      eventLabel: this.story.$key+"-card",
+      eventLabel: this.storycard.$key+"-card",
       transport: 'beacon'
     });
   }
