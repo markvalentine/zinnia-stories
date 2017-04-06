@@ -91,3 +91,83 @@ export class Story {
     }
 
 }
+
+export class StoryCard {
+
+    $key: string;
+    date_created: number;
+
+    title: string;
+    description: string;
+    featured: boolean;
+
+    image_url: string;
+
+    featuredCollections: string[];
+    featuredCollectionsObject: any;
+    collections: string[];
+    collectionsObject: any;
+
+    /**
+     * takes optional json string (returned by firebase) to make story
+     * otherwise creates empty story object
+     */
+    constructor(json?: string) {
+        if (json) {
+            this.parseJSON(json);
+        } else {
+            this.emptyStory();
+        }
+    }
+
+    /**
+     * empty the story object
+     */
+    emptyStory() {
+        this.$key = null;
+        this.date_created = 0;
+
+        this.title = "";
+        this.description = "";
+        this.featured = false;
+
+        this.image_url = "";
+
+        this.featuredCollections = [];
+        this.featuredCollectionsObject = {};
+        this.collections = [];
+        this.collectionsObject = {};
+    }
+
+    /**
+     * take json object of { string: any } and convert to string[]
+     * for converting keys objects to arrays for iteration
+     */
+    getKeysFromJSONObject(object: any): string[] {
+        if (object) {
+            return Object.keys(object);
+        } else {
+            return [];
+        }
+    }
+
+    /**
+     * parse the json object returned by firebase
+     */
+    parseJSON(json: string) {
+        this.$key = json['$key'];
+        this.date_created = json['date_created'];
+
+        this.title = json['title'];
+        this.description = json['description'];
+        this.featured = json['featured'];
+
+        this.image_url = json['image_url'];
+
+        this.featuredCollectionsObject = json['featured_collections'];
+        this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections']);
+        this.collectionsObject = json['collections'];
+        this.collections = this.getKeysFromJSONObject(json['collections']);
+    }
+
+}
