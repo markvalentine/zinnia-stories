@@ -10,6 +10,7 @@
 .image {
     height: 300px;
     width: 300px;
+    background: #eaeaea;
     background-size: cover;
     background-position: center center;
     border-radius: 100%;

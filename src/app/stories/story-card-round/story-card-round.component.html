@@ -2,7 +2,7 @@
 <a  target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://ramblinstories.com{{this.router.url}}/&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
 
 <div class="story" (click)="goToDetail(storycard?.$key)">
-  <div class="image" *ngIf="storycard?.image_url" [ngStyle]="{'background-image': 'url(' + storycard?.image_url + ')'}"> </div>
+  <div class="image" [ngStyle]="{'background-image': 'url(' + storycard?.image_url + ')'}"> </div>
   <div class="card">
     <h2>{{storycard?.title}}</h2>
     <hr/>
