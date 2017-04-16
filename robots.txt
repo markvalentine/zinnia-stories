@@ -1,0 +1,6 @@
+Disallow: /node_modules/
+Disallow: /*.otf$
+Disallow: /*.ttf$
+Disallow: /*.woff$
+
+Sitemap: http://ramblinstories.com/sitemap.xml
