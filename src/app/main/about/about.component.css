@@ -1,10 +1,92 @@
-h1 {
+/*h1 {
     font-family: "Butler";
     font-size: 32px;
     color: #666;
     letter-spacing: 0.21px;
     line-height: 42px;
     margin: 10px 0;
+    font-weight: bold;
+}*/
+.reasons {
+    width: 100%;
+    max-width: 800px;
+    margin: -20px auto 60px auto;
+}
+
+.reason {
+    width: 100%;
+    height: 210px;
+    border-radius: 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    transition: all .33s ease-in-out;
+    margin: 10px 0;
+}
+
+#intergenerational {
+    background-image: url("./assets/images/bakery.jpg");
+    background-repeat: none;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    margin: 10px 136px 10px 0;
+}
+
+#loneliness {
+    background-image: url("./assets/images/hands.jpg");
+    background-repeat: none;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.cover {
+    width: 100%;
+    height: 210px;
+    border-radius: 0;
+    padding: 20px;
+    background: rgba(31,45,62,0.60);
+    transition: all .33s ease-in-out;
+}
+
+.cover:hover {
+    background-color: rgba(31,45,62,0);
+    cursor: pointer;
+}
+
+.cover h2 {
+    width: 270px;
+    margin: 0 auto;
+
+    transition: all .33s ease-in-out;
+}
+
+img {
+    margin: 10px;
+}
+
+.show-less {
+    font-family: "Butler";
+    font-size: 24px;
+    color: #999999;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.text {
+    display: none;
+    transform: none;
+    transition: all .33s ease-in-out;
+}
+
+.text p {
+    transition: all .33s ease-in-out;
+}
+
+.text h2 {
+    transition: all .33s ease-in-out;
 }
 
 .title {
@@ -23,10 +105,12 @@ h1 {
 h2 {
     font-family: "Butler";
     font-size: 32px;
+    /*color: #666;*/
     letter-spacing: 0.21px;
     line-height: 42px;
     margin: 10px 0;
-    color: #FE6859;
+    font-weight: bold;
+    /*color: #FE6859;*/
 }
 
 p {
@@ -65,7 +149,7 @@ p {
     text-align: center;
     background-image: url(./assets/images/pattern_red.png);
     background-repeat: repeat;
-    background-size: 80px 40px;
+    background-size: 60px 30px;
     margin: 0;
     padding: 9px 0 8px 0;
 }
@@ -108,7 +192,7 @@ p {
     background: #2C4263;
     background-image: url("./assets/images/pattern_dark_blue.png");
     background-repeat: repeat;
-    background-size: 80px 40px;
+    background-size: 60px 30px;
 
     border: 0;
     box-shadow: 0;
@@ -118,6 +202,20 @@ a {
     text-decoration: none;
 }
 
+@media all and (max-width : 820px) {
+    .reason {
+        margin: 20px auto;
+        display: block;
+    }
+    #intergenerational {
+        margin: 20px auto;
+    }
+
+    .text {
+        margin: 20px;
+    }
+}
+
 @media all and (max-width : 690px) {
     .title {
         width: calc(100% - 69px);
@@ -125,9 +223,9 @@ a {
 }
 
 @media all and (max-width : 550px) {
-    h1 {
+    /*h1 {
         color: #444;
-    }
+    }*/
 
     p {
         color: #444;

@@ -1,7 +1,9 @@
 <app-on-the-road></app-on-the-road>
 <div class="background">
     <div class="content">
-      <img class="bracket" src="./assets/images/bracket.svg">
+      <h2>Our goal is to foster intergenerational communities by producing creative content centered around the lives and stories of older adults. </h2>
+      <p>We believe both young and old have valuable perspectives to offer one another, but in our society there is little exchange between the two generations.  It is our hope that by creating a dedicated space for such content, we can reduce social isolation among seniors and bridge an ever-growing generational divide.</p>
+      <!--<img class="bracket" src="./assets/images/bracket.svg">
       <h1 class="title">Isolation and loneliness is an epidemic. 42% of older Americans report feelings of loneliness.</h1>
       <p>Loneliness is dangerous.  Research suggests that feelings of isolation can double mortality rates and trigger dementia, high blood pressure, alcoholism, depression, anxiety, paranoia, and suicide.</p>
       <h2>Storytelling can help fight loneliness.</h2>
@@ -10,9 +12,55 @@
       <p class="quoted">-Adriana Barton, The Globe and Mail</p>
       <h2>Ramblin is a publication focused on sharing the stories of older adults</h2>
       <p>We hope that by providing a dedicated space for older adults and their memories, we can fight social isolation and reconnect them with their communities.</p>
-      <p>To embody that mission first hand we’re traveling across the country gathering the stories of the seniors we meet along the way.  We hope that by sharing their legacies, we can inspire greater intergenerational exchange between families, friends, and neighbors.</p>
+      <p>To embody that mission first hand we’re traveling across the country gathering the stories of the seniors we meet along the way.  We hope that by sharing their legacies, we can inspire greater intergenerational exchange between families, friends, and neighbors.</p>-->
+      <h1 class="red centered" id="why" style="margin-bottom: 0">Why we're doing it</h1>
     </div>
 </div>
+<div class="reasons">
+      <div class="reason" id="intergenerational" [style.height]="intergenerational.bg.height" (click)="intergenerational_clicked()">
+        <div class="cover" [style.background]="intergenerational.cover.background" [style.height]="intergenerational.cover.height" [style.padding]="intergenerational.cover.padding">
+          <h2 class="white">Foster Intergenerational Relationships</h2>
+          <img [style.transform]="intergenerational.triangle.transform" src="assets/images/triangle.svg">
+        </div>
+      </div>
+
+      <div class="text" id="intergenerational-text" [style.display]="intergenerational.text.display">
+        <h2 class="red">The generational divide is growing.</h2>
+        <p>While it was once commonplace for grandparents to live with their younger relatives, 88% of grandparents now live apart from their families.  As older generations become more isolated, younger generations begin to see them as distant and intimidating to approach.</p>
+        <h2 class="red">Both young and old have can benefit from intergenerational relationships.</h2>
+        <p>Listening to stories allows the young to learn from the experience of older adults, alleviating fears of growing old and of seniors themselves.  Older adults can gain a sense of inclusion and new energy from increased social interactions with younger generations.</p>
+        <div class="centered pointer" (click)="intergenerational_clicked()">
+          <img src="assets/images/triangle_red.svg">
+          <div class="show-less">show less</div>
+        </div>
+      </div>
+
+      <div class="reason" id="loneliness" [style.height]="loneliness.bg.height" (click)="loneliness_clicked()">
+        <div class="cover" [style.background]="loneliness.cover.background" [style.height]="loneliness.cover.height" [style.padding]="loneliness.cover.padding">
+          <h2 class="white">Reduce Loneliness and Isolation</h2>
+          <img [style.transform]="loneliness.triangle.transform" src="assets/images/triangle.svg">
+        </div>
+      </div>
+
+      <div class="text" id="loneliness-text" [style.display]="loneliness.text.display">
+        <h2 class="red">Isolation and loneliness is an epidemic. 42% of older Americans report feelings of loneliness.</h2>
+        <p>Loneliness is dangerous.  Research suggests that feelings of isolation can double mortality rates and trigger dementia, high blood pressure, alcoholism, depression, anxiety, paranoia, and suicide.</p>
+        <h2 class="red">Storytelling can help fight loneliness.</h2>
+        <p>Storytelling, in the form of reminiscence therapy, can be a powerful tool in alleviating feelings of social isolation.</p>
+        <p class="block-quote">For older adults, talking about the good old days may be one of the best defenses against loneliness and depression, researchers says. And it’s drug free.</p>
+        <p class="quoted">-Adriana Barton, The Globe and Mail</p>
+        <div class="centered pointer" (click)="loneliness_clicked()">
+          <img src="assets/images/triangle_red.svg">
+          <div class="show-less">show less</div>
+        </div>
+      </div>
+</div>
+
+<div style="padding: 0 40px 60px; text-align: center">
+  <h2>Want to help us with our mission?</h2>
+  <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=54MM2PE23CTEC"><div style="font-weight: 600; font-size: 20px; width: 200px; background: #2EA3EA; color: #fff; padding: 15px 20px; margin: 10px auto" class="donate">DONATE</div></a>
+</div>
+
 <div class="banner">
   <h1 id="partners">Partners</h1>
 </div>

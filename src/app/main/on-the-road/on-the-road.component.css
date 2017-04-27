@@ -1,11 +1,21 @@
 #truck {
-    padding: 60px 10;
-
     background-image: url("./assets/images/longtruck.png");
     background-repeat: none;
     background-size: cover;
     background-position-x: left;
     background-position-y: center;
+}
+
+#over {
+    width: 100%;
+    background-image: linear-gradient(90deg, rgba(90,214,194,0.80) 26%, rgba(126,210,196,0.00) 100%);
+    padding: 40px 60px 60px 60px;
+}
+
+.text {
+    width: 100%;
+    max-width: 500px;
+    
 }
 
 h1 {
@@ -15,13 +25,15 @@ h1 {
     letter-spacing: 0.59px;
 }
 
-p {
-    font-family: "OpenSans";
-    font-size: 20px;
+h2 {
+    /* We’re traveling the: */
+    font-family: "Butler";
+    font-size: 36px;
     color: #FFFFFF;
-    letter-spacing: 0.26px;
-    line-height: 30px;
-    margin: 0 0 10px 0;
+    letter-spacing: 0.23px;
+    line-height: 50px;
+    margin: 0;
+    font-weight: 400;
 }
 
 @media all and (max-width: 900px) {
@@ -36,27 +48,28 @@ p {
         font-size: 40px;
         margin: 15px 0;
     }
+    #over {
+        background-image: linear-gradient(90deg, rgba(90,214,194,0.80) 50%, rgba(90,214,194,0) 100%);
+    }
 }
 
-@media all and (max-width: 460px) {
-    h1 {
+@media all and (max-width: 540px) {
+    #over {
+        padding: 40px 10px 60px 10px;
+        background-image: linear-gradient(90deg, rgba(90,214,194,0.80) 50%, rgba(90,214,194,0.20) 100%);
+    }
+    /*h1 {
         font-size: 35px;
         margin: 10px 0;
     }
     p {
         font-size: 18px;
         line-height: 27px;
-    }
+    }*/
 }
 
-@media all and (max-width: 400px) {
-    /*h1 {
-        font-size: 30px;
-        margin: 5px 0;
+@media all and (max-width: 440px) {
+    h2 {
+        font-size: 32px;
     }
-    p {
-        font-size: 16px;
-        line-height: 25px;
-        margin-bottom: 5px;
-    }*/
 }

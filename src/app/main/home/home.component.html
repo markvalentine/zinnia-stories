@@ -33,7 +33,13 @@
         </div>
     </div>
 </div>
-<app-email></app-email>
+
+<div class="donate">
+    <span class="donate-label">Want to help us with our mission?</span>
+    <a (click)="handleOutboundLinkClicks(event, 'donate')" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=54MM2PE23CTEC"><div class="donate-button">Donate!</div></a>
+</div>
+
+<!--<app-email></app-email>-->
 <!--<div class="background speckle">
     <div class="content">
         <div>

@@ -31,7 +31,7 @@
     margin: 0;
     border: 0;
     background-image: url(./assets/images/pattern_green.png);
-    background-size: 80px 40px;
+    background-size: 60px 30px;
     background-repeat: repeat;
     padding: 15px;
     text-align: center;
@@ -58,6 +58,48 @@ a {
   stroke-dasharray: 400;
   stroke-dashoffset: 400;
   animation: dash 4s linear infinite;
+}
+
+.donate {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+
+    background: #40B2FF;
+    background-image: url("./assets/images/pattern_hawiian_blue.png");
+    background-repeat: repeat;
+    /*background-image: url("./assets/images/pattern_green.png");*/
+    /*background-repeat: repeat;*/
+    /*background-size: 80px 40px;*/
+}
+
+.donate-label {
+    font-family: "Butler";
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0.31px;
+    text-transform: uppercase;
+    margin-right: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.donate-button {
+    width: 200px;
+    height: 35px;
+    background: #1f67c7;
+    display: inline-block;
+    padding: 4px;
+    text-align: center;
+
+    font-family: "Butler";
+    font-weight: 500;
+    font-size: 21px;
+    color: #FFFFFF;
+    letter-spacing: 0.27px;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 @keyframes dash {
@@ -97,5 +139,13 @@ hr {
     h1{
         font-size: 45px;
         margin-bottom: 20px;
+    }
+
+    .donate-label {
+        margin-right: 0;
+    }
+    .donate-button {
+        display: block;
+        margin: 0 auto;
     }
 }

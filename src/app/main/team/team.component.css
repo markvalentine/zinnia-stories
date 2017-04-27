@@ -3,8 +3,7 @@
     padding: 30px 0;
     text-align: center;
     background: #7ED2C4;
-    background-image: url("./assets/images/pattern_green.png");
-    background-size: 80px 40px;
+    background-image: url("./assets/images/pattern_hawiian_green.png");
     background-repeat: repeat;
     color: white;
 }
@@ -130,7 +129,7 @@ h1 {
     text-align: center;
     background: #F8503F;
     background-image: url("./assets/images/pattern_red.png");
-    background-size: 80px 40px;
+    background-size: 60px 30px;
     background-repeat: repeat;
     color: white;
 }

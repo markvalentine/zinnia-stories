@@ -13,6 +13,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/*p {
+    -webkit-font-smoothing: subpixel-antialiased;
+}*/
+
 .ql-font-cormorant-garamond {
     font-family: "Georgia", "Times New Roman", Times, serif;
 }
@@ -288,6 +292,14 @@ h2, h3, h4, h5, h6 {
 
 .red {
     color: #F8503F;
+}
+
+.white {
+   color:  #fff;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 640px) {
