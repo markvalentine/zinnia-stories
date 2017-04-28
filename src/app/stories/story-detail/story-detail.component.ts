@@ -83,7 +83,7 @@ export class StoryDetailComponent implements OnInit {
         name: this.storyObject.title,
         description: this.storyObject.description,
         picture: this.storyObject.image_url,
-        link: 'https://ramblinstories.com'+this.router.url
+        link: 'http://ramblinstories.com'+this.router.url
       }, function(response){});
   }
 

@@ -56,7 +56,7 @@ export class FeaturedStoryCardComponent implements OnInit {
         name: this.storycard.title,
         description: this.storycard.description,
         picture: this.storycard.image_url,
-        link: 'https://ramblinstories.com'+this.router.url
+        link: 'http://ramblinstories.com'+this.router.url
       }, function(response){});
   }
 

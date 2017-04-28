@@ -1,5 +1,5 @@
-<a id="proxyAnchor-twitter-{{storycard?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=https://ramblinstories.com{{this.router.url}}&text={{storycard?.title}}">proxy</a>
-<a  target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=https://ramblinstories.com{{this.router.url}}/&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
+<a id="proxyAnchor-twitter-{{storycard?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=http://ramblinstories.com{{this.router.url}}&text={{storycard?.title}}">proxy</a>
+<a  target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=http://ramblinstories.com{{this.router.url}}/&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
 
 <div class="story" (click)="goToDetail(storycard?.$key)">
   <div class="image" [ngStyle]="{'background-image': 'url(' + storycard?.image_url + ')'}"> </div>
