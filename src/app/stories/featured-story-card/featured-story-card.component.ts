@@ -17,8 +17,6 @@ export class FeaturedStoryCardComponent implements OnInit {
   @Input()
   noShowStar = false;
 
-  storyUrl: string;
-
   constructor(private router: Router) {
   }
 
@@ -28,7 +26,6 @@ export class FeaturedStoryCardComponent implements OnInit {
   ngOnInit() {
     if(this.storycardString){
       this.storycard = new StoryCard(this.storycardString);
-      this.storyUrl = "http://ramblinstories.com/stories/"+this.storycard.$key
     }
   }
 
@@ -59,7 +56,7 @@ export class FeaturedStoryCardComponent implements OnInit {
         name: this.storycard.title,
         description: this.storycard.description,
         picture: this.storycard.image_url,
-        link: this.storyUrl
+        link: "http://ramblinstories.com/stories/"+this.storycard.$key+"/"
       }, function(response){});
   }
 
