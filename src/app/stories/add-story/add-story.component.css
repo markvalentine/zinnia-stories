@@ -27,6 +27,14 @@ input.description {
     font-weight: 400;
 }
 
+input.embed {
+    font-family: "Butler";
+    font-size: 18px;
+    color: #666;
+    letter-spacing: 0.42px;
+    font-weight: 400;
+}
+
 #editor {
     height: 500px;
     width: 100%;

@@ -15,6 +15,8 @@
             <input class="description" [(ngModel)]="storyObject.description" placeholder="description">
         </div>
         <br/>
+        <input class="embed" placeholder="embed me" [(ngModel)]="stringToEmbed">
+        <button (click)="embedHtml()">Embed HTML</button>
         <div>
           <div id="editor"></div>
         </div>

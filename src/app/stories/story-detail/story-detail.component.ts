@@ -46,10 +46,20 @@ export class StoryDetailComponent implements OnInit {
           var tempCont = document.getElementById('delta');
           (new Quill(tempCont, {readOnly: true})).setContents(this.storyObject.delta);
           tempCont.getElementsByClassName("ql-editor")[0].setAttribute("style", "padding: 0;");
+          for (let index = 0; index < tempCont.getElementsByClassName("ql-video").length; index++) {
+            let src: string = tempCont.getElementsByClassName("ql-video")[index]['src'];
+            if (src.includes("soundcloud")) {
+              tempCont.getElementsByClassName("ql-video")[index].setAttribute("style", "height: auto");
+            }
+          }
           return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
         }
       });
     });
+  }
+
+  soundcloud() {
+    
   }
 
   /**

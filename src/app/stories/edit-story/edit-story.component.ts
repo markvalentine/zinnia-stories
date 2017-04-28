@@ -27,6 +27,8 @@ export class EditStoryComponent implements OnInit {
   quill: any;
   readOnlyQuill: any;
 
+  stringToEmbed = "";
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -122,6 +124,22 @@ export class EditStoryComponent implements OnInit {
     this.storyService.updateStory(story)
       .then(_ => this.goBack())
       .catch(err => console.log(err));
+  }
+
+  embedHtml() {
+    var range = this.quill.getSelection();
+    if (range) {   
+      this.quill.clipboard.dangerouslyPasteHTML(range.index, this.stringToEmbed);
+      this.stringToEmbed = "";
+      
+      for (let index = 0; index < document.getElementsByClassName("ql-video").length; index++) {
+        let src: string = document.getElementsByClassName("ql-video")[index]['src'];
+        let type:string = document.getElementsByClassName("ql-video")[index]['type'];
+        if (type != "button" && src.includes("soundcloud")) {
+          document.getElementsByClassName("ql-video")[index].setAttribute("style", "height: auto");
+        }
+      }
+    }
   }
 
   /**

@@ -26,6 +26,8 @@ export class AddStoryComponent implements OnInit {
   quill: any;
   readOnlyQuill: any;
 
+  stringToEmbed = "";
+
   constructor(
     private router: Router,
     private adminService: AdminService,
@@ -91,6 +93,7 @@ export class AddStoryComponent implements OnInit {
     var tempCont = document.getElementById('delta');
     (new Quill(tempCont, {readOnly: true})).setContents(this.story.delta);
     tempCont.getElementsByClassName("ql-editor")[0].setAttribute("style", "padding: 0;");
+    this.fixSoundCloud();
     return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
   }
 
@@ -108,6 +111,25 @@ export class AddStoryComponent implements OnInit {
     this.story = new Story();
     this.quill.setContents([]);
     this.isAdding = false;
+  }
+
+  embedHtml() {
+    var range = this.quill.getSelection();
+    if (range) {   
+      this.quill.clipboard.dangerouslyPasteHTML(range.index, this.stringToEmbed);
+      this.stringToEmbed = "";
+      this.fixSoundCloud();
+    }
+  }
+
+  fixSoundCloud() {
+    for (let index = 0; index < document.getElementsByClassName("ql-video").length; index++) {
+        let src: string = document.getElementsByClassName("ql-video")[index]['src'];
+        let type:string = document.getElementsByClassName("ql-video")[index]['type'];
+        if (type != "button" && src.includes("soundcloud")) {
+          document.getElementsByClassName("ql-video")[index].setAttribute("style", "height: auto");
+        }
+      }
   }
 
   // only does title, description, text for now
