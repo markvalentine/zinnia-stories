@@ -31,7 +31,6 @@
     margin: 0;
     border: 0;
     background-image: url(./assets/images/pattern_green.png);
-    background-size: 60px 30px;
     background-repeat: repeat;
     padding: 15px;
     text-align: center;
@@ -66,7 +65,7 @@ a {
     text-align: center;
 
     background: #40B2FF;
-    background-image: url("./assets/images/pattern_hawiian_blue.png");
+    background-image: url("./assets/images/pattern_stars_light_blue.png");
     background-repeat: repeat;
     /*background-image: url("./assets/images/pattern_green.png");*/
     /*background-repeat: repeat;*/
@@ -88,7 +87,7 @@ a {
 .donate-button {
     width: 200px;
     height: 35px;
-    background: #1f67c7;
+    background: #ff6565;
     display: inline-block;
     padding: 4px;
     text-align: center;

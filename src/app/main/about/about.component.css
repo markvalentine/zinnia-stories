@@ -149,7 +149,6 @@ p {
     text-align: center;
     background-image: url(./assets/images/pattern_red.png);
     background-repeat: repeat;
-    background-size: 60px 30px;
     margin: 0;
     padding: 9px 0 8px 0;
 }
@@ -186,13 +185,10 @@ p {
     text-transform: uppercase;
 
     width: 240px;
-    padding: 6px 10px;
+    padding: 10px;
     margin: 20px auto;
 
-    background: #2C4263;
-    background-image: url("./assets/images/pattern_dark_blue.png");
-    background-repeat: repeat;
-    background-size: 60px 30px;
+    background: #2EA3EA;
 
     border: 0;
     box-shadow: 0;
