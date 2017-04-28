@@ -49,7 +49,7 @@ export class StoryCardRoundComponent implements OnInit {
         name: this.storycard.title,
         description: this.storycard.description,
         picture: this.storycard.image_url,
-        link: 'http://ramblinstories.com'+this.router.url
+        link: 'http://ramblinstories.com'+this.router.url+"/"+this.storycard.$key
       }, function(response){});
   }
 
