@@ -1,5 +1,5 @@
-<a id="proxyAnchor-twitter-{{storycard?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url=http://ramblinstories.com{{this.router.url}}/{{storycard?.$key}}&text={{storycard?.title}}">proxy</a>
-<a target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=http://ramblinstories.com{{this.router.url}}/{{storycard?.$key}}/&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
+<a id="proxyAnchor-twitter-{{storycard?.$key}}" style="display:none;" href="https://twitter.com/intent/tweet?url={{storyUrl}}&text={{storycard?.title}}">proxy</a>
+<a target="_blank"  id="proxyAnchor-pinterest-{{storycard?.$key}}" style="display:none;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{storyUrl}}&media={{encodeURL(storycard?.image_url)}}&description={{storycard?.title}}" data-pin-shape="round"></a>
 <!--<div class="card" (click)="goToDetail(story?.$key)">
   <div class="image" *ngIf="story?.image_url" [ngStyle]="{'background-image': 'url(' + story?.image_url + ')'}">
     <div *ngIf="story?.featured && !(noShowStar)" class="bursts">
