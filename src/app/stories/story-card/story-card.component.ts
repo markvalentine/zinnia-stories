@@ -55,7 +55,7 @@ export class StoryCardComponent implements OnInit {
         name: this.storycard.title,
         description: this.storycard.description,
         picture: this.storycard.image_url,
-        link: "http://ramblinstories.com/stories/"+this.storycard.$key+"/"
+        link: "https://ramblinstories.com/stories/"+this.storycard.$key+"/"
       }, function(response){});
   }
 
