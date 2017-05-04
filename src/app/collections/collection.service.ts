@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+// import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Collection } from './collection';
 import { Story } from '../stories/story';
@@ -14,7 +15,7 @@ export class CollectionService {
   imagesUrl = 'images/';
 
   constructor(
-    private af: AngularFire,
+    private af: AngularFireDatabase,
   ) { }
 
   /**
@@ -24,7 +25,7 @@ export class CollectionService {
    */
   addCollection(collection: Collection): Promise<any> {
     let date = new Date().getTime();
-    let collectionsRef = this.af.database.list(this.collectionsUrl)
+    let collectionsRef = this.af.list(this.collectionsUrl)
     return new Promise(function(resolve, reject) {
       collectionsRef.push({
         'date_created': -date,
@@ -53,7 +54,7 @@ export class CollectionService {
    * returns promise for completion/err
    */
   updateCollectionProperties(collection: Collection): Promise<any> {
-    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key);
+    let collectionRef = this.af.object(this.collectionsUrl+collection.$key);
     return new Promise(function(resolve, reject) {
       collectionRef.update({
         'title': collection.title,
@@ -86,7 +87,7 @@ export class CollectionService {
    * must use removeAllStoriesFromCollection in story service
    */
   deleteCollection(collection: Collection): Promise<any> {
-    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key);
+    let collectionRef = this.af.object(this.collectionsUrl+collection.$key);
     return new Promise(function(resolve, reject) {
       collectionRef.remove()
         .then(_ => resolve('collection deleted'))
@@ -99,7 +100,7 @@ export class CollectionService {
    * removes a story from the collection list given the storykey and the collectionkey
    */
   removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
-    let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.storiesUrl);
+    let collectionRef = this.af.list(this.collectionsUrl+collectionKey+'/'+this.storiesUrl);
     return new Promise(function(resolve, reject) {
       collectionRef.remove(storyKey)
         .then(_ => {
@@ -115,7 +116,7 @@ export class CollectionService {
    * removes a featured story from the collection list given the storykey and the collectionkey
    */
   removeFeaturedStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
-    let collectionRef = this.af.database.list(this.collectionsUrl+collectionKey+'/'+this.featuredStoriesUrl);
+    let collectionRef = this.af.list(this.collectionsUrl+collectionKey+'/'+this.featuredStoriesUrl);
     return new Promise(function(resolve, reject) {
       collectionRef.remove(storyKey)
         .then(_ => {
@@ -127,7 +128,7 @@ export class CollectionService {
   }
 
   getCollections(): FirebaseListObservable<any[]> {
-    return this.af.database.list(this.collectionsUrl, {
+    return this.af.list(this.collectionsUrl, {
       query: {
         orderByChild: 'date_created'
       }
@@ -135,11 +136,11 @@ export class CollectionService {
   }
 
   getCollection(key: string): FirebaseObjectObservable<any> {
-    return this.af.database.object(this.collectionsUrl+key);
+    return this.af.object(this.collectionsUrl+key);
   }
 
   getCollectionProperties(key: string): FirebaseObjectObservable<any> {
-    return this.af.database.object(this.collectionsUrl+key+'/properties');
+    return this.af.object(this.collectionsUrl+key+'/properties');
   }
 
   getFeaturedCollectionIDs() {
@@ -152,7 +153,7 @@ export class CollectionService {
 
   uploadImage(file: any): Observable<any> {
     return Observable.create(subscriber => {
-      this.af.database.list(this.imagesUrl+this.collectionsUrl).push(file.name)
+      this.af.list(this.imagesUrl+this.collectionsUrl).push(file.name)
       .then(fileDBRef => {
         let key = fileDBRef.key;
         let uploadTask = firebase.storage().ref().child(this.imagesUrl+this.collectionsUrl+key).put(file);

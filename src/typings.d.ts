@@ -4,7 +4,13 @@
 
 declare var System: any;
 
-declare var require: any;
-declare var module: any;
+// declare var require: any;
+// declare var module: any;
 declare var FB: any;
 declare var Quill: any;
+
+/* SystemJS module definition */
+declare var module: NodeModule;
+interface NodeModule {
+  id: string;
+}

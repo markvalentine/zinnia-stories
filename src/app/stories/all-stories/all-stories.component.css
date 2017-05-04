@@ -4,7 +4,7 @@
     padding: 40px 20px;
     text-align: center;
     background: #445A75;
-    background-image: url("./assets/images/pattern_stars_blue.png");
+    background-image: url(/assets/images/pattern_stars_blue.png);
     /*background-size: 80px 40px;*/
     background-repeat: repeat;
 }

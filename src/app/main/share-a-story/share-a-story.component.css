@@ -4,7 +4,7 @@
     text-align: center;
 
     background: #7ED2C4;
-    background-image: url("./assets/images/pattern_green.png");
+    background-image: url(/assets/images/pattern_green.png);
     background-repeat: repeat;
 }
 

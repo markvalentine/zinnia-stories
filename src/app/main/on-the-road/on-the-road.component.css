@@ -1,5 +1,5 @@
 #truck {
-    background-image: url("./assets/images/longtruck.png");
+    background-image: url(/assets/images/longtruck.png);
     background-repeat: none;
     background-size: cover;
     background-position-x: left;

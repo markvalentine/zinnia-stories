@@ -6,13 +6,13 @@
 
 .red {
     background: #F8503F;
-    background-image: url("./assets/images/pattern_red.png");
+    background-image: url(/assets/images/pattern_red.png);
     background-repeat: repeat;
 }
 
 .green {
     background: #7ED2C4;
-    background-image: url("./assets/images/pattern_green.png");
+    background-image: url(/assets/images/pattern_green.png);
     background-repeat: repeat;
 }
 

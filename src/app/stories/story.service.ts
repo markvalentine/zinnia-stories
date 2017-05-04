@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+// import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from "angularfire2/database"
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Story, StoryCard } from './story';
 
 import { CollectionService } from '../collections/collection.service';
 import { Collection } from '../collections/collection';
+
+import * as firebase from 'firebase';
 
 @Injectable()
 export class StoryService {
@@ -40,15 +43,16 @@ export class StoryService {
   storycardsForCollectionLimit: BehaviorSubject<number>;
 
   constructor(
-    private af: AngularFire,
+    private af: AngularFireDatabase,
     private collectionService: CollectionService
   ) { }
 
   addStory(story: Story, storycard_image: string): Promise<any> {
     let date = new Date().getTime();
-    let storiesRef = this.af.database.list(this.storiesUrl)
+    let storiesRef = this.af.list(this.storiesUrl)
 
-    let db = this.af.database;
+    // let db = this.af.database;
+    let db = this.af;
     let storycardsUrl = this.storycardsUrl;
 
     return new Promise(function(resolve, reject) {
@@ -63,6 +67,7 @@ export class StoryService {
       })
         .then(storyObject => {
           console.log(storyObject)
+          console.log(storyObject.key)
           let storycardRef = db.object(storycardsUrl+storyObject.key);
           storycardRef.set({
             'title': story.title,
@@ -86,9 +91,9 @@ export class StoryService {
   }
 
   addToCollection(story: Story, collection: Collection): Promise<any> {
-    let ref = this.af.database.object(this.storiesUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
-    let cardRef = this.af.database.object(this.storycardsUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
-    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key+'/'+this.storiesUrl+story.$key);
+    let ref = this.af.object(this.storiesUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key+'/'+this.collectionsUrl+collection.$key);
+    let collectionRef = this.af.object(this.collectionsUrl+collection.$key+'/'+this.storiesUrl+story.$key);
     let promisesReturned = 0;
     let promisesNeeded = 3;
     return new Promise(function(resolve, reject){
@@ -122,9 +127,9 @@ export class StoryService {
   }
 
   featureInCollection(story: Story, collection: Collection): Promise<any> {
-    let ref = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredCollectionsUrl+collection.$key);
-    let cardRef = this.af.database.object(this.storycardsUrl+story.$key+'/'+this.featuredCollectionsUrl+collection.$key);
-    let collectionRef = this.af.database.object(this.collectionsUrl+collection.$key+'/'+this.featuredStoriesUrl+story.$key);
+    let ref = this.af.object(this.storiesUrl+story.$key+'/'+this.featuredCollectionsUrl+collection.$key);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key+'/'+this.featuredCollectionsUrl+collection.$key);
+    let collectionRef = this.af.object(this.collectionsUrl+collection.$key+'/'+this.featuredStoriesUrl+story.$key);
     let promisesReturned = 0;
     let promisesNeeded = 3;
     return new Promise(function(resolve, reject){
@@ -159,8 +164,8 @@ export class StoryService {
 
   // Updates -> title, description, text
   updateStoryProperties(story: Story): Promise<any> {
-    let storyRef = this.af.database.object(this.storiesUrl+story.$key);
-    let cardRef = this.af.database.object(this.storycardsUrl+story.$key);
+    let storyRef = this.af.object(this.storiesUrl+story.$key);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key);
 
     let promisesReturned = 0;
     let promisesNeeded = 2;
@@ -200,9 +205,9 @@ export class StoryService {
   }
 
   featureStory(story: Story) {
-    let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
-    let cardRef = this.af.database.object(this.storycardsUrl+story.$key+'/'+this.featuredUrl);
-    let featuredStoriesRef = this.af.database.object(this.featuredUrl+this.storiesUrl+story.$key);
+    let storyRef = this.af.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key+'/'+this.featuredUrl);
+    let featuredStoriesRef = this.af.object(this.featuredUrl+this.storiesUrl+story.$key);
     let date = new Date().getTime();
 
     let promisesReturned = 0;
@@ -239,7 +244,7 @@ export class StoryService {
   }
 
   removeStoryFromFeaturedList(story: Story): Promise<any> {
-    let featuredStories = this.af.database.list(this.featuredUrl+this.storiesUrl);
+    let featuredStories = this.af.list(this.featuredUrl+this.storiesUrl);
     return new Promise(function(resolve, reject) {
       featuredStories.remove(story.$key)
         .then(_ => resolve('removed from featured list'))
@@ -251,9 +256,9 @@ export class StoryService {
    * maybe
    */
   unfeatureStory(story: Story) {
-    let storyRef = this.af.database.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
-    let cardRef = this.af.database.object(this.storycardsUrl+story.$key+'/'+this.featuredUrl);
-    let featuredStoriesRef = this.af.database.object(this.featuredUrl+this.storiesUrl+story.$key);
+    let storyRef = this.af.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key+'/'+this.featuredUrl);
+    let featuredStoriesRef = this.af.object(this.featuredUrl+this.storiesUrl+story.$key);
 
     let promisesReturned = 0;
     let promisesNeeded = 3;
@@ -290,22 +295,22 @@ export class StoryService {
   removeAllStoriesFromCollection(collection: Collection): Observable<any> {
     return Observable.create(subscriber => {
       for (let storyKey of collection.stories) {
-        this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl).remove(collection.$key)
+        this.af.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl).remove(collection.$key)
           .then(_ => subscriber.next('removed collection '+collection.$key+' from story '+storyKey))
           .catch(err => subscriber.error(err));
       }
       for (let storyKey of collection.stories) {
-        this.af.database.list(this.storycardsUrl+storyKey+'/'+this.collectionsUrl).remove(collection.$key)
+        this.af.list(this.storycardsUrl+storyKey+'/'+this.collectionsUrl).remove(collection.$key)
           .then(_ => subscriber.next('removed collection '+collection.$key+' from storycard '+storyKey))
           .catch(err => subscriber.error(err));
       }
       for (let storyKey of collection.featuredStories) {
-        this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl).remove(collection.$key)
+        this.af.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl).remove(collection.$key)
           .then(_ => subscriber.next('removed collection '+collection.$key+' from featured story '+storyKey))
           .catch(err => subscriber.error(err));
       }
       for (let storyKey of collection.featuredStories) {
-        this.af.database.list(this.storycardsUrl+storyKey+'/'+this.featuredCollectionsUrl).remove(collection.$key)
+        this.af.list(this.storycardsUrl+storyKey+'/'+this.featuredCollectionsUrl).remove(collection.$key)
           .then(_ => subscriber.next('removed collection '+collection.$key+' from featured storycard '+storyKey))
           .catch(err => subscriber.error(err));
       }
@@ -319,8 +324,8 @@ export class StoryService {
    * if deleting the story just use the collecition service (don't need to delete collection from story)
    */
   removeStoryFromCollection(storyKey: string, collectionKey: string): Promise<any> {
-    let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl);
-    let cardRef = this.af.database.list(this.storycardsUrl+storyKey+'/'+this.collectionsUrl);
+    let storyRef = this.af.list(this.storiesUrl+storyKey+'/'+this.collectionsUrl);
+    let cardRef = this.af.list(this.storycardsUrl+storyKey+'/'+this.collectionsUrl);
     let promise = this.collectionService.removeStoryFromCollection(storyKey, collectionKey);
 
     let promisesReturned = 0;
@@ -360,8 +365,8 @@ export class StoryService {
    * if deleting the story just use the collecition service (don't need to delete collection from story)
    */
   removeStoryFromFeaturedCollection(storyKey: string, collectionKey: string) {
-    let storyRef = this.af.database.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl);
-    let cardRef = this.af.database.list(this.storycardsUrl+storyKey+'/'+this.featuredCollectionsUrl);
+    let storyRef = this.af.list(this.storiesUrl+storyKey+'/'+this.featuredCollectionsUrl);
+    let cardRef = this.af.list(this.storycardsUrl+storyKey+'/'+this.featuredCollectionsUrl);
     let promise = this.collectionService.removeFeaturedStoryFromCollection(storyKey, collectionKey);
 
     let promisesReturned = 0;
@@ -397,7 +402,7 @@ export class StoryService {
   }
 
   deleteStoryCard(key): Promise<any> {
-    let cardRef = this.af.database.object(this.storycardsUrl+key);
+    let cardRef = this.af.object(this.storycardsUrl+key);
     return new Promise(function(resolve, reject) {
       cardRef.remove()
         .then(_ => resolve('storycard deleted'))
@@ -414,7 +419,7 @@ export class StoryService {
    * TODO: DELETE IMAGES
    */
   deleteStory(story: Story): Observable<any> {
-    let storyRef = this.af.database.object(this.storiesUrl+story.$key);
+    let storyRef = this.af.object(this.storiesUrl+story.$key);
     return Observable.create(subscriber => {
       if (story.featured) {
         this.removeStoryFromFeaturedList(story)
@@ -454,7 +459,7 @@ export class StoryService {
    * Gets a single story for the key passed in
    */
   getStory(key: string): Observable<Story> {
-    let storyObservable = this.af.database.object(this.storiesUrl+key);
+    let storyObservable = this.af.object(this.storiesUrl+key);
     return Observable.create(observer => {
       storyObservable.subscribe(x => {
         observer.next(new Story(x));
@@ -466,7 +471,7 @@ export class StoryService {
    * Gets a single storycard for the key passed in
    */
   getStoryCard(key: string): Observable<Story> {
-    let storyObservable = this.af.database.object(this.storycardsUrl+key);
+    let storyObservable = this.af.object(this.storycardsUrl+key);
     return Observable.create(observer => {
       storyObservable.subscribe(x => {
         observer.next(new StoryCard(x));
@@ -478,7 +483,7 @@ export class StoryService {
    * Gets a single story for the key passed in
    */
   getStoryAsArray(key: string): Observable<Story[]> {
-    let storyObservable = this.af.database.object(this.storiesUrl+key);
+    let storyObservable = this.af.object(this.storiesUrl+key);
     return Observable.create(observer => {
       storyObservable.subscribe(x => {
         observer.next([new Story(x)]);
@@ -490,7 +495,7 @@ export class StoryService {
    * Gets a single storycard for the key passed in
    */
   getStoryCardAsArray(key: string): Observable<Story[]> {
-    let storyObservable = this.af.database.object(this.storycardsUrl+key);
+    let storyObservable = this.af.object(this.storycardsUrl+key);
     return Observable.create(observer => {
       storyObservable.subscribe(x => {
         observer.next([new StoryCard(x)]);
@@ -503,7 +508,7 @@ export class StoryService {
    * see global variable defaultNumFeaturedStories for number of IDs
    */
   getFeaturedStoryIDs(): FirebaseListObservable<string[]> {
-    return this.af.database.list(this.featuredUrl+this.storiesUrl, {
+    return this.af.list(this.featuredUrl+this.storiesUrl, {
       query: {
         orderByValue: true,
         // limitToFirst: this.defaultNumFeaturedStories
@@ -512,7 +517,7 @@ export class StoryService {
   }
 
   getXFeaturedStoryIDs(x: number): FirebaseListObservable<string[]> {
-    return this.af.database.list(this.featuredUrl+this.storiesUrl, {
+    return this.af.list(this.featuredUrl+this.storiesUrl, {
       query: {
         orderByValue: true,
         limitToFirst: x
@@ -590,7 +595,7 @@ export class StoryService {
   getStories(numStories?: number): FirebaseListObservable<any[]> {
     if (numStories) { this.numStories = numStories }
     this.storiesLimit = new BehaviorSubject(this.numStories);
-    return this.af.database.list(this.storiesUrl, {
+    return this.af.list(this.storiesUrl, {
       query: {
         orderByChild: 'date_created',
         limitToFirst: this.storiesLimit
@@ -608,7 +613,7 @@ export class StoryService {
   getStoryCards(numStorycards?: number): FirebaseListObservable<any[]> {
     if (numStorycards) { this.numStorycards = numStorycards }
     this.storycardsLimit = new BehaviorSubject(this.numStorycards);
-    return this.af.database.list(this.storycardsUrl, {
+    return this.af.list(this.storycardsUrl, {
       query: {
         orderByChild: 'date_created',
         limitToFirst: this.storycardsLimit
@@ -641,7 +646,7 @@ export class StoryService {
   }
 
   getStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
-    return this.af.database.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
+    return this.af.list(this.collectionsUrl+key+'/'+this.storiesUrl, {
       query: {
         orderByValue: true,
         limitToFirst: this.storiesForCollectionLimit
@@ -693,7 +698,7 @@ export class StoryService {
 
     // Only two?
   getFeaturedStoryIDsForCollection(key: string): FirebaseListObservable<any[]> {
-    return this.af.database.list(this.collectionsUrl+key+'/'+this.featuredStoriesUrl, {
+    return this.af.list(this.collectionsUrl+key+'/'+this.featuredStoriesUrl, {
       query: {
         orderByValue: true
       }
@@ -729,7 +734,7 @@ export class StoryService {
 
   uploadImage(file: any, filename: string): Observable<any> {
     return Observable.create(subscriber => {
-      this.af.database.list(this.imagesUrl+this.storiesUrl).push(filename)
+      this.af.list(this.imagesUrl+this.storiesUrl).push(filename)
       .then(fileDBRef => {
         let key = fileDBRef.key;
         let uploadTask = firebase.storage().ref().child(this.imagesUrl+this.storiesUrl+key).put(file);
@@ -753,7 +758,7 @@ export class StoryService {
 
   uploadImageForCard(file: any, filename: string): Observable<any> {
     return Observable.create(subscriber => {
-      this.af.database.list(this.imagesUrl+this.storycardsUrl).push(filename)
+      this.af.list(this.imagesUrl+this.storycardsUrl).push(filename)
       .then(fileDBRef => {
         let key = fileDBRef.key;
         let uploadTask = firebase.storage().ref().child(this.imagesUrl+this.storycardsUrl+key).put(file);

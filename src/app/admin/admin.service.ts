@@ -1,32 +1,40 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable, AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+// import { AngularFire, AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription'
+import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AdminService {
 
-  constructor(private af: AngularFire) {}
+  user: Observable<firebase.User>;
 
-  isAuth(): AngularFireAuth {
-    return this.af.auth;
+  constructor(private auth: AngularFireAuth) {
+    this.user = this.auth.authState;
+  }
+
+  isAuth(): Observable<any> {
+    return this.auth.authState;
   }
 
   //TODO: Return any errors
   login(email: string, password: string) {
-    this.af.auth.login({
-      email: email,
-      password: password,
-    },
-    {
-      provider: AuthProviders.Password,
-      method: AuthMethods.Password,
-    });
+    this.auth.auth.signInWithEmailAndPassword(email, password);
+    // this.af.auth.login({
+    //   email: email,
+    //   password: password,
+    // },
+    // {
+    //   provider: AuthProviders.Password,
+    //   method: AuthMethods.Password,
+    // });
   }
 
   //TODO: Return any errors
   logout() {
-    this.af.auth.logout();
+    // this.af.auth.logout();
+    this.auth.auth.signOut();
   }
 
 }

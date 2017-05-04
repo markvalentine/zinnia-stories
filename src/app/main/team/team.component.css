@@ -3,7 +3,7 @@
     padding: 30px 0;
     text-align: center;
     background: #7ED2C4;
-    background-image: url("./assets/images/pattern_hawiian_green.png");
+    background-image: url(/assets/images/pattern_hawiian_green.png);
     background-repeat: repeat;
     color: white;
 }
@@ -13,39 +13,39 @@ h1 {
 }
 
 #raja {
-    background-image: url("./assets/images/team/raja.jpg");
+    background-image: url(/assets/images/team/raja.jpg);
 }
 
 #mark {
-    background-image: url("./assets/images/team/me.jpg");
+    background-image: url(/assets/images/team/me.jpg);
 }
 
 #kevin {
-    background-image: url("./assets/images/team/kevin.jpg");
+    background-image: url(/assets/images/team/kevin.jpg);
 }
 
 #holly {
-    background-image: url("./assets/images/team/hollygirl.png");
+    background-image: url(/assets/images/team/hollygirl.png);
 }
 
 #heba {
-    background-image: url("./assets/images/team/heba.jpg");
+    background-image: url(/assets/images/team/heba.jpg);
 }
 
 #truck {
-    background-image: url("./assets/images/team/truck.jpg");
+    background-image: url(/assets/images/team/truck.jpg);
 }
 
 #anousheh {
-    background-image: url("./assets/images/team/anousheh.jpg");
+    background-image: url(/assets/images/team/anousheh.jpg);
 }
 
 #harrymoody {
-    background-image: url("./assets/images/team/harrymoody.jpg");
+    background-image: url(/assets/images/team/harrymoody.jpg);
 }
 
 #mramin {
-    background-image: url("./assets/images/team/mramin.jpg");
+    background-image: url(/assets/images/team/mramin.jpg);
 }
 
 .person-card, .advisor-card {
@@ -128,7 +128,7 @@ h1 {
     padding: 15px 0 8px 0;
     text-align: center;
     background: #F8503F;
-    background-image: url("./assets/images/pattern_red.png");
+    background-image: url(/assets/images/pattern_red.png);
     background-repeat: repeat;
     color: white;
 }

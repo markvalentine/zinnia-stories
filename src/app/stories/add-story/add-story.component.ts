@@ -4,8 +4,6 @@ import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
 
-import { AngularFire, FirebaseObjectObservable, AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
-
 @Component({
   selector: 'app-add-story',
   templateUrl: './add-story.component.html',
@@ -15,7 +13,7 @@ export class AddStoryComponent implements OnInit {
   
   story: Story;
   storyPreview: Story;
-  isAuth: AngularFireAuth;
+  isAuth: any;
   isAdding: boolean;
   editorLoaded: boolean;
 
@@ -31,12 +29,11 @@ export class AddStoryComponent implements OnInit {
   constructor(
     private router: Router,
     private adminService: AdminService,
-    private storyService: StoryService,
-    private af: AngularFire
+    private storyService: StoryService
   ) {
     this.story = new Story();
     this.storyPreview = new Story();
-    this.isAuth = this.af.auth;
+    this.isAuth = this.adminService.isAuth();
     this.isAdding = false;
     this.editorLoaded = false;
 

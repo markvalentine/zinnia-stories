@@ -10,7 +10,7 @@
     padding: 40px 20px;
     text-align: center;
     background-color: #C58B57;
-    background-image: url("./assets/images/forest.jpg");
+    background-image: url(/assets/images/forest.jpg);
     background-size: cover;
     background-position-y: 90%;
 }
@@ -30,7 +30,7 @@
     width: 100%;
     margin: 0;
     border: 0;
-    background-image: url(./assets/images/pattern_green.png);
+    background-image: url(/assets/images/pattern_green.png);
     background-repeat: repeat;
     padding: 15px;
     text-align: center;
@@ -65,11 +65,8 @@ a {
     text-align: center;
 
     background: #40B2FF;
-    background-image: url("./assets/images/pattern_stars_light_blue.png");
+    background-image: url(/assets/images/pattern_stars_light_blue.png);
     background-repeat: repeat;
-    /*background-image: url("./assets/images/pattern_green.png");*/
-    /*background-repeat: repeat;*/
-    /*background-size: 80px 40px;*/
 }
 
 .donate-label {

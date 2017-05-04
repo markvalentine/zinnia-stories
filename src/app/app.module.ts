@@ -5,7 +5,10 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import {  } from 'firebase';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AngularFireModule, AuthMethods, AuthProviders, firebaseAuthConfig } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { AngularFireModule, AuthMethods, AuthProviders, firebaseAuthConfig } from 'angularfire2';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -67,10 +70,10 @@ export const firebaseConfig = {
 //     messagingSenderId: "405819933312"
 // };
 
-export const myFirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Redirect
-}
+// export const myFirebaseAuthConfig = {
+//   provider: AuthProviders.Password,
+//   method: AuthMethods.Redirect
+// }
 
 @NgModule({
   declarations: [
@@ -110,7 +113,11 @@ export const myFirebaseAuthConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+    // AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+
     routing,
     JsonpModule
   ],

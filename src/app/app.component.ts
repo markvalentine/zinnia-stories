@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import * as firebase from 'firebase';
 declare let ga: Function;
 
 @Component({

@@ -21,7 +21,7 @@ nav {
 .under-construction {
   position: absolute;
   background: #f3ac4b;
-  background-image: url(./assets/images/pattern_yellow.png);
+  background-image: url(/assets/images/pattern_yellow.png);
   background-repeat: repeat;
   background-size: 80px 40px;
   padding: 40px 20px 60px 20px;

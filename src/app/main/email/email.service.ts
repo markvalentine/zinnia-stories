@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Jsonp, URLSearchParams } from '@angular/http';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+// import { AngularFire, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -14,7 +15,7 @@ export class EmailService {
   constructor(
     private jsonp: Jsonp,
     private http: Http,
-    private af: AngularFire
+    private af: AngularFireDatabase
   ) { }
 
   validateEmail(email: string): boolean {
@@ -28,7 +29,7 @@ export class EmailService {
     if (email) {
       cleanedEmail = email.replace(/\./g, ',');
     }
-    let emailRef = this.af.database.object(this.emailsUrl+cleanedEmail);
+    let emailRef = this.af.object(this.emailsUrl+cleanedEmail);
 
     return new Promise(function(resolve, reject) {
       if (validation) {

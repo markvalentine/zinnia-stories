@@ -1,6 +1,6 @@
 .footer {
     background: #2C4263;
-    background-image: url("./assets/images/pattern_dark_blue.png");
+    background-image: url(/assets/images/pattern_dark_blue.png);
     background-repeat: repeat;
     padding: 80px 60px;
     color: #fff;

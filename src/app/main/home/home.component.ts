@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { StoryService } from '../../stories/story.service';
 import { Story } from '../../stories/story';
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   featuredStoryCardsLast: Observable<any[]>;
   collections: FirebaseListObservable<any[]>;
 
-  background_url = "./assets/images/0.jpg";
+  background_url = "assets/images/0.jpg";
   background_color= "#C58B57";
 
   colors = ["#C58B57", "#28342E", "#233128", "#E6BB58"];
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     private collectionService: CollectionService
   ) {
     let index = (Math.round((Date.now()/600000))%4);
-    this.background_url = "url(./assets/images/backgrounds/"+index+".jpg)";
+    this.background_url = "url(/assets/images/backgrounds/"+index+".jpg)";
     this.background_color = this.colors[index];
   }
 
