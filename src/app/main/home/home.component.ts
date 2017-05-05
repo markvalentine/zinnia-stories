@@ -23,13 +23,13 @@ export class HomeComponent implements OnInit {
   background_url = "assets/images/0.jpg";
   background_color= "#C58B57";
 
-  colors = ["#C58B57", "#28342E", "#233128", "#E6BB58"];
+  colors = ["#C58B57", "#233128", "#E6BB58"];
 
   constructor(
     private storyService: StoryService,
     private collectionService: CollectionService
   ) {
-    let index = (Math.round((Date.now()/600000))%4);
+    let index = (Math.round((Date.now()/600000))%3);
     this.background_url = "url(/assets/images/backgrounds/"+index+".jpg)";
     this.background_color = this.colors[index];
   }
