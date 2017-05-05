@@ -73,7 +73,7 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
   //     }
   //   }
 
-  handleOutboundLinkClicks(event, link: string) {
+  handleOutboundLinkClicks(link: string) {
     ga('send', 'event', {
       eventCategory: 'Outbound Link',
       eventAction: 'click',

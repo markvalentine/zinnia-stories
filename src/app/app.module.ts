@@ -70,11 +70,6 @@ export const firebaseConfig = {
 //     messagingSenderId: "405819933312"
 // };
 
-// export const myFirebaseAuthConfig = {
-//   provider: AuthProviders.Password,
-//   method: AuthMethods.Redirect
-// }
-
 @NgModule({
   declarations: [
     AppComponent,

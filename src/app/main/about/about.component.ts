@@ -44,8 +44,43 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  intergenerational = { bg: {}, cover: {}, text: {}, triangle: {}, opened: false, scroll: 0 }
-  loneliness =        { bg: {}, cover: {}, text: {}, triangle: {}, opened: false, scroll: 0 }
+  intergenerational = {
+    bg : {
+      height: "210px"
+    },
+    cover: {
+      height: "210px",
+      padding: "20px",
+      background: "rgba(31,45,62,0.60)"
+    },
+    text: {
+      display: "none"
+    },
+    triangle: {
+      transform: "none"
+    },
+    opened: false,
+    scroll: 0
+  }
+
+  loneliness = {
+    bg : {
+      height: "210px"
+    },
+    cover: {
+      height: "210px",
+      padding: "20px",
+      background: "rgba(31,45,62,0.60)"
+    },
+    text: {
+      display: "none"
+    },
+    triangle: {
+      transform: "none"
+    },
+    opened: false,
+    scroll: 0
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -63,7 +98,7 @@ export class AboutComponent implements OnInit {
     });
   }
 
-  handleOutboundLinkClicks(event, link: string) {
+  handleOutboundLinkClicks(link: string) {
     ga('send', 'event', {
       eventCategory: 'Outbound Link',
       eventAction: 'click',

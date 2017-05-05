@@ -1,4 +1,4 @@
-<div class="background white">
+<div class="background">
   <div class="content story">
     <div *ngIf="story">
       <h3 class="title">{{(story | async).title}}</h3>
@@ -13,7 +13,7 @@
 <div *ngIf="story | async">
   <img class="image" *ngIf="(story | async)?.image_url" src="{{(story | async)?.image_url}}">
 </div>
-<div class="background white">
+<div class="background">
   <div class="content story">
     <div *ngIf="story | async">
       <p *ngIf="(!(story | async)?.delta)">{{(story | async).text}}</p>

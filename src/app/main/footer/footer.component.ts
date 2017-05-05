@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleOutboundLinkClicks(event, link: string) {
+  handleOutboundLinkClicks(link: string) {
     ga('send', 'event', {
       eventCategory: 'Outbound Link',
       eventAction: 'click',

@@ -29,7 +29,7 @@ export class InstagramComponent implements OnInit {
 
   }
 
-  handleOutboundLinkClicks(event, link: string) {
+  handleOutboundLinkClicks(link: string) {
     ga('send', 'event', {
       eventCategory: 'Outbound Link',
       eventAction: 'click',

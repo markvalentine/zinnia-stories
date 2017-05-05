@@ -1,4 +1,4 @@
-<div class="background white" style="padding-bottom: 0">
+<div class="background" style="padding-bottom: 0">
   <div class="content story">
     <div *ngIf="story | async">
       <span *ngIf="(isAuth | async)"><br/><button (click)="toEdit()">Edit</button></span>
@@ -14,7 +14,7 @@
 <div *ngIf="story | async">
   <img class="image" *ngIf="(story | async)?.image_url && (story | async)?.show_image" src="{{(story | async)?.image_url}}">
 </div>
-<div class="background white" style="padding-top: 20px">
+<div class="background" style="padding-top: 20px">
   <div class="content story">
     <div *ngIf="story | async">
       <p *ngIf="(!(story | async)?.delta)">{{(story | async).text}}</p>

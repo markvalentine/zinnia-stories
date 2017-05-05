@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { Collection } from './collection';
 import { Story } from '../stories/story';
 
+import * as firebase from 'firebase';
+
 @Injectable()
 export class CollectionService {
 

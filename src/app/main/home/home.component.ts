@@ -6,6 +6,8 @@ import { Story } from '../../stories/story';
 import { CollectionService } from '../../collections/collection.service';
 import { Collection } from '../../collections/collection';
 
+declare let ga: Function;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,5 +41,14 @@ export class HomeComponent implements OnInit {
     this.featuredStoryCardsLast = this.storyService.getXFeaturedStoryCards(10);
     this.collections = this.collectionService.getCollections();
   }
+
+    handleOutboundLinkClicks(link: string) {
+      ga('send', 'event', {
+        eventCategory: 'Outbound Link',
+        eventAction: 'click',
+        eventLabel: link,
+        transport: 'beacon'
+      });
+    }
 
 }
