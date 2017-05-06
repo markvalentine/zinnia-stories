@@ -7,7 +7,7 @@ body {
     height: 100%;
     color: #666;
 
-    font-family: "Georgia", Times, serif;
+    font-family: 'Source Serif Pro', serif;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -27,11 +27,11 @@ body {
 }*/
 
 .ql-font-cormorant-garamond {
-    font-family: "Georgia", Times, serif;
+    font-family: 'Source Serif Pro', serif;
 }
 
 .ql-container {
-    font-family: "Georgia", Times, serif;
+    font-family: 'Source Serif Pro', serif;
     font-size: 20px;
     color: #666666;
     letter-spacing: 0.26px;
@@ -122,41 +122,8 @@ a:hover {
 }
 
 @font-face {
-    font-family: "Georgia";
-    src: url(/assets/fonts/Georgia.ttf);
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Georgia";
-    src: url(/assets/fonts/Georgia Italic.ttf);
-    font-weight: 400;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Georgia";
-    src: url(/assets/fonts/Georgia Bold.ttf);
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Georgia";
-    src: url(/assets/fonts/Georgia Bold Italic.ttf);
-    font-weight: 700;
-    font-style: italic;
-}
-
-@font-face {
     font-family: "Phosphate";
     src: url(/assets/fonts/Phosphate-Inline.ttf);
-}
-
-@font-face {
-    font-family: "Phosphate White"; 
-    src: url(/assets/fonts/Phosphorious.otf);
 }
 
 h1 {
