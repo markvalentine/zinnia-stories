@@ -12,23 +12,7 @@ const THUMB_PREFIX = 'thumb_';
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
-exports.testingFunction = functions.https.onRequest((request, response) => {
- response.send("This should only deploy on the test site?");
-});
 
-exports.logImageUpload = functions.storage.object().onChange(event => {
-    const object = event.data; // The Storage object.
-
-    const fileBucket = object.bucket; // The Storage bucket that contains the file.
-    const filePath = object.name; // File path in the bucket.
-    const contentType = object.contentType; // File content type.
-    const resourceState = object.resourceState; // The resourceState is 'exists' or 'not_exists' (for file/folder deletions).
-    const metageneration = object.metageneration; // Number of times metadata has been generated. New objects have a value of 1.
-
-    console.log("object: ", object);
-    console.log(fileBucket, filePath, contentType, resourceState, metageneration);
-
-});
 
 /**
  * When an image is uploaded in the Storage bucket We generate a thumbnail automatically using
