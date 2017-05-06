@@ -756,6 +756,13 @@ export class StoryService {
     })
   }
 
+  getImageThumbnail(url: string): string {
+    console.log(url);
+    let path = 'images/stories/';
+    let key = firebase.storage().refFromURL(url).name;
+    return 'https://storage.cloud.google.com/zinnia-test.appspot.com/images/stories/thumb_'+key;
+  }
+
   uploadImageForCard(file: any, filename: string): Observable<any> {
     return Observable.create(subscriber => {
       this.af.list(this.imagesUrl+this.storycardsUrl).push(filename)

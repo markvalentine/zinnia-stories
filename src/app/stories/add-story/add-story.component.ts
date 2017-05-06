@@ -21,6 +21,7 @@ export class AddStoryComponent implements OnInit {
   imageUploaded = false;
   margin = "0";
   imageUrl = "";
+  thumbnailUrl = "";
   quill: any;
   readOnlyQuill: any;
 
@@ -135,7 +136,8 @@ export class AddStoryComponent implements OnInit {
     var delta = this.quill.getContents();
     this.story.delta = delta;
     this.getText();
-    this.storyService.addStory(this.story, this.story.image_url)
+    if (!this.thumbnailUrl) { this.thumbnailUrl = this.story.image_url }
+    this.storyService.addStory(this.story, this.thumbnailUrl)
       .then(key => {
         this.resetForm()
         let link = ['/stories/'+key];
@@ -231,6 +233,10 @@ export class AddStoryComponent implements OnInit {
           here.imageUrl = downloadURL;
           here.imageUploaded = true;
           here.margin = "0";
+
+          here.thumbnailUrl = here.storyService.getImageThumbnail(downloadURL);
+          
+
         } else {
           progress = m;
           here.uploaded = progress+"%";

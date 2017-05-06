@@ -8,59 +8,17 @@
       }
     ],
     "headers": [ {
-      "source" : "**/assets/**",
+      "source" : "**/assets/images/**",
       "headers" : [ {
       "key" : "Cache-Control",
       "value" : "max-age=2592000"
       } ]
     },
     {
-      "source" : "https://assets.pinterest.com/js/pinit.js",
+      "source" : "**/assets/fonts/**",
       "headers" : [ {
       "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://assets.pinterest.com/js/pinit_main.js?0.7257720790803432",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://w.soundcloud.com/player/api.js",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://connect.facebook.net/en_US/sdk.js",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://platform.twitter.com/widgets.js",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://fonts.googleapis.com/css?family=Source+Serif+Pro",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
-      } ]
-    },
-    {
-      "source" : "https://www.google-analytics.com/analytics.js",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=604800"
+      "value" : "max-age=31536000"
       } ]
     } ]
   }

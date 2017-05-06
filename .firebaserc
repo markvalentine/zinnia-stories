@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "zinnia-stories"
+    "default": "zinnia-stories",
+    "test": "zinnia-test"
   }
 }
