@@ -11,7 +11,7 @@
       "source" : "**/assets/**",
       "headers" : [ {
       "key" : "Cache-Control",
-      "value" : "max-age=345600"
+      "value" : "max-age=2592000"
       } ]
     } ]
   }
