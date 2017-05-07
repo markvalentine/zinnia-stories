@@ -204,6 +204,45 @@ export class StoryService {
     return this.updateStoryProperties(story);
   }
 
+  updateStoryImages(story: Story, storyUrl: string, cardUrl: string, oldStoryUrl: string, oldCardUrl: string): Promise<any> {
+    let storyRef = this.af.object(this.storiesUrl+story.$key);
+    let cardRef = this.af.object(this.storycardsUrl+story.$key);
+
+    if (oldCardUrl.includes("storage.cloud.google.com/")) {
+      oldCardUrl = "gs://" + oldCardUrl.split("storage.cloud.google.com/").pop();
+      console.log(oldCardUrl)
+    }
+    
+    let promisesReturned = 0;
+    let promisesNeeded = 2;
+
+    return new Promise(function(resolve, reject){
+      storyRef.update({
+        'image_url': storyUrl
+      })
+        .then(_ => {
+          promisesReturned++;
+          firebase.storage().refFromURL(oldStoryUrl).delete();
+          if (promisesReturned == promisesNeeded) {
+            resolve('updated');
+          }
+        })
+        .catch(err => reject(err));
+
+      cardRef.update({
+        'image_url': cardUrl
+      })
+        .then(_ => {
+          promisesReturned++;
+          firebase.storage().refFromURL(oldCardUrl).delete();
+          if (promisesReturned == promisesNeeded) {
+            resolve('images updated');
+          }
+        })
+        .catch(err => reject(err));
+    });
+  }
+
   featureStory(story: Story) {
     let storyRef = this.af.object(this.storiesUrl+story.$key+'/'+this.featuredUrl);
     let cardRef = this.af.object(this.storycardsUrl+story.$key+'/'+this.featuredUrl);
@@ -480,6 +519,9 @@ export class StoryService {
           let refUrl = "gs://" + storyCard.image_url.split("storage.cloud.google.com/").pop();
           firebase.storage().refFromURL(refUrl).getDownloadURL().then(url => {
             storyObservable.update({'image_url': url});
+          })
+          .catch(err => {
+            
           })
         }
       });

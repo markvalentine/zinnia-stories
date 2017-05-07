@@ -52,13 +52,6 @@ export class AddStoryComponent implements OnInit {
     if (!this.editorLoaded) {
       this.editorLoaded = true;
 
-      // var FontAttributor = Quill.import('attributors/class/font');
-      // FontAttributor.whitelist = [
-      //   'cormorant-garamond', 'milkshake'
-      // ];
-      // Quill.register(FontAttributor, true);
-
-      // var toolbarOptions = [['bold', 'italic', 'underline', 'strike'], ['link', 'image']];
       var toolbarOptions = [
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -70,8 +63,7 @@ export class AddStoryComponent implements OnInit {
         [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
         [{ 'align': [] }],
         ['link', 'image', 'video'],
-        ['clean']
-        // [{ 'font': ['cormorant-garamond', 'serif', 'sans serif', 'monospace', 'milkshake'] }]                                         // remove formatting button
+        ['clean']                                     // remove formatting button
       ];
 
       this.quill = new Quill('#editor', {
@@ -157,64 +149,6 @@ export class AddStoryComponent implements OnInit {
     this.margin = "20px 0";
 
     console.log(file.type.match(/image.*/));
-
-    // var reader = new FileReader();
-    //     reader.onload = function (readerEvent) {
-    //         var image = new Image();
-    //         image.onload = function (imageEvent) {
-
-    //             // Resize the image
-    //             var canvas = document.createElement('canvas'),
-    //                 max_size = 544,// TODO : pull max size from a site config
-    //                 width = image.width,
-    //                 height = image.height;
-    //             if (width > height) {
-    //                 if (width > max_size) {
-    //                     height *= max_size / width;
-    //                     width = max_size;
-    //                 }
-    //             } else {
-    //                 if (height > max_size) {
-    //                     width *= max_size / height;
-    //                     height = max_size;
-    //                 }
-    //             }
-    //             canvas.width = width;
-    //             canvas.height = height;
-    //             canvas.getContext('2d').drawImage(image, 0, 0, width, height);
-    //             var dataUrl = canvas.toDataURL('image/jpeg');
-    //             var resizedImage = dataURLToBlob(dataUrl);
-    //             $.event.trigger({
-    //                 type: "imageResized",
-    //                 blob: resizedImage,
-    //                 url: dataUrl
-    //             });
-    //         }
-    //         image.src = readerEvent.target.result;
-    //     }
-    //     reader.readAsDataURL(file);
-
-
-    // this.storyService.uploadImage(file).subscribe(
-    //   m => {
-    //     console.log(m, progress);
-    //     if (progress == 100) {
-    //       downloadURL = m;
-    //       this.uploaded = "finished uploading: " + downloadURL;
-    //       this.story.image_url = downloadURL;
-    //       this.imageUrl = downloadURL;
-    //       this.imageUploaded = true;
-    //       this.margin = "0";
-    //     } else {
-    //       progress = m;
-    //       this.uploaded = progress+"%";
-    //     }
-    //   },
-    //   err => this.uploaded = err+'',
-    //   () => {
-    //     // this.uploaded = 'upload complete';
-    //   }
-    // );
 
     var here = this;
 

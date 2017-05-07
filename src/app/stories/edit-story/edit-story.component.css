@@ -42,6 +42,21 @@ input.embed {
     font-weight: 400;
 }
 
+.uploadProgress {
+    height: 20px;
+    background: #8ccdff;
+    width: 0px;
+    transition: all .16s ease-in-out;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 20px auto 40px auto;
+}
+
 #editor {
     height: 500px;
     width: 100%;

@@ -18,10 +18,16 @@ export class EditStoryComponent implements OnInit {
   key: string;
   isAuth: any;
   story: Observable<Story[]>;
+  storyObject: Story;
 
   collections: FirebaseListObservable<any[]>
 
   editorLoaded: boolean;
+
+  imageUploaded = false;
+  margin = "0";
+  imageUrl = "";
+  thumbnailUrl = "";
 
   uploaded: string;
   quill: any;
@@ -52,6 +58,8 @@ export class EditStoryComponent implements OnInit {
     
     this.story.subscribe(x => {
       let timeout = setTimeout(() => {
+        this.storyObject = x[0];
+        this.imageUrl = this.storyObject.image_url;
         this.loadEditor(x[0]);
         clearTimeout(timeout);
       }, 500);
@@ -201,5 +209,129 @@ export class EditStoryComponent implements OnInit {
     let link = ['/stories', this.key];
     this.router.navigate(link);
   }
+
+  changeListener(event) {
+    let currentImage = this.storyObject.image_url;
+    let currentThumbnail = this.storyService.getImageThumbnail(currentImage);
+
+    let file = event.target.files[0];
+    let progress = 0;
+    let downloadURL = '';
+    this.imageUploaded = false;
+    this.margin = "20px 0";
+
+    console.log(file.type.match(/image.*/));
+
+    var here = this;
+
+    this.resizeImage(2048, file)
+    .then(function (resizedImage) {
+      console.log("upload resized image")
+      console.log(resizedImage);
+
+      here.storyService.uploadImage(resizedImage, file.name).subscribe(
+      m => {
+        console.log(m, progress);
+        if (progress == 100) {
+          downloadURL = m;
+          here.uploaded = "finished uploading: " + downloadURL;
+          // here.story.image_url = downloadURL;
+          
+          here.thumbnailUrl = here.storyService.getImageThumbnail(downloadURL);
+          
+          here.storyService.updateStoryImages(here.storyObject, here.imageUrl, here.thumbnailUrl, currentImage, currentThumbnail).then(x => {
+            here.imageUrl = downloadURL;
+            here.imageUploaded = true;
+            here.margin = "0";
+          })
+
+
+        } else {
+          progress = m;
+          here.uploaded = progress+"%";
+        }
+      },
+      // err => this.uploaded = err+'',
+      err => console.log(err),
+      () => {
+        // this.uploaded = 'upload complete';
+      }
+    );
+
+    }).catch(function (err) {
+      console.error(err);
+    });
+    
+  }
+
+  resizeImage(maxSize: number, file: File) {
+    const reader = new FileReader();
+    const image = new Image();
+    const canvas = document.createElement('canvas');
+    
+    const dataURItoBlob = (dataURI: string) => {
+    var BASE64_MARKER = ';base64,';
+    if (dataURI.indexOf(BASE64_MARKER) == -1) {
+          var parts = dataURI.split(',');
+          var contentType = parts[0].split(':')[1];
+          var raw = parts[1];
+
+          return new Blob([raw], {type: contentType});
+    }
+
+    var parts = dataURI.split(BASE64_MARKER);
+    var contentType = parts[0].split(':')[1];
+    var raw = window.atob(parts[1]);
+    var rawLength = raw.length;
+
+      var uInt8Array = new Uint8Array(rawLength);
+
+      for (var i = 0; i < rawLength; ++i) {
+          uInt8Array[i] = raw.charCodeAt(i);
+      }
+
+      return new Blob([uInt8Array], {type: contentType});
+    };
+
+    const resize = () => {
+
+    let width = image.width;
+    let height = image.height;
+
+    if (width > height) {
+        if (width > maxSize) {
+            height *= maxSize / width;
+            width = maxSize;
+        }
+    } else {
+        if (height > maxSize) {
+            width *= maxSize / height;
+            height = maxSize;
+        }
+    }
+
+    console.log("width and height: ", width, height);
+
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+    let dataUrl = canvas.toDataURL('image/jpeg');
+    // return canvas.toDataURL('image/jpeg');
+    return dataURItoBlob(dataUrl);
+  };
+
+  return new Promise((ok, no) => {
+      if (!file.type.match(/image.*/)) {
+        no(new Error("Not an image"));
+        return;
+      }
+
+      reader.onload = (readerEvent: any) => {
+        image.onload = () => ok(resize());
+        image.src = readerEvent.target.result;
+      };
+      reader.readAsDataURL(file);
+    })    
+  };
 
 }

@@ -52,23 +52,23 @@ import { ShareAStoryComponent } from './main/share-a-story/share-a-story.compone
 import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
 import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
 
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
-//     authDomain: "zinnia-stories.firebaseapp.com",
-//     databaseURL: "https://zinnia-stories.firebaseio.com",
-//     projectId: "zinnia-stories",
-//     storageBucket: "zinnia-stories.appspot.com",
-//     messagingSenderId: "1015420821833"
-// };
-
 export const firebaseConfig = {
-    apiKey: "AIzaSyAJiWALttFWhTabft-tHz81gp8beBnLsS4",
-    authDomain: "zinnia-test.firebaseapp.com",
-    databaseURL: "https://zinnia-test.firebaseio.com",
-    projectId: "zinnia-test",
-    storageBucket: "zinnia-test.appspot.com",
-    messagingSenderId: "405819933312"
+    apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
+    authDomain: "zinnia-stories.firebaseapp.com",
+    databaseURL: "https://zinnia-stories.firebaseio.com",
+    projectId: "zinnia-stories",
+    storageBucket: "zinnia-stories.appspot.com",
+    messagingSenderId: "1015420821833"
 };
+
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyAJiWALttFWhTabft-tHz81gp8beBnLsS4",
+//     authDomain: "zinnia-test.firebaseapp.com",
+//     databaseURL: "https://zinnia-test.firebaseio.com",
+//     projectId: "zinnia-test",
+//     storageBucket: "zinnia-test.appspot.com",
+//     messagingSenderId: "405819933312"
+// };
 
 @NgModule({
   declarations: [
