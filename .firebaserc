@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "zinnia-stories",
+    "default": "ramblin-stories",
     "test": "zinnia-test"
   }
 }
