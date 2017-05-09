@@ -52,23 +52,23 @@ import { ShareAStoryComponent } from './main/share-a-story/share-a-story.compone
 import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
 import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
 
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
-//     authDomain: "zinnia-stories.firebaseapp.com",
-//     databaseURL: "https://zinnia-stories.firebaseio.com",
-//     projectId: "zinnia-stories",
-//     storageBucket: "zinnia-stories.appspot.com",
-//     messagingSenderId: "1015420821833"
-// };
-
 export const firebaseConfig = {
-    apiKey: "AIzaSyDvFHudOuRSUX2Annb18MVpAQhw0yZDWH8",
-    authDomain: "ramblin-stories.firebaseapp.com",
-    databaseURL: "https://ramblin-stories.firebaseio.com",
-    projectId: "ramblin-stories",
-    storageBucket: "ramblin-stories.appspot.com",
-    messagingSenderId: "994117072469"
+    apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
+    authDomain: "zinnia-stories.firebaseapp.com",
+    databaseURL: "https://zinnia-stories.firebaseio.com",
+    projectId: "zinnia-stories",
+    storageBucket: "zinnia-stories.appspot.com",
+    messagingSenderId: "1015420821833"
 };
+
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyDvFHudOuRSUX2Annb18MVpAQhw0yZDWH8",
+//     authDomain: "ramblin-stories.firebaseapp.com",
+//     databaseURL: "https://ramblin-stories.firebaseio.com",
+//     projectId: "ramblin-stories",
+//     storageBucket: "ramblin-stories.appspot.com",
+//     messagingSenderId: "994117072469"
+// };
 
 // export const firebaseConfig = {
 //     apiKey: "AIzaSyAJiWALttFWhTabft-tHz81gp8beBnLsS4",
