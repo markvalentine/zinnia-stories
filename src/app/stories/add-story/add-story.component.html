@@ -12,8 +12,8 @@
             <br/>
             <input type="file" (change)="changeListener($event)" placeholder="upload image">
             <label>Display the image in the story?</label><input type="checkbox" style="width: 20px; margin-left: 10px; margin-top: 20px;"[checked]="story.show_image" (change)="story.show_image = !story.show_image" />
-            <div *ngIf="!imageUploaded" class="uploadProgress" [style.width]="uploaded" [style.margin]="margin"></div>
-            <img *ngIf="imageUploaded" src="{{ imageUrl }}">
+            <div *ngIf="!imagesUploaded" class="uploadProgress" [style.width]="uploaded" [style.margin]="margin"></div>
+            <img *ngIf="imagesUploaded" src="{{ imageUrl }}">
             <input class="embed" placeholder="embed me" [(ngModel)]="stringToEmbed">
             <button (click)="embedHtml()">Embed HTML</button>
             <div id="editor" (click)="loadEditor()"></div>

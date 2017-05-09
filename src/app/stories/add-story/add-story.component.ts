@@ -18,10 +18,10 @@ export class AddStoryComponent implements OnInit {
   editorLoaded: boolean;
 
   uploaded: string;
-  imageUploaded = false;
+  imagesUploaded = false;
   margin = "0";
   imageUrl = "";
-  thumbnailUrl = "";
+  cardImageUrl = "";
   quill: any;
   readOnlyQuill: any;
 
@@ -128,8 +128,8 @@ export class AddStoryComponent implements OnInit {
     var delta = this.quill.getContents();
     this.story.delta = delta;
     this.getText();
-    if (!this.thumbnailUrl) { this.thumbnailUrl = this.story.image_url }
-    this.storyService.addStory(this.story, this.thumbnailUrl)
+    if (!this.cardImageUrl) { this.cardImageUrl = this.story.image_url }
+    this.storyService.addStory(this.story, this.cardImageUrl)
       .then(key => {
         this.resetForm()
         let link = ['/stories/'+key];
@@ -144,49 +144,40 @@ export class AddStoryComponent implements OnInit {
   changeListener(event) {
     let file = event.target.files[0];
     let progress = 0;
-    let downloadURL = '';
-    this.imageUploaded = false;
+    this.imagesUploaded = false;
     this.margin = "20px 0";
-
-    console.log(file.type.match(/image.*/));
-
     var here = this;
 
     this.resizeImage(2048, file)
-    .then(function (resizedImage) {
-      console.log("upload resized image")
-      console.log(resizedImage);
+      .then(resizedImage => {
+        here.storyService.uploadImage(resizedImage, file.name).subscribe(x => {
+          if (progress == 100) {
+            console.log('uploaded to stories');
+            here.story.image_url = x;
+            here.imageUrl = x;
+            progress = 0;
 
-      here.storyService.uploadImage(resizedImage, file.name).subscribe(
-      m => {
-        console.log(m, progress);
-        if (progress == 100) {
-          downloadURL = m;
-          here.uploaded = "finished uploading: " + downloadURL;
-          here.story.image_url = downloadURL;
-          here.imageUrl = downloadURL;
-          here.imageUploaded = true;
-          here.margin = "0";
-
-          here.thumbnailUrl = here.storyService.getImageThumbnail(downloadURL);
-          
-
-        } else {
-          progress = m;
-          here.uploaded = progress+"%";
-        }
-      },
-      // err => this.uploaded = err+'',
-      err => console.log(err),
-      () => {
-        // this.uploaded = 'upload complete';
+            here.storyService.uploadImageForCard(resizedImage, file.name).subscribe(y => {
+              if (progress == 100) {
+                console.log('uploaded to storycards');
+                here.cardImageUrl = y;
+                this.imagesUploaded = true;
+                here.margin = "0";
+              } else {
+                progress = y;
+                here.uploaded = (50 + progress/2)+"%";
+              }
+            }, err => console.log(err));
+          } else {
+            progress = x;
+            here.uploaded = (progress/2)+"%";
+          }
+        }, err => console.log(err));
+      })
+      .catch(err => {
+        console.log(err);
       }
     );
-
-    }).catch(function (err) {
-      console.error(err);
-    });
-    
   }
 
 resizeImage(maxSize: number, file: File) {

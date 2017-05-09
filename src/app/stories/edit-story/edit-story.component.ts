@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
-import { Story } from '../story';
+import { Story, StoryCard } from '../story';
 import { CollectionService } from '../../collections/collection.service';
 import { Collection } from '../../collections/collection';
 
@@ -18,16 +18,18 @@ export class EditStoryComponent implements OnInit {
   key: string;
   isAuth: any;
   story: Observable<Story[]>;
+  storyCard: Observable<StoryCard[]>;
   storyObject: Story;
+  storyCardObject: StoryCard;
 
   collections: FirebaseListObservable<any[]>
 
   editorLoaded: boolean;
 
-  imageUploaded = false;
+  imagesUploaded = false;
   margin = "0";
   imageUrl = "";
-  thumbnailUrl = "";
+  cardImageUrl = "";
 
   uploaded: string;
   quill: any;
@@ -52,7 +54,7 @@ export class EditStoryComponent implements OnInit {
       this.key = params['key'];
       this.isAuth = this.adminService.isAuth();
       this.story = this.storyService.getStoryAsArray(this.key);
-
+      this.storyCard = this.storyService.getStoryCardAsArray(this.key);
       this.collections = this.collectionService.getCollections();
     });
     
@@ -65,6 +67,10 @@ export class EditStoryComponent implements OnInit {
       }, 500);
     });
 
+    this.storyCard.subscribe(x => {
+      this.storyCardObject = x[0];
+      this.cardImageUrl = this.storyCardObject.image_url;
+    })
     
   }
 
@@ -212,56 +218,49 @@ export class EditStoryComponent implements OnInit {
 
   changeListener(event) {
     let currentImage = this.storyObject.image_url;
-    let currentThumbnail = this.storyService.getImageThumbnail(currentImage);
+    let currentThumbnail = this.storyCardObject.image_url;
 
     let file = event.target.files[0];
     let progress = 0;
-    let downloadURL = '';
-    this.imageUploaded = false;
+    this.imagesUploaded = false;
     this.margin = "20px 0";
-
-    console.log(file.type.match(/image.*/));
-
     var here = this;
 
     this.resizeImage(2048, file)
-    .then(function (resizedImage) {
-      console.log("upload resized image")
-      console.log(resizedImage);
+      .then(resizedImage => {
+        here.storyService.uploadImage(resizedImage, file.name).subscribe(x => {
+          if (progress == 100) {
+            console.log('uploaded to stories');
+            here.storyObject.image_url = x;
+            here.imageUrl = x;
+            progress = 0;
 
-      here.storyService.uploadImage(resizedImage, file.name).subscribe(
-      m => {
-        console.log(m, progress);
-        if (progress == 100) {
-          downloadURL = m;
-          here.uploaded = "finished uploading: " + downloadURL;
-          // here.story.image_url = downloadURL;
-          
-          here.thumbnailUrl = here.storyService.getImageThumbnail(downloadURL);
-          
-          here.storyService.updateStoryImages(here.storyObject, here.imageUrl, here.thumbnailUrl, currentImage, currentThumbnail).then(x => {
-            here.imageUrl = downloadURL;
-            here.imageUploaded = true;
-            here.margin = "0";
-          })
+            here.storyService.uploadImageForCard(resizedImage, file.name).subscribe(y => {
+              if (progress == 100) {
+                console.log('uploaded to storycards');
+                here.cardImageUrl = y;
+                this.imagesUploaded = true;
+                here.margin = "0";
 
+                here.storyService.updateImagesAndDeleteOldImages(here.storyObject, here.imageUrl, here.cardImageUrl, currentImage, currentThumbnail)
+                .then(x => console.log('fully updated'))
+                .catch(err => console.log(err));
 
-        } else {
-          progress = m;
-          here.uploaded = progress+"%";
-        }
-      },
-      // err => this.uploaded = err+'',
-      err => console.log(err),
-      () => {
-        // this.uploaded = 'upload complete';
+              } else {
+                progress = y;
+                here.uploaded = (50 + progress/2)+"%";
+              }
+            }, err => console.log(err));
+          } else {
+            progress = x;
+            here.uploaded = (progress/2)+"%";
+          }
+        }, err => console.log(err));
+      })
+      .catch(err => {
+        console.log(err);
       }
     );
-
-    }).catch(function (err) {
-      console.error(err);
-    });
-    
   }
 
   resizeImage(maxSize: number, file: File) {

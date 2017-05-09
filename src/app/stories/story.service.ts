@@ -204,14 +204,9 @@ export class StoryService {
     return this.updateStoryProperties(story);
   }
 
-  updateStoryImages(story: Story, storyUrl: string, cardUrl: string, oldStoryUrl: string, oldCardUrl: string): Promise<any> {
+  updateStoryImages(story: Story, storyUrl: string, cardUrl: string): Promise<any> {
     let storyRef = this.af.object(this.storiesUrl+story.$key);
     let cardRef = this.af.object(this.storycardsUrl+story.$key);
-
-    if (oldCardUrl.includes("storage.cloud.google.com/")) {
-      oldCardUrl = "gs://" + oldCardUrl.split("storage.cloud.google.com/").pop();
-      console.log(oldCardUrl)
-    }
     
     let promisesReturned = 0;
     let promisesNeeded = 2;
@@ -222,10 +217,7 @@ export class StoryService {
       })
         .then(_ => {
           promisesReturned++;
-          firebase.storage().refFromURL(oldStoryUrl).delete();
-          if (promisesReturned == promisesNeeded) {
-            resolve('updated');
-          }
+          if (promisesReturned == promisesNeeded) resolve('imags updated');
         })
         .catch(err => reject(err));
 
@@ -234,12 +226,22 @@ export class StoryService {
       })
         .then(_ => {
           promisesReturned++;
-          firebase.storage().refFromURL(oldCardUrl).delete();
-          if (promisesReturned == promisesNeeded) {
-            resolve('images updated');
-          }
+          if (promisesReturned == promisesNeeded) resolve('images updated'); 
         })
         .catch(err => reject(err));
+    });
+  }
+
+  updateImagesAndDeleteOldImages(story: Story, storyUrl: string, cardUrl: string, oldStoryUrl: string, oldCardUrl: string): Promise<any> {
+    let here = this;
+    return new Promise(function(resolve, reject){
+      here.updateStoryImages(story, storyUrl, cardUrl)
+      .then(x => {
+        here.deleteImages(oldStoryUrl, oldCardUrl)
+          .then(x => resolve(x))
+          .catch(err => reject(err));
+      })
+      .catch(err => reject(err));
     });
   }
 
@@ -515,15 +517,6 @@ export class StoryService {
       storyObservable.subscribe(x => {
         let storyCard = new StoryCard(x);
         observer.next(storyCard);
-        if (storyCard.image_url.includes("storage.cloud.google.com")) {
-          let refUrl = "gs://" + storyCard.image_url.split("storage.cloud.google.com/").pop();
-          firebase.storage().refFromURL(refUrl).getDownloadURL().then(url => {
-            storyObservable.update({'image_url': url});
-          })
-          .catch(err => {
-            
-          })
-        }
       });
     });
   }
@@ -547,7 +540,18 @@ export class StoryService {
     let storyObservable = this.af.object(this.storycardsUrl+key);
     return Observable.create(observer => {
       storyObservable.subscribe(x => {
-        observer.next([new StoryCard(x)]);
+        let storyCard = new StoryCard(x);
+        observer.next([storyCard]);
+        console.log('? what')
+        if (storyCard.image_url.includes("storage.cloud.google.com")) {
+          let refUrl = "gs://" + storyCard.image_url.split("storage.cloud.google.com/").pop();
+          firebase.storage().refFromURL(refUrl).getDownloadURL().then(url => {
+            storyObservable.update({'image_url': url});
+          })
+          .catch(err => {
+            
+          })
+        }
       });
     });
   }
@@ -805,13 +809,6 @@ export class StoryService {
     })
   }
 
-  getImageThumbnail(url: string): string {
-    console.log(url);
-    let path = 'images/stories/';
-    let key = firebase.storage().refFromURL(url).name;
-    return 'https://storage.cloud.google.com/zinnia-test.appspot.com/images/stories/thumb_'+key;
-  }
-
   uploadImageForCard(file: any, filename: string): Observable<any> {
     return Observable.create(subscriber => {
       this.af.list(this.imagesUrl+this.storycardsUrl).push(filename)
@@ -834,6 +831,43 @@ export class StoryService {
       })
       .catch(err => subscriber.error(err));
     })
+  }
+
+  // delete image from firebase storage... wraps in a promise so we
+  // dont have to import firebase promises everywhere ya feels?
+  deleteImageFromUrl(url: string): Promise<any> {
+    return new Promise(function(resolve, reject) {
+      firebase.storage().refFromURL(url).delete()
+      .then(x => resolve('image deleted'))
+      .catch(err => reject(err))
+    });
+  }
+
+  // delete both images from storage
+  deleteImages(storyUrl: string, cardUrl: string): Promise<any> {
+    let promisesReturned = 0;
+    let promisesNeeded = 2;
+    let here = this;
+
+    return new Promise(function(resolve, reject){
+      here.deleteImageFromUrl(storyUrl)
+        .then(x => {
+          promisesReturned++;
+          if (promisesNeeded == promisesNeeded) resolve('images deleted');
+        })
+        .catch(err => {
+          reject(err);
+      });
+
+      here.deleteImageFromUrl(cardUrl)
+        .then(x => {
+          promisesReturned++;
+          if (promisesNeeded == promisesNeeded) resolve('images deleted');
+        })
+        .catch(err => {
+          reject(err);
+      })
+    });
   }
 
 
