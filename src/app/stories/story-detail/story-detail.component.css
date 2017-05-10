@@ -35,10 +35,12 @@
 }
 
 .title {
-    font-size: 32px;
+    font-family: "Butler";
+    font-size: 34px;
     color: #444;
     letter-spacing: 0.42px;
     font-weight: 400;
+    text-align: center;
 }
 
 p, .ql-container {
@@ -68,7 +70,7 @@ p, .ql-container {
         margin: 0 auto 20px auto;
     }
 
-    h3 {
+    .title {
         font-size: 26px;
         margin: 10px auto;
     }

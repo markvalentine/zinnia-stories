@@ -2,7 +2,7 @@
   <div class="content story">
     <div *ngIf="story | async">
       <span *ngIf="(isAuth | async)"><br/><button (click)="toEdit()">Edit</button></span>
-      <h3 class="title">{{(story | async).title}}</h3>
+      <h1 class="title">{{(story | async).title}}</h1>
       <div class="social-media">
         <a (click)="facebook()"><img class="social-media-icon" src="assets/images/socialmedia/facebook-color.svg"></a>
         <a (click)="handleShare('twitter')" href="https://twitter.com/intent/tweet?url=https://ramblinstories.com{{this.router.url}}&text={{(story | async).title}}"><img class="social-media-icon" src="assets/images/socialmedia/twitter-color.svg"></a>
