@@ -542,16 +542,6 @@ export class StoryService {
       storyObservable.subscribe(x => {
         let storyCard = new StoryCard(x);
         observer.next([storyCard]);
-        console.log('? what')
-        if (storyCard.image_url.includes("storage.cloud.google.com")) {
-          let refUrl = "gs://" + storyCard.image_url.split("storage.cloud.google.com/").pop();
-          firebase.storage().refFromURL(refUrl).getDownloadURL().then(url => {
-            storyObservable.update({'image_url': url});
-          })
-          .catch(err => {
-            
-          })
-        }
       });
     });
   }
