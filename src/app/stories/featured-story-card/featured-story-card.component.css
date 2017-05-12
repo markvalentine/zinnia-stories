@@ -35,10 +35,14 @@
 h2 {
     font-family: "Butler";
     font-size: 28px;
-    color: #666666;
+    color: #666;
     letter-spacing: 0.37px;
     line-height: 38px;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+.story:hover h2 {
+    text-decoration: underline;
 }
 
 .social-media {
@@ -70,8 +74,8 @@ hr {
 }
 
 .tags {
-    font-family: Butler;
-    font-size: 16px;
+    font-family: "Butler";
+    font-size: 18px;
     color: #999;
     letter-spacing: 0.21px;
     font-weight: 200;
@@ -100,7 +104,7 @@ hr {
         margin-top: 0;
         font-size: 24px;
         letter-spacing: 0.31px;
-        line-height: 38px;
+        line-height: 32px;
     }
 
     .icons {
