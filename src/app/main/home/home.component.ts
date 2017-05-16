@@ -5,6 +5,7 @@ import { StoryService } from '../../stories/story.service';
 import { Story } from '../../stories/story';
 import { CollectionService } from '../../collections/collection.service';
 import { Collection } from '../../collections/collection';
+import { SeoService } from '../seo.service';
 
 declare let ga: Function;
 
@@ -14,6 +15,9 @@ declare let ga: Function;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  private pageTitle = "Ramblin Stories: Sharing Stories from the Older Generation";
+  private pageDescription = "We’re traveling the country in our Ramblin Story Wagon sharing the stories of old-timers we meet along the way.";
 
   featuredStoryCards: Observable<any[]>;
   featuredStoryCardsMiddle: Observable<any[]>;
@@ -27,8 +31,11 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private storyService: StoryService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private seoService: SeoService
   ) {
+    this.seoService.setTitle(this.pageTitle);
+    this.seoService.setMetaDescription(this.pageDescription)
     let index = (Math.round((Date.now()/600000))%3);
     this.background_url = "url(/assets/images/backgrounds/"+index+".jpg)";
     this.background_color = this.colors[index];

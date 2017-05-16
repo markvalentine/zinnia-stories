@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeoService } from '../seo.service';
 
 @Component({
   selector: 'app-help',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+  private pageTitle = "FAQ | Ramblin Stories";
+  private pageDescription = "Frequently asked question and other helpful tips.  Have a question of your own?  Email us at help@ramblinstories.com!";
+
+  constructor(private seoService: SeoService) {
+    this.seoService.setTitle(this.pageTitle);
+    this.seoService.setMetaDescription(this.pageDescription);
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);

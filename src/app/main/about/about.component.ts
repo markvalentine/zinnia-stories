@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { SeoService } from '../seo.service';
 
 declare let ga: Function;
 
@@ -9,6 +10,9 @@ declare let ga: Function;
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+
+  private pageTitle = "About Us | Ramblin Stories";
+  private pageDescription = "Our goal is to foster intergenerational communities by producing creative content centered around the lives and stories of older adults.";
 
   opened = {
     bg : {
@@ -85,7 +89,11 @@ export class AboutComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+    private seoService: SeoService
+  ) {
+    this.seoService.setTitle(this.pageTitle);
+    this.seoService.setMetaDescription(this.pageDescription);
+  }
 
   ngOnInit() {
     this.close_all();
