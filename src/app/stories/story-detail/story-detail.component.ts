@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AdminService } from '../../admin/admin.service';
 import { StoryService } from '../story.service';
 import { Story } from '../story';
+import { SeoService } from '../../main/seo.service';
 
 declare let ga: Function;
 
@@ -25,7 +26,8 @@ export class StoryDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private storyService: StoryService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private seoService: SeoService
   ) {
   }
 
@@ -41,6 +43,8 @@ export class StoryDetailComponent implements OnInit {
       this.story = this.storyService.getStory(this.key);
       this.story.subscribe(x => {
         this.storyObject = x;
+        this.seoService.setTitle(this.storyObject.title + " | Ramblin Stories");
+        this.seoService.setMetaDescription(this.storyObject.description);
         this.encodedURL = encodeURI(this.storyObject.image_url);
         if (this.storyObject.delta) {
           var tempCont = document.getElementById('delta');

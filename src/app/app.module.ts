@@ -19,6 +19,8 @@ import { HeaderComponent } from './main/header/header.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
+import { SeoService } from './main/seo.service';
+
 import { AdminService } from './admin/admin.service';
 import { AdminComponent } from './admin/admin.component';
 
@@ -130,7 +132,8 @@ export const firebaseConfig = {
     StoryService,
     CollectionService,
     InstagramService,
-    EmailService
+    EmailService,
+    SeoService
   ],
   bootstrap: [AppComponent]
 })

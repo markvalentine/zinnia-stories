@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { StoryService } from '../story.service';
+import { SeoService } from '../../main/seo.service';
 
 declare let ga: Function;
 
@@ -13,6 +14,10 @@ declare let ga: Function;
   styleUrls: ['./all-stories.component.css']
 })
 export class AllStoriesComponent implements OnInit, OnDestroy {
+
+  private pageTitle = "All Stories | Ramblin Stories";
+  private pageDescription = "Everyone has a story. Whether its your own, your grandma's, or your neighbor's, we want to hear and share it.";
+
   featuredStoryIDs: FirebaseListObservable<any[]>;
   featuredStories: Observable<any>;
   storycards: FirebaseListObservable<any[]>;
@@ -22,8 +27,12 @@ export class AllStoriesComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private storyService: StoryService
-  ) {}
+    private storyService: StoryService,
+    private seoService: SeoService
+  ) {
+    this.seoService.setTitle(this.pageTitle);
+    this.seoService.setMetaDescription(this.pageDescription);
+  }
 
   /**
    * get stories and subscribe to the story list to see when
