@@ -1,0 +1,49 @@
+{
+  "rules": {
+    "stories": {
+      ".read": "true",
+    	".write": "auth != null",
+      ".indexOn": ["featured", "date_created"]
+    },
+    "storycards": {
+      ".read": "true",
+    	".write": "auth != null",
+      ".indexOn": ["featured", "date_created"]
+    },
+    "collections": {
+      ".read": "true",
+    	".write": "auth != null",
+      ".indexOn": ["featured", "date_created"],
+      "$id": {
+        "featured_stories": {
+          ".indexOn": ".value"
+        },
+        "stories": {
+          ".indexOn": ".value"
+        }
+      }
+    },
+    "featured": {
+      ".read": "true",
+    	".write": "auth != null",
+      "stories": {
+        ".indexOn": ".value"
+      },
+      "collections": {
+        ".indexOn": ".value"
+      }
+    },
+    "emails" : {
+      ".read" : "auth != null",
+      ".write": "true"
+    },
+    "images": {
+      ".read": "true",
+    	".write": "auth != null"
+    },
+    "auth": {
+      ".read": "auth != null",
+    	".write": "auth != null"
+    }
+  }
+}

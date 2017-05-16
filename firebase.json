@@ -7,19 +7,28 @@
         "destination": "/index.html"
       }
     ],
-    "headers": [ {
-      "source" : "**/assets/images/**",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=2592000"
-      } ]
-    },
-    {
-      "source" : "**/assets/fonts/**",
-      "headers" : [ {
-      "key" : "Cache-Control",
-      "value" : "max-age=31536000"
-      } ]
-    } ]
+    "headers": [
+      {
+        "source": "**/assets/images/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=2592000"
+          }
+        ]
+      },
+      {
+        "source": "**/assets/fonts/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }
