@@ -3,17 +3,41 @@ h1 {
     font-size: 45px;
 }
 
+h2 {
+    font-size: 32px;
+}
+
 h3 {
-    font-size: 18px;
+    font-size: 22px;
     color: #666666;
     margin-bottom: 0;
 }
 
 p {
-    font-family: "Butler";
+    font-family: "OpenSans";
     font-size: 18px;
     color: #666666;
     line-height: 27px;
     margin-bottom: 40px;
     margin-top: 0;
+}
+
+li {
+    font-family: "OpenSans";
+    font-size: 18px;
+    color: #666666;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+
+.no-bottom {
+    margin-bottom: 10px;
+}
+
+ol p {
+    font-family: "OpenSans";
+    font-size: 18px;
+    color: #666666;
+    line-height: 27px;
+    margin-bottom: 10px;
 }
