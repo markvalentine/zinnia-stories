@@ -34,7 +34,7 @@
     </div>
   </div>
 </div>
-<app-email></app-email>
+<app-email [backgroundColor]="'green'"></app-email>
 <span *ngFor="let collectionKey of (story | async)?.featuredCollections">
   <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
 </span>

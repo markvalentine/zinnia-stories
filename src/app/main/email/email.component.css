@@ -1,6 +1,6 @@
 .email-banner {
     width: 100%;
-    padding: 10px;
+    padding: 20px 0 40px;
     text-align: center;
 }
 
@@ -12,26 +12,28 @@
 
 .green {
     background: #7ED2C4;
-    background-image: url(/assets/images/pattern_green.png);
+    background-image: url(/assets/images/pattern_email_green.png);
     background-repeat: repeat;
 }
 
 label {
-    font-family: "Butler";
+    /*font-family: "Butler";
     font-weight: 700;
-    font-size: 24px;
-    text-transform: uppercase;
+    font-size: 28px;
+    text-transform: uppercase;*/
     color: #FFFFFF;
-    letter-spacing: 0.31px;
+    /*letter-spacing: 0.31px;
     position: relative;
     left: 2px;
     top: 3px;
-    vertical-align: top;
+    vertical-align: top;*/
+    font-family: "Phosphate";
+    font-size: 40px
 }
 
 input {
     border: 0;
-    height: 35px;
+    height: 40px;
     width: 200px;
     font-family: Arial;
     font-size: 15px;
@@ -48,7 +50,7 @@ input {
 button {
     margin: 0;
     border: 0;
-    height: 35px;
+    height: 40px;
     width: 100px;
     font-size: 16px;
     color: #FFFFFF;
@@ -115,11 +117,21 @@ button {
     background: #1EAC86;
 }
 
+.label {
+        display: block;
+        margin-bottom: 10px;
+        margin-right: 0px;
+    }
+    .input {
+        display: block;
+    }
+
 @media all and (max-width: 720px) {
     .email-banner {
     }
 
     .label {
+        font-size: 38px;
         display: block;
         margin-bottom: 10px;
         margin-right: 0px;
