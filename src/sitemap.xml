@@ -2,118 +2,123 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://ramblinstories.com/</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>daily</changefreq>
       <priority>1</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/about</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/team</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/contact</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/faq</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.3</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/terms-of-use</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.3</priority>
    </url>
 
    <url>
       <loc>https://ramblinstories.com/stories/-KfddIhqKgwvAlk71AGX</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KfdkHVqXGyXFViiQP4i</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-Kfdv7OwONNxl2ayoKhG</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KftErdILjTqm3uUF-HF</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-Kg5TUgH0vhbpjaf96JA</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-Kg5ZN3uZ20HVBDU-JCF</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KgLq-ngsDbK_cMABWnf</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KgLw7BWU7BhvnRHIkBE</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KgRmWYC8Eak7cfz6AiQ</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-Kh_iwv6qvk7lbiTYBET</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KiDK7LluEOjubZygsU2</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://ramblinstories.com/stories/-KimKt88EzeV8bZkGQXd</loc>
-      <lastmod>2017-05-28</lastmod>
+      <lastmod>2017-05-30</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
-
+   <url>
+      <loc>https://ramblinstories.com/stories/-KlLzmu55n5Q3ELAxxjj</loc>
+      <lastmod>2017-05-30</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
 </urlset>
