@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoryService } from '../../stories/story.service';
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from "angularfire2/database"
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -37,11 +37,17 @@ export class MapComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private storyService: StoryService,
     private db: AngularFireDatabase
     ){ }
 
   ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      this.lat = +params['lat']
+      this.lng = +params['lng']
+      this.zoom = 15;
+    });
     this.locations = this.db.list('map/');
     this.cards = this.storyService.getStoryCards(100)
   }

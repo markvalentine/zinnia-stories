@@ -90,6 +90,10 @@ const appRoutes: Routes = [
         component: MapComponent
     },
     {
+        path: 'map/:lat/:lng',
+        component: MapComponent
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }

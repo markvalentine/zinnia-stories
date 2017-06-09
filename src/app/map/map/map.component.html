@@ -2,7 +2,7 @@
   <span *ngFor="let location of (locations | async)">
     <agm-marker *ngIf="!location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/teepee_red.svg'"></agm-marker>
     <agm-marker *ngIf="location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/current_location.svg'">
-      <agm-info-window ><img style="width: 150px" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/19051340_718748531661399_5148747760119316480_n.jpg"></agm-info-window>
+      <agm-info-window >This is us!</agm-info-window>
     </agm-marker>
   </span>
   <agm-marker *ngFor="let card of (cards | async)" [latitude]="card.lat" [longitude]="card.lng" [iconUrl]="'assets/images/marker2.svg'">
