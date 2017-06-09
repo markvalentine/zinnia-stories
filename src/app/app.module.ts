@@ -55,6 +55,7 @@ import { ShareAStoryComponent } from './main/share-a-story/share-a-story.compone
 import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
 import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
 import { MapComponent } from './map/map/map.component';
+import { MapBannerComponent } from './map/map-banner/map-banner.component';
 
 // export const firebaseConfig = {
 //     apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -107,7 +108,8 @@ export const firebaseConfig = {
     ShareAStoryComponent,
     StoryCardFullWidthComponent,
     StoryCardRoundComponent,
-    MapComponent
+    MapComponent,
+    MapBannerComponent
   ],
   imports: [
     BrowserModule,
