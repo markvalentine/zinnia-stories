@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare let ga: Function;
 
 @Component({
@@ -8,9 +9,19 @@ declare let ga: Function;
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  display = "block";
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe(event => {
+      if(this.router.url.includes('map')) {
+        console.log('we in da map')
+        this.display = "none";
+      } else {
+        this.display = "block";
+      }
+    })
   }
 
   handleOutboundLinkClicks(link: string) {

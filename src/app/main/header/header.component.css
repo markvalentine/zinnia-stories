@@ -131,7 +131,7 @@ nav ul li.mobile-only {
 
 nav a {
   display: block;
-  padding: 0 20px;
+  padding: 0 15px;
   font-size: 20px;
   line-height: 55px;
   text-decoration: none;
@@ -164,7 +164,7 @@ nav ul ul ul li {
 
 /*li > a:after { content: ' +'; }*/
 
-@media all and (max-width : 740px) {
+@media all and (max-width : 830px) {
 
 .x {
   position: absolute;

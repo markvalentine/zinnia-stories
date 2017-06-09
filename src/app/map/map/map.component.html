@@ -1,7 +1,7 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="zoom">
   <span *ngFor="let location of (locations | async)">
     <agm-marker *ngIf="!location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/teepee_red.svg'"></agm-marker>
-    <agm-marker *ngIf="location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/current_location.svg'">
+    <agm-marker *ngIf="location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/truck.svg'">
       <agm-info-window >This is us!</agm-info-window>
     </agm-marker>
   </span>

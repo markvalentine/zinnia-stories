@@ -3,7 +3,7 @@
 }
 
 agm-map {
-  height: 620px;
+  height: calc(100vh - 55px);
 }
 h2 {
     font-size: 24px;

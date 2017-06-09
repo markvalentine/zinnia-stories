@@ -41,6 +41,10 @@
       ".read": "true",
     	".write": "auth != null"
     },
+    "map": {
+      ".read": "true",
+    	".write": "auth != null"
+    },
     "auth": {
       ".read": "auth != null",
     	".write": "auth != null"
