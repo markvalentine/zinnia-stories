@@ -44,9 +44,11 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      this.lat = +params['lat']
-      this.lng = +params['lng']
-      this.zoom = 15;
+      if (params['lat'] && params['lng']){
+        this.lat = +params['lat']
+        this.lng = +params['lng']
+        this.zoom = 15;
+      }
     });
     this.locations = this.db.list('map/');
     this.cards = this.storyService.getStoryCards(100)
