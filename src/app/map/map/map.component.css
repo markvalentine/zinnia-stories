@@ -1,0 +1,37 @@
+#map {
+    height: 500px;
+}
+
+agm-map {
+  height: 620px;
+}
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    max-width: 280px;
+}
+
+h2:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 280px;
+}
+
+p {
+    max-width: 280px;
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+a {
+    font-size: 16px;
+    color: #3E9AE1;
+    max-width: 280px;
+}
+
+a:hover {
+    text-decoration: underline;
+}

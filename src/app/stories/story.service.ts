@@ -63,7 +63,10 @@ export class StoryService {
         'image_url': story.image_url,
         'show_image': story.show_image,
         'date_created': -date,
-        'delta': story.delta
+        'delta': story.delta,
+        'lat': story.lat,
+        'lng': story.lng,
+        'place': story.place
       })
         .then(storyObject => {
           console.log(storyObject)
@@ -74,6 +77,9 @@ export class StoryService {
             'description': story.description,
             'image_url': storycard_image,
             'date_created': -date,
+            'lat': story.lat,
+            'lng': story.lng,
+            'place': story.place
           })
           .then(x => {
             resolve(storyObject.key);
@@ -175,7 +181,10 @@ export class StoryService {
         'description': story.description,
         'show_image': story.show_image,
         'text': story.text,
-        'delta': story.delta
+        'delta': story.delta,
+        'lat': story.lat,
+        'lng': story.lng,
+        'place': story.place
       })
         .then(_ => {
           promisesReturned++;
@@ -188,6 +197,9 @@ export class StoryService {
       cardRef.update({
         'title': story.title,
         'description': story.description,
+        'lat': story.lat,
+        'lng': story.lng,
+        'place': story.place
       })
         .then(_ => {
           promisesReturned++;

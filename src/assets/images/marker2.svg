@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="40px" viewBox="0 0 29 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>marker2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Story" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-146.000000, -144.000000)" id="Group-8">
+            <g transform="translate(58.000000, 140.000000)">
+                <g id="Group-7" transform="translate(0.000000, 4.000000)">
+                    <g id="marker2" transform="translate(88.000000, 0.000000)">
+                        <path d="M14.425739,40 C24.0428983,28.2619031 28.851478,19.7371494 28.851478,14.425739 C28.851478,6.45862334 22.3928546,0 14.425739,0 C6.45862334,0 0,6.45862334 0,14.425739 C0,19.7371494 4.80857966,28.2619031 14.425739,40 Z" id="marker" fill="#50AAF0"></path>
+                        <circle id="Oval-2" fill="#FFFFFF" cx="14.425739" cy="14.425739" r="5.77029559"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

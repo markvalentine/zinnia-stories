@@ -15,6 +15,11 @@
             <input class="description" [(ngModel)]="storyObject.description" placeholder="description">
         </div>
         <br/>
+        <div>
+            <input class="placetitle" [(ngModel)]="storyObject.place" placeholder="Name of the Location"/>
+            <input class="place" [(ngModel)]="storyObject.lat" placeholder="latitude" type="number"/>,&nbsp;&nbsp;&nbsp;&nbsp;<input class="place" [(ngModel)]="storyObject.lng" placeholder="longitude" type="number"/>
+        </div>
+        <br/>
         <label> Upload New Photo?</label>
         <input type="file" (change)="changeListener($event)" placeholder="upload image">
         <label>Display the image in the story?</label><input type="checkbox" style="width: 20px; margin-left: 10px; margin-top: 20px;"[checked]="storyObject.show_image" (change)="storyObject.show_image = !storyObject.show_image" />

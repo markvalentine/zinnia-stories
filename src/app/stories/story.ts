@@ -18,6 +18,10 @@ export class Story {
 
     delta: any;
 
+    lng: number;
+    lat: number;
+    place: string;
+
     //Maybe we have a array of ids and also the object so we can get the name as the value??
 
     /**
@@ -53,6 +57,10 @@ export class Story {
         this.collectionsObject = {};
 
         this.delta = null;
+
+        this.lng = null;
+        this.lat = null;
+        this.place = ""
     }
 
     /**
@@ -88,6 +96,10 @@ export class Story {
         this.collections = this.getKeysFromJSONObject(json['collections']);
 
         this.delta = json['delta'];
+
+        this.lng = +json['lng'];
+        this.lat = +json['lat'];
+        this.place = json['place'];
     }
 
 }
@@ -107,6 +119,10 @@ export class StoryCard {
     featuredCollectionsObject: any;
     collections: string[];
     collectionsObject: any;
+
+    lng: number;
+    lat: number;
+    place: string;
 
     /**
      * takes optional json string (returned by firebase) to make story
@@ -137,6 +153,10 @@ export class StoryCard {
         this.featuredCollectionsObject = {};
         this.collections = [];
         this.collectionsObject = {};
+
+        this.lng = null;
+        this.lat = null;
+        this.place = "";
     }
 
     /**
@@ -168,6 +188,10 @@ export class StoryCard {
         this.featuredCollections = this.getKeysFromJSONObject(json['featured_collections']);
         this.collectionsObject = json['collections'];
         this.collections = this.getKeysFromJSONObject(json['collections']);
+
+        this.lng = +json['lng'];
+        this.lat = +json['lat'];
+        this.place = json['place'];
     }
 
 }

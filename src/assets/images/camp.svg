@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>camp</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="313" cy="269" r="5"></circle>
+        <filter x="-60.0%" y="-60.0%" width="220.0%" height="220.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-304.000000, -1837.000000)" id="Group-11">
+            <g transform="translate(0.000000, 1577.000000)">
+                <g id="camp">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FF5E5E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>current_location</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="8" cy="8" r="8"></circle>
+        <filter x="-93.8%" y="-93.8%" width="287.5%" height="287.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.31372549   0 0 0 0 0.666666667   0 0 0 0 0.941176471  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-298.000000, -1831.000000)" id="Group-11">
+            <g transform="translate(0.000000, 1577.000000)">
+                <g id="current_location" transform="translate(308.000000, 264.000000)">
+                    <g id="camp">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <circle id="camp" fill="#50AAF0" cx="8" cy="8" r="6.4"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -20,6 +20,8 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
 import { EditCollectionComponent } from './collections/edit-collection/edit-collection.component';
 import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
 
+import { MapComponent } from './map/map/map.component';
+
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -82,6 +84,10 @@ const appRoutes: Routes = [
     {
         path: 'add-collection',
         component: AddCollectionComponent
+    },
+    {
+        path: 'map',
+        component: MapComponent
     },
     {
         path: '**',

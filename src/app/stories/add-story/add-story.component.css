@@ -27,6 +27,25 @@ input.description {
     font-weight: 400;
 }
 
+input.place {
+    font-family: "Butler";
+    font-size: 18px;
+    color: #666;
+    letter-spacing: 0.42px;
+    font-weight: 400;
+    width: 110px;
+    display: inline-block;
+}
+
+input.placetitle {
+    font-family: "Butler";
+    font-size: 18px;
+    color: #444;
+    letter-spacing: 0.42px;
+    font-weight: 400;
+    display: block;
+}
+
 input.embed {
     font-family: "Butler";
     font-size: 18px;

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { enableProdMode, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { AgmCoreModule } from '@agm/core';
 import {  } from 'firebase';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -53,33 +54,25 @@ import { OnTheRoadComponent } from './main/on-the-road/on-the-road.component';
 import { ShareAStoryComponent } from './main/share-a-story/share-a-story.component';
 import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
 import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
+import { MapComponent } from './map/map/map.component';
+
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
+//     authDomain: "zinnia-stories.firebaseapp.com",
+//     databaseURL: "https://zinnia-stories.firebaseio.com",
+//     projectId: "zinnia-stories",
+//     storageBucket: "zinnia-stories.appspot.com",
+//     messagingSenderId: "1015420821833"
+// };
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
-    authDomain: "zinnia-stories.firebaseapp.com",
-    databaseURL: "https://zinnia-stories.firebaseio.com",
-    projectId: "zinnia-stories",
-    storageBucket: "zinnia-stories.appspot.com",
-    messagingSenderId: "1015420821833"
+    apiKey: "AIzaSyAJiWALttFWhTabft-tHz81gp8beBnLsS4",
+    authDomain: "zinnia-test.firebaseapp.com",
+    databaseURL: "https://zinnia-test.firebaseio.com",
+    projectId: "zinnia-test",
+    storageBucket: "zinnia-test.appspot.com",
+    messagingSenderId: "405819933312"
 };
-
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyDvFHudOuRSUX2Annb18MVpAQhw0yZDWH8",
-//     authDomain: "ramblin-stories.firebaseapp.com",
-//     databaseURL: "https://ramblin-stories.firebaseio.com",
-//     projectId: "ramblin-stories",
-//     storageBucket: "ramblin-stories.appspot.com",
-//     messagingSenderId: "994117072469"
-// };
-
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyAJiWALttFWhTabft-tHz81gp8beBnLsS4",
-//     authDomain: "zinnia-test.firebaseapp.com",
-//     databaseURL: "https://zinnia-test.firebaseio.com",
-//     projectId: "zinnia-test",
-//     storageBucket: "zinnia-test.appspot.com",
-//     messagingSenderId: "405819933312"
-// };
 
 @NgModule({
   declarations: [
@@ -113,7 +106,8 @@ export const firebaseConfig = {
     OnTheRoadComponent,
     ShareAStoryComponent,
     StoryCardFullWidthComponent,
-    StoryCardRoundComponent
+    StoryCardRoundComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -123,6 +117,10 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBqKu27iob14as2E-FIylRNqwzAdOh7jqo'
+    }),
 
     routing,
     JsonpModule
