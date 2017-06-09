@@ -1,0 +1,54 @@
+#map {
+    background-image: url(/assets/images/mapback.png);
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding: 30px 10px 40px 10px;
+}
+
+h2 {
+    font-family: "Milkshake";
+    font-size: 36px;
+    color: #5C8F9F;
+    line-height: 33px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 72px;
+    color: #FFFFFF;
+    margin: 15px 0;
+}
+
+a.map {
+    display: inline-block;
+    margin: 0 0 10px 0;
+    background: #FF5E5E;
+    border-radius: 100px;
+
+    font-family: "OpenSans";
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+
+    padding: 5px 30px 8px;
+
+    text-decoration: none;
+}
+
+a.map:hover {
+    text-decoration: underline;
+    background: #D94F4F;
+}
+
+@media all and (max-width: 720px) {
+    h2 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+}
