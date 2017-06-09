@@ -13,6 +13,7 @@ h2 {
     color: #5C8F9F;
     line-height: 33px;
     margin: 0;
+    letter-spacing: 0px;
 }
 
 h1 {
@@ -35,6 +36,7 @@ a.map {
     padding: 5px 30px 8px;
 
     text-decoration: none;
+    
 }
 
 a.map:hover {
@@ -50,5 +52,11 @@ a.map:hover {
 
     h1 {
         font-size: 55px;
+    }
+}
+
+@media all and (max-width: 680px) {
+    h2 {
+        letter-spacing: -1px;
     }
 }
