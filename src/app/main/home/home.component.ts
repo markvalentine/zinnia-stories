@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.seoService.setTitle(this.pageTitle);
     this.seoService.setMetaDescription(this.pageDescription)
-    let index = (Math.round((Date.now()/600000))%3);
+    let index = (Math.round((Date.now()/600000))%2);
     this.background_url = "url(/assets/images/backgrounds/"+index+".jpg)";
     this.background_color = this.colors[index];
   }

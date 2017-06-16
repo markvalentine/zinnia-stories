@@ -18,6 +18,18 @@ nav {
   position: relative
 }
 
+li a#map {
+  line-height: 35px;
+  padding-top: 6px;
+  color: #fff;
+}
+
+div.map {
+  background: #FE6859;
+  border-radius: 25px;
+  padding: 4px 25px;
+}
+
 .under-construction {
   position: absolute;
   background: #f3ac4b;
@@ -164,7 +176,19 @@ nav ul ul ul li {
 
 /*li > a:after { content: ' +'; }*/
 
-@media all and (max-width : 830px) {
+@media all and (max-width : 920px) {
+
+li a#map {
+  color: #fff;
+  line-height: 55px;
+  margin-top: 0;
+  background: #FE6859;
+}
+
+div.map {
+  border-radius: 0;
+  padding: 0;
+}
 
 .x {
   position: absolute;

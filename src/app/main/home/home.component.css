@@ -13,6 +13,7 @@
     background-image: url(/assets/images/backgrounds/0.jpg);
     background-size: cover;
     background-position-y: 90%;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
 .banner-text {
@@ -42,6 +43,11 @@
 .who-are-we img {
     min-width: 2722px;
     min-height: 25px;
+}
+
+.red-triangle {
+    display: block;
+    margin: 60px auto 0;
 }
 
 h1 {
@@ -130,6 +136,10 @@ hr {
         padding: 20px 0;
         font-size: 26px;
         /*border-radius: 5px;*/
+    }
+
+    .red-triangle {
+        margin: 30px auto 0;
     }
 
     h1{

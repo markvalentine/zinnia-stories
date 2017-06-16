@@ -1,8 +1,18 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="zoom">
   <span *ngFor="let location of (locations | async)">
-    <agm-marker *ngIf="!location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/teepee_red.svg'"></agm-marker>
+    <agm-marker *ngIf="!location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/camp.svg'">
+      <agm-info-window><div style="max-width: 200px">Each dot represents a place we've camped on our journey.<br/><br/>Look for the truck to find our current location!</div></agm-info-window>
+    </agm-marker>
     <agm-marker *ngIf="location['current']" [latitude]="location['lat']" [longitude]="location['lng']" [iconUrl]="'assets/images/truck.svg'">
-      <agm-info-window >This is us!</agm-info-window>
+      <agm-info-window>This is us!</agm-info-window>
+    </agm-marker>
+  </span>
+  <span *ngFor="let camp of (camps | async)">
+    <agm-marker *ngIf="!camp.current" [latitude]="camp.lat" [longitude]="camp.lng" [iconUrl]="'assets/images/camp.svg'">
+      <agm-info-window><div style="max-width: 200px"><h3 style="margin: 0 0 15px 0;">{{camp.title}}</h3>Each dot represents a place we've camped on our journey.<br/><br/>Look for the truck to find our current location!</div></agm-info-window>
+    </agm-marker>
+    <agm-marker *ngIf="camp.current" [latitude]="camp.lat" [longitude]="camp.lng" [iconUrl]="'assets/images/truck.svg'">
+      <agm-info-window><div style="max-width: 200px"><h3 style="margin: 0 0 15px 0;">{{camp.title}}</h3>We're currently gathering stories here in {{camp.title}}.<br/><br/>Check out the red dots to see the other places we've visited on our journey!</div></agm-info-window>
     </agm-marker>
   </span>
   <agm-marker *ngFor="let card of (cards | async)" [latitude]="card.lat" [longitude]="card.lng" [iconUrl]="'assets/images/marker2.svg'">

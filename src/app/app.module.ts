@@ -54,8 +54,11 @@ import { OnTheRoadComponent } from './main/on-the-road/on-the-road.component';
 import { ShareAStoryComponent } from './main/share-a-story/share-a-story.component';
 import { StoryCardFullWidthComponent } from './stories/story-card-full-width/story-card-full-width.component';
 import { StoryCardRoundComponent } from './stories/story-card-round/story-card-round.component';
+
+import { MapService } from './map/map.service';
 import { MapComponent } from './map/map/map.component';
 import { MapBannerComponent } from './map/map-banner/map-banner.component';
+import { AddCampComponent } from './map/add-camp/add-camp.component';
 
 // export const firebaseConfig = {
 //     apiKey: "AIzaSyB5VwnRvhoawRKo7hemZKQIqTwpDaXzewg",
@@ -109,7 +112,8 @@ export const firebaseConfig = {
     StoryCardFullWidthComponent,
     StoryCardRoundComponent,
     MapComponent,
-    MapBannerComponent
+    MapBannerComponent,
+    AddCampComponent
   ],
   imports: [
     BrowserModule,
@@ -133,7 +137,8 @@ export const firebaseConfig = {
     CollectionService,
     InstagramService,
     EmailService,
-    SeoService
+    SeoService,
+    MapService
   ],
   bootstrap: [AppComponent]
 })

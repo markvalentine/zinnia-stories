@@ -1,6 +1,6 @@
 .email-banner {
     width: 100%;
-    padding: 10px 0 20px;
+    padding: 10px 0 12px;
     text-align: center;
 }
 
@@ -14,7 +14,7 @@
     background: #7ED2C4;
     background-image: url(/assets/images/pattern_email_green.png);
     background-repeat: repeat;
-    background-position-y: -25px;
+    background-position-y: -54px;
 }
 
 label {
@@ -23,6 +23,10 @@ label {
     font-size: 28px;
     text-transform: uppercase;*/
     color: #FFFFFF;
+    text-shadow: 0px 0px 3px rgb(90, 158, 148);
+    /*background: rgba(120, 210, 197, 0.35);*/
+    background-image: linear-gradient(90deg, rgba(90,214,194,0) 0%, rgba(120, 210, 197, 0.5) 10%, rgba(120, 210, 197, 0.5) 90%, rgba(126,210,196,0) 100%);
+    padding: 0 10px;
     /*letter-spacing: 0.31px;
     position: relative;
     left: 2px;
@@ -119,11 +123,13 @@ button {
 }
 
 .label {
-        display: block;
+        /*display: block;*/
+        vertical-align: middle;
         margin-right: 0px;
     }
     .input {
-        display: block;
+        vertical-align: middle;
+        /*display: block;*/
     }
 
 @media all and (max-width: 720px) {

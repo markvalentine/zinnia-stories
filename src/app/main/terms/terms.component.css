@@ -14,7 +14,7 @@ h3 {
 }
 
 p {
-    font-family: "OpenSans";
+    font-family: sans-serif;
     font-size: 18px;
     color: #666666;
     line-height: 27px;
@@ -23,7 +23,7 @@ p {
 }
 
 li {
-    font-family: "OpenSans";
+    font-family: sans-serif;
     font-size: 18px;
     color: #666666;
     line-height: 27px;
@@ -35,7 +35,7 @@ li {
 }
 
 ol p {
-    font-family: "OpenSans";
+    font-family: sans-serif;
     font-size: 18px;
     color: #666666;
     line-height: 27px;

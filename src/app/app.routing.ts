@@ -21,6 +21,7 @@ import { EditCollectionComponent } from './collections/edit-collection/edit-coll
 import { AddCollectionComponent } from './collections/add-collection/add-collection.component';
 
 import { MapComponent } from './map/map/map.component';
+import { AddCampComponent } from './map/add-camp/add-camp.component';
 
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 
@@ -92,6 +93,10 @@ const appRoutes: Routes = [
     {
         path: 'map/:lat/:lng',
         component: MapComponent
+    },
+    {
+        path: 'add-camp',
+        component: AddCampComponent
     },
     {
         path: '**',

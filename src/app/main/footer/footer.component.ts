@@ -16,7 +16,6 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if(this.router.url.includes('map')) {
-        console.log('we in da map')
         this.display = "none";
       } else {
         this.display = "block";

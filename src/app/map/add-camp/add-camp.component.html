@@ -1,0 +1,17 @@
+<div class="background">
+    <div class="content">
+        <div *ngIf="(isAuth | async)">
+            <h1 class="red centered">Add a Camp</h1>
+            <input class="title" [(ngModel)]="camp.title" placeholder="Name of the location"/>
+            <input class="place" [(ngModel)]="camp.lat" placeholder="latitude" type="number"/>
+            <input class="place" [(ngModel)]="camp.lng" placeholder="longitude" type="number"/>
+            
+            <!--Eventually add little map here-->
+
+            <button (click)="addCamp()" [disabled]="isAdding || !camp.lat || !camp.lng">Submit Camp</button>
+        </div>
+        <div *ngIf="!(isAuth | async)">
+            <p>Sorry!  You don't have access to this page.  Please <a routerLink="/admin/" routerLinkActive="active">sign in</a> to add a story.</p>
+        </div>
+    </div>
+</div>
