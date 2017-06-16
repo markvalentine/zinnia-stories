@@ -4,6 +4,7 @@ import { MapService } from '../map.service';
 import { FirebaseListObservable } from "angularfire2/database"
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Camp } from '../map';
+import { SeoService } from '../../main/seo.service';
 
 @Component({
   selector: 'app-map',
@@ -11,6 +12,9 @@ import { Camp } from '../map';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+
+  private pageTitle = "Map | Ramblin Stories";
+  private pageDescription = "The new story map!  Check out our stories in a whole new dimension, or follow our journey across America!";
 
   lng: number = -98.617067;
   lat: number = 32.8188445;
@@ -41,8 +45,12 @@ export class MapComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private storyService: StoryService,
-    private mapService: MapService
-    ){ }
+    private mapService: MapService,
+    private seoService: SeoService,
+  ){
+    this.seoService.setTitle(this.pageTitle);
+    this.seoService.setMetaDescription(this.pageDescription);
+  }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
