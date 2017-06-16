@@ -676,6 +676,14 @@ export class StoryService {
     });
   }
 
+  getAllStoryCards(): FirebaseListObservable<any[]> {
+    return this.af.list(this.storycardsUrl, {
+      query: {
+        orderByChild: 'date_created'
+      },
+    });
+  }
+
   /**
    * Gets the next x stories for function getStories()
    * increment is the optional number of additional stories to load

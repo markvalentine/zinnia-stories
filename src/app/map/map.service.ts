@@ -16,7 +16,8 @@ export class MapService {
       db.list(campsUrl).push({
         'title': camp.title,
         'lat': camp.lat,
-        'lng': camp.lng
+        'lng': camp.lng,
+        'current': camp.current
       })
       .then(campObject => {
         resolve(campObject);
@@ -44,7 +45,5 @@ export class MapService {
   getCamps(): FirebaseListObservable<Camp[]> {
     return this.db.list(this.campsUrl);
   }
-
-
 
 }

@@ -41,7 +41,7 @@
       ".read": "true",
     	".write": "auth != null"
     },
-    "map": {
+    "camps": {
       ".read": "true",
     	".write": "auth != null"
     },

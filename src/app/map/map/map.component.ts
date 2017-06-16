@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoryService } from '../../stories/story.service';
 import { MapService } from '../map.service';
-import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from "angularfire2/database"
+import { FirebaseListObservable } from "angularfire2/database"
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Camp } from '../map';
 
@@ -17,7 +17,6 @@ export class MapComponent implements OnInit {
 
   zoom: number = 5;
 
-  locations: FirebaseListObservable<any>
   camps: FirebaseListObservable<Camp[]>
   cards: FirebaseListObservable<any[]>
 
@@ -42,8 +41,7 @@ export class MapComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private storyService: StoryService,
-    private mapService: MapService,
-    private db: AngularFireDatabase
+    private mapService: MapService
     ){ }
 
   ngOnInit() {
@@ -54,10 +52,9 @@ export class MapComponent implements OnInit {
         this.zoom = 15;
       }
     });
-    this.locations = this.db.list('map/');
     this.camps = this.mapService.getCamps();
     //pass undefined to get all
-    this.cards = this.storyService.getStoryCards(undefined);
+    this.cards = this.storyService.getAllStoryCards();
   }
 
   goToDetail(key: string) {

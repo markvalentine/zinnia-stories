@@ -6,6 +6,7 @@
             <input class="place" [(ngModel)]="camp.lat" placeholder="latitude" type="number"/>
             <input class="place" [(ngModel)]="camp.lng" placeholder="longitude" type="number"/>
             
+            <label>Current Location?</label><input type="checkbox" style="width: 20px; margin-left: 10px; margin-top: 20px;"[checked]="camp.current" (change)="camp.current = !camp.current" />
             <!--Eventually add little map here-->
 
             <button (click)="addCamp()" [disabled]="isAdding || !camp.lat || !camp.lng">Submit Camp</button>
