@@ -36,17 +36,18 @@ export class RelatedStoriesComponent implements OnInit {
   ngOnChanges() {
     if (this.collectionKey == undefined) {
       this.shouldDisplay = false;
-      this.relatedStorycards = this.storyService.getXFeaturedStoryCards(2);
-    }
-    this.collectionService.getCollection(this.collectionKey).subscribe(collectionString => {
-      this.collection = new Collection(collectionString);
-      this.relatedStorycards = this.storyService.getRelatedStoryCards(this.collection, this.storyKey);
-      this.relatedStorycards.subscribe(x => {
-        if (x.length < 1) {
-          this.shouldDisplay = false;
-        }
-      })
-    }); 
+      this.relatedStorycards = this.storyService.getXFeaturedStoryCards(2, this.storyKey);
+    } else {
+      this.collectionService.getCollection(this.collectionKey).subscribe(collectionString => {
+        this.collection = new Collection(collectionString);
+        this.relatedStorycards = this.storyService.getRelatedStoryCards(this.collection, this.storyKey);
+        this.relatedStorycards.subscribe(x => {
+          if (x.length < 1) {
+            this.shouldDisplay = false;
+          }
+        })
+      });
+    } 
   }
 
   /**

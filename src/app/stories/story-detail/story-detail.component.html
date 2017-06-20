@@ -37,7 +37,7 @@
   </div>
 </div>
 <app-email [backgroundColor]="'green'"></app-email>
-<span *ngFor="let collectionKey of (story | async)?.featuredCollections">
+<!--<span *ngFor="let collectionKey of (story | async)?.featuredCollections">
   <app-related-stories [collectionKey]="collectionKey" [storyKey]="key"></app-related-stories>
 </span>
 <span *ngFor="let collectionKey of (story | async)?.collections">
@@ -45,7 +45,8 @@
 </span>
 <span *ngIf="(story | async)?.featuredCollections == '' && (story | async)?.collections == ''">
   <app-related-stories [storyKey]="key"></app-related-stories>
-</span>
+</span>-->
+<app-related-stories [collectionKey]="undefined" [storyKey]="key"></app-related-stories>
 <app-share-a-story></app-share-a-story>
 <!--<div class="background speckle">
   <div class="content">

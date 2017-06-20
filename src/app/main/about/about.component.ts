@@ -206,7 +206,6 @@ export class AboutComponent implements OnInit {
           if (from <= to) {
               clearInterval(id);
           } else {
-              console.log("dome")
               from -= diff;
               window.scrollTo(window.scrollX, from);
         }

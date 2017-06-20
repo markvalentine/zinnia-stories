@@ -619,13 +619,16 @@ export class StoryService {
     });
   }
 
-  getXFeaturedStoryCards(x: number): Observable<any[]> {
+  getXFeaturedStoryCards(x: number, exceptFor?: string): Observable<any[]> {
+    if (exceptFor) x += 1;
     let storyIDs = this.getXFeaturedStoryIDs(x);
     return Observable.create(subscriber => {
       storyIDs.subscribe(ids => {
         let storycards = [];
         for (let id of ids) {
-          storycards.push(this.getStoryCard(id['$key']));
+          if ((exceptFor && id['$key'] != exceptFor && storycards.length+1 < x) || !exceptFor) {
+            storycards.push(this.getStoryCard(id['$key']));
+          }
         }
         subscriber.next(storycards);
       });
