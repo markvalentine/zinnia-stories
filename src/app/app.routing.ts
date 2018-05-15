@@ -7,6 +7,7 @@ import { HelpComponent } from './main/help/help.component';
 import { TeamComponent } from './main/team/team.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { TermsComponent } from './main/terms/terms.component';
+import { PrivacyComponent } from './main/privacy/privacy.component';
 
 import { AdminComponent } from './admin/admin.component';
 
@@ -49,6 +50,10 @@ const appRoutes: Routes = [
     {
         path: 'terms-of-use',
         component: TermsComponent
+    },
+    {
+        path: 'privacy-policy',
+        component: PrivacyComponent
     },
     {
         path: 'admin',

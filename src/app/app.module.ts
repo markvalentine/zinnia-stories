@@ -45,6 +45,7 @@ import { RelatedStoriesComponent } from './stories/related-stories/related-stori
 import { TermsComponent } from './main/terms/terms.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { TeamComponent } from './main/team/team.component';
+import { PrivacyComponent } from './main/privacy/privacy.component';
 import { InstagramComponent } from './main/instagram/instagram.component';
 import { InstagramService } from './main/instagram/instagram.service';
 
@@ -103,6 +104,7 @@ export const firebaseConfig = {
     StoryPreviewComponent,
     RelatedStoriesComponent,
     TermsComponent,
+    PrivacyComponent,
     ContactComponent,
     TeamComponent,
     InstagramComponent,
