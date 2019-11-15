@@ -1,0 +1,52 @@
+[debug] [2019-11-15T01:46:53.022Z] ----------------------------------------------------------------------
+[debug] [2019-11-15T01:46:53.025Z] Command:       /opt/local/bin/node /opt/local/bin/firebase deploy --only hosting -m add camp to admin
+[debug] [2019-11-15T01:46:53.026Z] CLI Version:   3.18.4
+[debug] [2019-11-15T01:46:53.026Z] Platform:      darwin
+[debug] [2019-11-15T01:46:53.026Z] Node Version:  v6.11.0
+[debug] [2019-11-15T01:46:53.026Z] Time:          Thu Nov 14 2019 17:46:53 GMT-0800 (PST)
+[debug] [2019-11-15T01:46:53.026Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-11-15T01:46:53.044Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-15T01:46:53.044Z] > authorizing via signed-in user
+[debug] [2019-11-15T01:46:53.046Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-15T01:46:53.047Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1//067TdvuxymklnCgYIARAAGAYSNwF-L9IrVILKPQjYu81fGSQYoWZZ1nqiQAI4iyQsSN3ly6tV39NBy5xANCnIesA41jrWdY83RcM',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Nov 14 2019 17:46:53 GMT-0800 (PST)
+[debug] [2019-11-15T01:46:53.305Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-15T01:46:53.312Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/zinnia-stories  
+  
+ Thu Nov 14 2019 17:46:53 GMT-0800 (PST)
+[debug] [2019-11-15T01:46:53.888Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-15T01:46:53.890Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/zinnia-stories/tokens  
+  
+ Thu Nov 14 2019 17:46:53 GMT-0800 (PST)
+[debug] [2019-11-15T01:46:54.571Z] <<< HTTP RESPONSE 200
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions.
+ Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+[info] 
+[info] === Deploying to 'zinnia-stories'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist/ directory for upload...
+[debug] [2019-11-15T01:46:57.140Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/zinnia-stories/uploads/-LtgjTqHkK8u0i4z0QyF?fileCount=80&message=add%20camp%20to%20admin  
+  
+ Thu Nov 14 2019 17:46:57 GMT-0800 (PST)
+[debug] [2019-11-15T01:47:01.987Z] <<< HTTP RESPONSE 410
+[debug] [2019-11-15T01:47:01.987Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2019-11-15T01:47:01.990Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/opt/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:12)
+    at Request._callback (/opt/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/opt/local/lib/node_modules/firebase-tools/node_modules/request/request.js:185:22)
+    at emitTwo (events.js:106:13)
+    at Request.emit (events.js:191:7)
+    at Request.<anonymous> (/opt/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1157:10)
+    at emitOne (events.js:96:13)
+    at Request.emit (events.js:188:7)
+    at IncomingMessage.<anonymous> (/opt/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1079:12)
+    at IncomingMessage.g (events.js:292:16)
+[error] 
+[error] Error: An unexpected error has occurred.
